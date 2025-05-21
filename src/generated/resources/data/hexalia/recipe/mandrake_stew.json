@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hexalia:mandrake"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "c:foods/vegetables"
+    },
+    {
+      "tag": "c:foods/vegetables"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "hexalia:mandrake_stew"
+  }
+}

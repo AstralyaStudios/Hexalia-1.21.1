@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "net.grapes.hexalia.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"minVersion": "0.8",
+	"refmap": "mixins.hexalia.refmap.json",
+	"mixins": [
+		"LivingEntityMixin",
+		"CobwebMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

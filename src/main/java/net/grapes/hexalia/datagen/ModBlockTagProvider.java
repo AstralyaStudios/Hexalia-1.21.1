@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends BlockTagsProvider {
     public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, HexaliaMod.MOD_ID, existingFileHelper);
+        super(output, lookupProvider, HexaliaMod.MODID, existingFileHelper);
     }
 
     @Override
@@ -43,6 +43,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(ModBlocks.SHELF.get())
                 .add(ModBlocks.CENSER.get())
+                .add(ModBlocks.RITUAL_BRAZIER.get())
                 .add(ModBlocks.LOTUS_FLOWER.get());
 
         // Tool requirements
@@ -55,6 +56,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.LOTUS_FLOWER.get())
                 .add(ModBlocks.RITUAL_TABLE.get())
                 .add(ModBlocks.SALT_BLOCK.get())
+                .add(ModBlocks.RITUAL_BRAZIER.get())
                 .add(ModBlocks.MOON_CRYSTAL_BLOCK.get());
     }
 

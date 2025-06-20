@@ -14,7 +14,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModItems {
 
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(HexaliaMod.MOD_ID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(HexaliaMod.MODID);
 
     // Resources
     public static final DeferredItem<Item> SALT = ITEMS.registerSimpleItem("salt");
@@ -100,8 +100,6 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.SALT_LAMP.get(), new Item.Properties()));
     public static final DeferredItem<Item> SMALL_CAULDRON = ITEMS.register("small_cauldron",
             () -> new BlockItem(ModBlocks.SMALL_CAULDRON.get(), new Item.Properties()));
-    public static final DeferredItem<Item> RITUAL_TABLE = ITEMS.register("ritual_table",
-            () -> new BlockItem(ModBlocks.RITUAL_TABLE.get(), new Item.Properties()));
 
     // Weapons & Armor
     public static final DeferredItem<Item> KELPWEAVE_BLADE = ITEMS.register("kelpweave_blade",

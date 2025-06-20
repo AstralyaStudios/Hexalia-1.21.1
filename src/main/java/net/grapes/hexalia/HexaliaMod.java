@@ -1,17 +1,25 @@
 package net.grapes.hexalia;
 
+import net.grapes.hexalia.block.entity.ModBlockEntityTypes;
 import net.grapes.hexalia.block.ModBlocks;
+import net.grapes.hexalia.block.entity.renderer.RitualBrazierBlockEntityRenderer;
+import net.grapes.hexalia.block.entity.renderer.RitualTableBlockEntityRenderer;
+import net.grapes.hexalia.block.entity.renderer.ShelfBlockEntityRenderer;
 import net.grapes.hexalia.effect.ModMobEffects;
 import net.grapes.hexalia.item.ModCreativeModeTabs;
 import net.grapes.hexalia.item.ModItems;
 import net.grapes.hexalia.effect.ModEffectCure;
 import net.grapes.hexalia.particle.ModParticleType;
+import net.grapes.hexalia.recipe.ModRecipes;
+import net.grapes.hexalia.screen.ModMenuTypes;
+import net.grapes.hexalia.screen.custom.SmallCauldronScreen;
 import net.grapes.hexalia.sound.ModSoundEvents;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -25,9 +33,9 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
-@Mod(HexaliaMod.MOD_ID)
+@Mod(HexaliaMod.MODID)
 public class HexaliaMod {
-    public static final String MOD_ID = "hexalia";
+    public static final String MODID = "hexalia";
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public HexaliaMod(IEventBus modEventBus, ModContainer modContainer) {
@@ -41,11 +49,13 @@ public class HexaliaMod {
         ModSoundEvents.register(modEventBus);
         ModMobEffects.register(modEventBus);
         ModParticleType.register(modEventBus);
+        ModBlockEntityTypes.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Configuration.SPEC);
-
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -64,13 +74,23 @@ public class HexaliaMod {
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
+        }
+
+        @SubscribeEvent
+        public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntityTypes.RITUAL_TABLE.get(), RitualTableBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntityTypes.RITUAL_BRAZIER.get(), RitualBrazierBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntityTypes.SHELF.get(), ShelfBlockEntityRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.SMALL_CAULDRON_MENU.get(), SmallCauldronScreen::new);
         }
     }
 }

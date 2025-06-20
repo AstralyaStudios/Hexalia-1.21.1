@@ -20,7 +20,7 @@ import java.util.function.Supplier;
 import static net.grapes.hexalia.block.custom.CandleSkullBlock.LIT;
 
 public class ModBlocks {
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(HexaliaMod.MOD_ID);
+    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(HexaliaMod.MODID);
 
     // Natural Blocks
     public static final DeferredBlock<Block> INFUSED_DIRT = registerBlock("infused_dirt",
@@ -53,17 +53,17 @@ public class ModBlocks {
     public static final DeferredBlock<Block> POTTED_MORPHORA = BLOCKS.register("potted_morphora",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), MORPHORA, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
     public static final DeferredBlock<Block> GRIMSHADE = registerBlock("grimshade",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+            () -> new GrimshadeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA).noCollission()));
     public static final DeferredBlock<Block> POTTED_GRIMSHADE = BLOCKS.register("potted_grimshade",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), GRIMSHADE, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
     public static final DeferredBlock<Block> NAUTILITE = registerBlock("nautilite",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+            () -> new NautiliteBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA).noCollission()));
     public static final DeferredBlock<Block> WINDSONG = registerBlock("windsong",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+            () -> new WindsongBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA).noCollission()));
     public static final DeferredBlock<Block> POTTED_WINDSONG = BLOCKS.register("potted_windsong",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), WINDSONG, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
     public static final DeferredBlock<Block> LUNAR_LILY = registerBlock("lunar_lily",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+            () -> new LunarLilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA).noCollission()));
     public static final DeferredBlock<Block> POTTED_LUNAR_LILY = BLOCKS.register("potted_lunar_lily",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), LUNAR_LILY, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
 
@@ -133,15 +133,15 @@ public class ModBlocks {
 
     // Functional Blocks
     public static final DeferredBlock<Block> SMALL_CAULDRON = BLOCKS.register("small_cauldron",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+            () -> new SmallCauldronBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
     public static final DeferredBlock<Block> SHELF = registerBlock("shelf",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+            () -> new ShelfBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS).noOcclusion()));
     public static final DeferredBlock<Block> RUSTIC_OVEN = registerBlock("rustic_oven",
-            () -> new RusticOvenBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS)));
-    public static final DeferredBlock<Block> RITUAL_TABLE = BLOCKS.register("ritual_table",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS)));
+            () -> new RusticOvenBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS).noOcclusion()));
+    public static final DeferredBlock<Block> RITUAL_TABLE = registerBlock("ritual_table",
+            () -> new RitualTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS)));
     public static final DeferredBlock<Block> RITUAL_BRAZIER = registerBlock("ritual_brazier",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+            () -> new RitualBrazierBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> CENSER = registerBlock("censer",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
     public static final DeferredBlock<Block> DREAMCATCHER = registerBlock("dreamcatcher",

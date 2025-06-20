@@ -17,6 +17,7 @@ public class ModTags {
         public static final TagKey<Item> BREWS = createItemTag("brews");
         public static final TagKey<Item> COTTONWOOD_LOGS = createItemTag("cottonwood_logs");
         public static final TagKey<Item> WILLOW_LOGS = createItemTag("willow_logs");
+        public static final TagKey<Item> OFFHAND_EQUIPMENT = createItemTag("offhand_equipment");
 
         // Common Item Tags
 
@@ -39,7 +40,7 @@ public class ModTags {
         public static final TagKey<Item> SALT_BLOCKS = createCommonItemTag("salt_blocks");
 
         private static TagKey<Item> createItemTag(String name) {
-            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(HexaliaMod.MOD_ID, name));
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID, name));
         }
 
         private static TagKey<Item> createCommonItemTag(String name) {
@@ -59,7 +60,7 @@ public class ModTags {
         public static final TagKey<Block> SALT_BLOCKS = createCommonBlockTag("salt_blocks");
 
         private static TagKey<Block> createBlockTag(String name) {
-            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(HexaliaMod.MOD_ID, name));
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID, name));
         }
 
         private static TagKey<Block> createCommonBlockTag(String name) {

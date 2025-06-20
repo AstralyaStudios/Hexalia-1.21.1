@@ -13,7 +13,7 @@ import net.minecraft.world.level.Level;
 public class DaybloomEffect extends MobEffect {
 
     private static final int COOLDOWN = 100;
-    private static final ResourceLocation RESOURCE_LOCATION = ResourceLocation.fromNamespaceAndPath(HexaliaMod.MOD_ID, "slimey");
+    private static final ResourceLocation RESOURCE_LOCATION = ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID, "slimey");
 
     public DaybloomEffect(MobEffectCategory category, int color) {
         super(category, color);

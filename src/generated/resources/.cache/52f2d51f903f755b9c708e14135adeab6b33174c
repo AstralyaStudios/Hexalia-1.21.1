@@ -1,4 +1,4 @@
-// 1.21.1	2025-05-18T15:03:21.1521752	Tags for minecraft:item mod id hexalia
+// 1.21.1	2025-06-25T07:35:34.0460167	Tags for minecraft:item mod id hexalia
 baeb7fd149c8d5128b9223bfc7594c4b9b7904fd data/c/tags/item/berries.json
 c2e7f2f3472c1200322aaafc9a3ccad9b5e2ab8f data/c/tags/item/crops.json
 94772a9a0d13bb7475f2d9c347f157494f7ff62d data/c/tags/item/crops/tomato.json
@@ -16,6 +16,7 @@ cf908acc2e525a3d3eb097c4741d6d357682c2a7 data/c/tags/item/salt.json
 0a9e24febf41067c0d25e9952dd0c726cba969b9 data/hexalia/tags/item/cottonwood_logs.json
 b77dfc53082eb41d406f2acc0477c5e4bd12aa29 data/hexalia/tags/item/crushed_herbs.json
 a84bc4abb221e0830dcde66348e990fc29552e1e data/hexalia/tags/item/herbs.json
+3fc5bfd682b65a58ae3f726f622bb09963059ef9 data/hexalia/tags/item/offhand_equipment.json
 ef8b93695ae3fd699e4faa22284b660f54ec2f23 data/hexalia/tags/item/willow_logs.json
 b7d830f27d76289cfc894827fa4c09c515ab8ef1 data/minecraft/tags/item/fence_gates.json
 6c939cbdd8588e7262d3ea697ec777b98ab36b56 data/minecraft/tags/item/flowers.json

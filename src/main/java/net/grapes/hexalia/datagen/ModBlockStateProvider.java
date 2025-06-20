@@ -10,7 +10,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 public class ModBlockStateProvider extends BlockStateProvider {
 
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
-        super(output, HexaliaMod.MOD_ID, exFileHelper);
+        super(output, HexaliaMod.MODID, exFileHelper);
     }
 
     @Override

@@ -7,7 +7,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, HexaliaMod.MOD_ID, existingFileHelper);
+        super(output, HexaliaMod.MODID, existingFileHelper);
     }
 
     @Override

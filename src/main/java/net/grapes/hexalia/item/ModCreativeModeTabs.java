@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
-            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, HexaliaMod.MOD_ID);
+            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, HexaliaMod.MODID);
 
     public static final Supplier<CreativeModeTab> HEXALIA_TAB = CREATIVE_MODE_TABS.register("hexalia_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.hexalia"))
@@ -83,7 +83,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.RUSTIC_OVEN.get());
                 output.accept(ModItems.SMALL_CAULDRON.get());
                 output.accept(ModBlocks.SHELF.get());
-                output.accept(ModItems.RITUAL_TABLE.get());
+                output.accept(ModBlocks.RITUAL_TABLE.get());
                 output.accept(ModBlocks.INFUSED_DIRT.get());
                 output.accept(ModBlocks.INFUSED_FARMLAND.get());
                 output.accept(ModBlocks.RITUAL_BRAZIER.get());

@@ -100,7 +100,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         // Special drops
         this.add(ModBlocks.INFUSED_FARMLAND.get(), this.createSingleItemTable(ModBlocks.INFUSED_DIRT.get()));
-        this.add(ModBlocks.RITUAL_TABLE.get(), this.createSingleItemTable(ModItems.RITUAL_TABLE.get()));
+        this.add(ModBlocks.RITUAL_TABLE.get(), this.createSingleItemTable(ModBlocks.RITUAL_TABLE.get()));
         this.add(ModBlocks.SALT_BLOCK.get(), block -> createOreDrop(ModBlocks.SALT_BLOCK.get(), ModItems.SALT.get()));
         this.add(ModBlocks.SILKWORM_COCOON.get(), this.createSingleItemTable(ModItems.SILKWORM.get()));
     }

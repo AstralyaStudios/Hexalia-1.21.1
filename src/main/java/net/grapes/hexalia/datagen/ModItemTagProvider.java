@@ -18,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 public class ModItemTagProvider extends ItemTagsProvider {
     public ModItemTagProvider(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pLookupProvider,
                               CompletableFuture<TagLookup<Block>> pBlockTags, @Nullable ExistingFileHelper existingFileHelper) {
-        super(pOutput, pLookupProvider, pBlockTags, HexaliaMod.MOD_ID, existingFileHelper);
+        super(pOutput, pLookupProvider, pBlockTags, HexaliaMod.MODID, existingFileHelper);
     }
 
     @Override
@@ -102,6 +102,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModTags.Items.MUSHROOMS)
                 .add(ModBlocks.DREAMSHROOM.get().asItem())
                 .add(ModBlocks.PALE_MUSHROOM.get().asItem());
+
+        // OFF
+        tag(ModTags.Items.OFFHAND_EQUIPMENT)
+                .add(ModItems.HEX_FOCUS.get())
+                .addTag(ModTags.Items.SALT);
     }
 
     private void addTreeRelatedTags() {

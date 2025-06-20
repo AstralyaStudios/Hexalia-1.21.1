@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 
 public class ModParticleType {
 
-    public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = DeferredRegister.create(Registries.PARTICLE_TYPE, HexaliaMod.MOD_ID);
+    public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = DeferredRegister.create(Registries.PARTICLE_TYPE, HexaliaMod.MODID);
 
     public static final Supplier<SimpleParticleType> SPORE = PARTICLE_TYPES.register("spore",
             () -> new SimpleParticleType(true));

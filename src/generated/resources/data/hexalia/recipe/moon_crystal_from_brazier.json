@@ -1,7 +1,0 @@
-{
-  "type": "hexalia:ritual_brazier",
-  "input": {
-    "item": "minecraft:amethyst_shard"
-  },
-  "output": "hexalia:moon_crystal"
-}

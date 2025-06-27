@@ -35,7 +35,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         // Animal food
         tag(ItemTags.FOX_FOOD)
                 .add(ModItems.CHILLBERRIES.get())
-                .add(ModItems.MOON_BERRIES.get());
+                .add(ModItems.GALEBERRIES.get());
 
         // Plants
         tag(ItemTags.FLOWERS)
@@ -43,6 +43,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModBlocks.HENBANE.get().asItem())
                 .add(ModBlocks.WITCHWEED.get().asItem())
                 .add(ModBlocks.GHOST_FERN.get().asItem())
+                .add(ModBlocks.CELESTIAL_BLOOM.get().asItem())
                 .add(ModBlocks.NIGHTSHADE_BUSH.get().asItem())
                 .add(ModBlocks.BEGONIA.get().asItem())
                 .add(ModBlocks.LAVENDER.get().asItem())
@@ -54,6 +55,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModBlocks.HENBANE.get().asItem())
                 .add(ModBlocks.WITCHWEED.get().asItem())
                 .add(ModBlocks.GHOST_FERN.get().asItem())
+                .add(ModBlocks.CELESTIAL_BLOOM.get().asItem())
                 .add(ModBlocks.NIGHTSHADE_BUSH.get().asItem())
                 .add(ModBlocks.BEGONIA.get().asItem())
                 .add(ModBlocks.LAVENDER.get().asItem())
@@ -72,7 +74,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModBlocks.SPIRIT_BLOOM.get().asItem())
                 .add(ModItems.SIREN_KELP.get())
                 .add(ModBlocks.DREAMSHROOM.get().asItem())
-                .add(ModBlocks.GHOST_FERN.get().asItem());
+                .add(ModBlocks.GHOST_FERN.get().asItem())
+                .add(ModBlocks.CELESTIAL_BLOOM.get().asItem());
 
         tag(ModTags.Items.CRUSHED_HERBS)
                 .add(ModItems.SPIRIT_POWDER.get().asItem())
@@ -181,11 +184,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.SIREN_KELP.get())
                 .add(ModItems.CHILLBERRIES.get())
                 .add(ModItems.SUNFIRE_TOMATO.get())
-                .add(ModItems.MOON_BERRIES.get())
+                .add(ModItems.GALEBERRIES.get())
                 .add(ModItems.SALTSPROUT.get())
                 .add(ModItems.CHILLBERRY_PIE.get())
                 .add(ModItems.MANDRAKE_STEW.get())
-                .add(ModItems.MOON_BERRY_COOKIE.get());
+                .add(ModItems.GALEBERRIES_COOKIE.get());
 
         // Crops
         tag(ModTags.Items.CROPS)
@@ -197,7 +200,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         // Specific food types
         tag(ModTags.Items.FOODS_BERRIES)
                 .add(ModItems.CHILLBERRIES.get())
-                .add(ModItems.MOON_BERRIES.get());
+                .add(ModItems.GALEBERRIES.get());
 
         tag(ModTags.Items.FOODS_VEGETABLES)
                 .add(ModItems.SUNFIRE_TOMATO.get())
@@ -222,7 +225,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ModTags.Items.BERRIES)
                 .add(ModItems.CHILLBERRIES.get())
-                .add(ModItems.MOON_BERRIES.get());
+                .add(ModItems.GALEBERRIES.get());
 
         tag(ModTags.Items.SEEDS)
                 .add(ModItems.MANDRAKE_SEEDS.get())

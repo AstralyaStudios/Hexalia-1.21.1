@@ -27,8 +27,8 @@ public class ModBlockEntityTypes {
     // Enchanted Plants
     public static final Supplier<BlockEntityType<NautiliteBlockEntity>> NAUTILITE = BLOCK_ENTITY_TYPE.register("nautilite",
             () -> BlockEntityType.Builder.of(NautiliteBlockEntity::new, ModBlocks.NAUTILITE.get()).build(null));
-    public static final Supplier<BlockEntityType<LunarLilyBlockEntity>> LUNAR_LILY = BLOCK_ENTITY_TYPE.register("lunar_lily",
-            () -> BlockEntityType.Builder.of(LunarLilyBlockEntity::new, ModBlocks.LUNAR_LILY.get()).build(null));
+    public static final Supplier<BlockEntityType<AstrylisBlockEntity>> ASTRYLIS = BLOCK_ENTITY_TYPE.register("astrylis",
+            () -> BlockEntityType.Builder.of(AstrylisBlockEntity::new, ModBlocks.ASTRYLIS.get()).build(null));
     public static final Supplier<BlockEntityType<WindsongBlockEntity>> WINDSONG = BLOCK_ENTITY_TYPE.register("windsong",
             () -> BlockEntityType.Builder.of(WindsongBlockEntity::new, ModBlocks.WINDSONG.get()).build(null));
 

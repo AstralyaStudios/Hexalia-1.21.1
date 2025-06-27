@@ -21,7 +21,7 @@ public class ModItems {
     public static final DeferredItem<Item> TREE_RESIN = ITEMS.registerSimpleItem("tree_resin");
     public static final DeferredItem<Item> SILK_FIBER = ITEMS.registerSimpleItem("silk_fiber");
     public static final DeferredItem<Item> SILKWORM = ITEMS.registerSimpleItem("silkworm");
-    public static final DeferredItem<Item> MOON_CRYSTAL = ITEMS.registerSimpleItem("moon_crystal");
+    public static final DeferredItem<Item> CELESTIAL_CRYSTAL = ITEMS.registerSimpleItem("celestial_crystal");
     public static final DeferredItem<Item> FIRE_NODE = ITEMS.registerSimpleItem("fire_node");
     public static final DeferredItem<Item> WATER_NODE = ITEMS.registerSimpleItem("water_node");
     public static final DeferredItem<Item> AIR_NODE = ITEMS.registerSimpleItem("air_node");
@@ -45,8 +45,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.CHILLBERRY_BUSH.get(), new Item.Properties().food(ModFoodProperties.CHILLBERRIES)));
     public static final DeferredItem<Item> SALTSPROUT = ITEMS.register("saltsprout",
             () -> new BlockItem(ModBlocks.SALTSPROUT.get(), new Item.Properties().food(ModFoodProperties.SALTSPROUT)));
-    public static final DeferredItem<Item> MOON_BERRIES = ITEMS.register("moon_berries",
-            () -> new ItemNameBlockItem(ModBlocks.MOON_BERRIES_VINES.get(), new Item.Properties().food(ModFoodProperties.MOON_BERRIES)));
+    public static final DeferredItem<Item> GALEBERRIES = ITEMS.register("galeberries",
+            () -> new ItemNameBlockItem(ModBlocks.GALEBERRIES_VINE.get(), new Item.Properties().food(ModFoodProperties.GALEBERRIES)));
 
     // Plants
     public static final DeferredItem<Item> SIREN_KELP = ITEMS.register("siren_kelp",
@@ -69,8 +69,8 @@ public class ModItems {
             Item::new, new Item.Properties().food(ModFoodProperties.CHILLBERRY_PIE));
     public static final DeferredItem<Item> MANDRAKE_STEW = ITEMS.registerItem("mandrake_stew",
             Item::new, new Item.Properties().food(ModFoodProperties.MANDRAKE_STEW));
-    public static final DeferredItem<Item> MOON_BERRY_COOKIE = ITEMS.registerItem("moon_berry_cookie",
-            Item::new, new Item.Properties().food(ModFoodProperties.MOON_BERRY_COOKIE));
+    public static final DeferredItem<Item> GALEBERRIES_COOKIE = ITEMS.registerItem("galeberries_cookie",
+            Item::new, new Item.Properties().food(ModFoodProperties.GALEBERRIES_COOKIE));
 
     // Tools
     public static final DeferredItem<Item> HEX_FOCUS = ITEMS.registerItem("hex_focus",

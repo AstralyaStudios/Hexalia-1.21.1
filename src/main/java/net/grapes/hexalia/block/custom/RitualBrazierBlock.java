@@ -143,7 +143,7 @@ public class RitualBrazierBlock extends BaseEntityBlock {
                             spawnPoofParticles(level, pos);
                             level.playSound(null, pos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 0.25f, 0.25f);
                         }
-                        case NO_WINDSONGS -> player.displayClientMessage(Component.translatable("message.hexalia.ritual_brazier.no_windsongs"), true);
+                        case NO_CELESTIAL_BLOOMS -> player.displayClientMessage(Component.translatable("message.hexalia.ritual_brazier.no_celestial_blooms"), true);
                         case INVALID_ITEM -> player.displayClientMessage(Component.translatable("message.hexalia.ritual_brazier.invalid_item"), true);
                     }
                 }

@@ -35,7 +35,7 @@ public class RitualBrazierBlockEntity extends SyncBlockEntity {
 
     public enum RitualResult {
         SUCCESS,
-        NO_WINDSONGS,
+        NO_CELESTIAL_BLOOMS,
         INVALID_ITEM
     }
 
@@ -68,8 +68,8 @@ public class RitualBrazierBlockEntity extends SyncBlockEntity {
     public RitualResult tryCelestialRitual() {
         if (level == null || isRitualFocusItem) return RitualResult.INVALID_ITEM;
 
-        if (!hasEnoughNearbyWindsongs()) {
-            return RitualResult.NO_WINDSONGS;
+        if (!hasEnoughNearbyCelestial_Blooms()) {
+            return RitualResult.NO_CELESTIAL_BLOOMS;
         }
 
         Optional<RecipeHolder<RitualBrazierRecipe>> matchingRecipe = level.getRecipeManager()
@@ -93,7 +93,7 @@ public class RitualBrazierBlockEntity extends SyncBlockEntity {
     }
 
 
-    public boolean hasEnoughNearbyWindsongs() {
+    public boolean hasEnoughNearbyCelestial_Blooms() {
         if (level == null) return false;
 
         int count = 0;
@@ -103,7 +103,7 @@ public class RitualBrazierBlockEntity extends SyncBlockEntity {
             for (int dz = -3; dz <= 3; dz++) {
                 if (dx == 0 && dz == 0) continue;
                 BlockPos checkPos = origin.offset(dx, 0, dz);
-                if (level.getBlockState(checkPos).is(ModBlocks.WINDSONG.get())) {
+                if (level.getBlockState(checkPos).is(ModBlocks.CELESTIAL_BLOOM.get())) {
                     count++;
                     if (count >= 2) return true;
                 }

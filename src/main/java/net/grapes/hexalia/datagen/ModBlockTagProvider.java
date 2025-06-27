@@ -37,7 +37,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.SMALL_CAULDRON.get())
                 .add(ModBlocks.RITUAL_TABLE.get())
                 .add(ModBlocks.SALT_BLOCK.get())
-                .add(ModBlocks.MOON_CRYSTAL_BLOCK.get());
+                .add(ModBlocks.CELESTIAL_CRYSTAL_BLOCK.get());
 
         // Axe mineable blocks
         tag(BlockTags.MINEABLE_WITH_AXE)
@@ -57,7 +57,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.RITUAL_TABLE.get())
                 .add(ModBlocks.SALT_BLOCK.get())
                 .add(ModBlocks.RITUAL_BRAZIER.get())
-                .add(ModBlocks.MOON_CRYSTAL_BLOCK.get());
+                .add(ModBlocks.CELESTIAL_CRYSTAL_BLOCK.get());
     }
 
     private void addPlantTags() {
@@ -67,6 +67,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.HENBANE.get())
                 .add(ModBlocks.WITCHWEED.get())
                 .add(ModBlocks.GHOST_FERN.get())
+                .add(ModBlocks.CELESTIAL_BLOOM.get())
                 .add(ModBlocks.NIGHTSHADE_BUSH.get())
                 .add(ModBlocks.BEGONIA.get())
                 .add(ModBlocks.LAVENDER.get())
@@ -78,6 +79,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.HENBANE.get())
                 .add(ModBlocks.WITCHWEED.get())
                 .add(ModBlocks.GHOST_FERN.get())
+                .add(ModBlocks.CELESTIAL_BLOOM.get())
                 .add(ModBlocks.NIGHTSHADE_BUSH.get())
                 .add(ModBlocks.BEGONIA.get())
                 .add(ModBlocks.LAVENDER.get())
@@ -215,13 +217,13 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     private void addAdditionalTags() {
         // Climbable vines
         tag(BlockTags.CLIMBABLE)
-                .add(ModBlocks.MOON_BERRIES_VINES.get())
-                .add(ModBlocks.MOON_BERRIES_VINES_PLANT.get());
+                .add(ModBlocks.GALEBERRIES_VINE.get())
+                .add(ModBlocks.GALEBERRIES_VINE_PLANT.get());
 
         // Cave vines
         tag(BlockTags.CAVE_VINES)
-                .add(ModBlocks.MOON_BERRIES_VINES.get())
-                .add(ModBlocks.MOON_BERRIES_VINES_PLANT.get());
+                .add(ModBlocks.GALEBERRIES_VINE.get())
+                .add(ModBlocks.GALEBERRIES_VINE_PLANT.get());
 
         // Flower pots
         tag(BlockTags.FLOWER_POTS)
@@ -232,7 +234,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.POTTED_NIGHTSHADE_BUSH.get())
                 .add(ModBlocks.POTTED_PALE_MUSHROOM.get())
                 .add(ModBlocks.POTTED_HENBANE.get())
-                .add(ModBlocks.POTTED_LUNAR_LILY.get())
+                .add(ModBlocks.POTTED_ASTRYLIS.get())
                 .add(ModBlocks.POTTED_GRIMSHADE.get())
                 .add(ModBlocks.POTTED_WINDSONG.get())
                 .add(ModBlocks.POTTED_MORPHORA.get())

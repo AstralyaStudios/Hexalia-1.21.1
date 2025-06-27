@@ -46,6 +46,10 @@ public class ModBlocks {
             () -> new GhostFernBlock(MobEffects.INVISIBILITY, 6, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
     public static final DeferredBlock<Block> POTTED_GHOST_FERN = BLOCKS.register("potted_ghost_fern",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), GHOST_FERN, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
+    public static final DeferredBlock<Block> CELESTIAL_BLOOM = registerBlock("celestial_bloom",
+            () -> new CelestialBloomBlock(MobEffects.NIGHT_VISION, 6, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY).lightLevel(state -> 6)));
+    public static final DeferredBlock<Block> POTTED_CELESTIAL_BLOOM = BLOCKS.register("potted_celestial_bloom",
+            () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), CELESTIAL_BLOOM, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
 
     // Enchanted Plants
     public static final DeferredBlock<Block> MORPHORA = registerBlock("morphora",
@@ -62,10 +66,10 @@ public class ModBlocks {
             () -> new WindsongBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA).noCollission()));
     public static final DeferredBlock<Block> POTTED_WINDSONG = BLOCKS.register("potted_windsong",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), WINDSONG, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
-    public static final DeferredBlock<Block> LUNAR_LILY = registerBlock("lunar_lily",
-            () -> new LunarLilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA).noCollission()));
-    public static final DeferredBlock<Block> POTTED_LUNAR_LILY = BLOCKS.register("potted_lunar_lily",
-            () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), LUNAR_LILY, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
+    public static final DeferredBlock<Block> ASTRYLIS = registerBlock("astrylis",
+            () -> new AstrylisBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA).noCollission()));
+    public static final DeferredBlock<Block> POTTED_ASTRYLIS = BLOCKS.register("potted_astrylis",
+            () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), ASTRYLIS, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
 
     // Decorative Flowers
     public static final DeferredBlock<Block> HENBANE = registerBlock("henbane",
@@ -118,17 +122,17 @@ public class ModBlocks {
             () -> new ChillberryBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH).randomTicks()));
     public static final DeferredBlock<Block> SALTSPROUT = BLOCKS.register("saltsprout",
             () -> new SaltsproutBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH).randomTicks()));
-    public static final DeferredBlock<Block> MOON_BERRIES_VINES = BLOCKS.register("moon_berries_vine",
-            () -> new MoonBerryVineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAVE_VINES)));
-    public static final DeferredBlock<Block> MOON_BERRIES_VINES_PLANT = BLOCKS.register("moon_berries_vine_plant",
-            () -> new MoonBerryVinePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAVE_VINES_PLANT)));
+    public static final DeferredBlock<Block> GALEBERRIES_VINE = BLOCKS.register("galeberries_vine",
+            () -> new GaleberriesVineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAVE_VINES)));
+    public static final DeferredBlock<Block> GALEBERRIES_VINE_PLANT = BLOCKS.register("galeberries_vine_plant",
+            () -> new GaleberriesVinePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAVE_VINES_PLANT)));
 
     // Mineral
     public static final DeferredBlock<Block> SALT_BLOCK = registerBlock("salt_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.SAND)));
     public static final DeferredBlock<Block> SALT_LAMP = BLOCKS.register("salt_lamp",
             () -> new SaltLampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN)));
-    public static final DeferredBlock<Block> MOON_CRYSTAL_BLOCK = registerBlock("moon_crystal_block",
+    public static final DeferredBlock<Block> CELESTIAL_CRYSTAL_BLOCK = registerBlock("celestial_crystal_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).lightLevel(state -> 6)));
 
     // Functional Blocks

@@ -24,6 +24,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.DREAMSHROOM.get());
                 output.accept(ModItems.SIREN_KELP.get());
                 output.accept(ModBlocks.GHOST_FERN.get());
+                output.accept(ModBlocks.CELESTIAL_BLOOM.get());
 
                 // Crushed Herbs
                 output.accept(ModItems.SPIRIT_POWDER.get());
@@ -42,12 +43,12 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.GRIMSHADE.get());
                 output.accept(ModBlocks.NAUTILITE.get());
                 output.accept(ModBlocks.WINDSONG.get());
-                output.accept(ModBlocks.LUNAR_LILY.get());
+                output.accept(ModBlocks.ASTRYLIS.get());
 
                 // Other Resources
                 output.accept(ModItems.TREE_RESIN.get());
-                output.accept(ModItems.MOON_CRYSTAL.get());
-                output.accept(ModBlocks.MOON_CRYSTAL_BLOCK.get());
+                output.accept(ModItems.CELESTIAL_CRYSTAL.get());
+                output.accept(ModBlocks.CELESTIAL_CRYSTAL_BLOCK.get());
                 output.accept(ModItems.SILK_FIBER.get());
                 output.accept(ModItems.SILKWORM.get());
 
@@ -62,13 +63,13 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.CHILLBERRIES.get());
                 output.accept(ModItems.RABBAGE.get());
                 output.accept(ModItems.SALTSPROUT.get());
-                output.accept(ModItems.MOON_BERRIES.get());
+                output.accept(ModItems.GALEBERRIES.get());
 
                 // Food
                 output.accept(ModItems.MANDRAKE_STEW.get());
                 output.accept(ModItems.SPICY_SANDWICH.get());
                 output.accept(ModItems.CHILLBERRY_PIE.get());
-                output.accept(ModItems.MOON_BERRY_COOKIE.get());
+                output.accept(ModItems.GALEBERRIES_COOKIE.get());
 
                 // Tools
                 output.accept(ModItems.MORTAR_AND_PESTLE.get());

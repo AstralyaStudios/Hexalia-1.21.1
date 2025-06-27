@@ -50,6 +50,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.PALE_MUSHROOM.get());
         this.dropSelf(ModBlocks.WITCHWEED.get());
         this.dropSelf(ModBlocks.GHOST_FERN.get());
+        this.dropSelf(ModBlocks.CELESTIAL_BLOOM.get());
         this.dropSelf(ModBlocks.NIGHTSHADE_BUSH.get());
         this.dropSelf(ModBlocks.DUCKWEED.get());
         this.dropSelf(ModBlocks.BEGONIA.get());
@@ -58,13 +59,14 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.GRIMSHADE.get());
         this.dropSelf(ModBlocks.NAUTILITE.get());
         this.dropSelf(ModBlocks.WINDSONG.get());
-        this.dropSelf(ModBlocks.LUNAR_LILY.get());
+        this.dropSelf(ModBlocks.ASTRYLIS.get());
         this.dropSelf(ModBlocks.DAHLIA.get());
 
         // Potted plants
         this.add(ModBlocks.POTTED_SPIRIT_BLOOM.get(), createPotFlowerItemTable(ModBlocks.SPIRIT_BLOOM.get()));
         this.add(ModBlocks.POTTED_DREAMSHROOM.get(), createPotFlowerItemTable(ModBlocks.DREAMSHROOM.get()));
         this.add(ModBlocks.POTTED_GHOST_FERN.get(), createPotFlowerItemTable(ModBlocks.GHOST_FERN.get()));
+        this.add(ModBlocks.POTTED_CELESTIAL_BLOOM.get(), createPotFlowerItemTable(ModBlocks.CELESTIAL_BLOOM.get()));
         this.add(ModBlocks.POTTED_HENBANE.get(), createPotFlowerItemTable(ModBlocks.HENBANE.get()));
         this.add(ModBlocks.POTTED_PALE_MUSHROOM.get(), createPotFlowerItemTable(ModBlocks.PALE_MUSHROOM.get()));
         this.add(ModBlocks.POTTED_NIGHTSHADE_BUSH.get(), createPotFlowerItemTable(ModBlocks.NIGHTSHADE_BUSH.get()));
@@ -74,14 +76,14 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.add(ModBlocks.POTTED_MORPHORA.get(), createPotFlowerItemTable(ModBlocks.MORPHORA.get()));
         this.add(ModBlocks.POTTED_GRIMSHADE.get(), createPotFlowerItemTable(ModBlocks.GRIMSHADE.get()));
         this.add(ModBlocks.POTTED_WINDSONG.get(), createPotFlowerItemTable(ModBlocks.WINDSONG.get()));
-        this.add(ModBlocks.POTTED_LUNAR_LILY.get(), createPotFlowerItemTable(ModBlocks.LUNAR_LILY.get()));
+        this.add(ModBlocks.POTTED_ASTRYLIS.get(), createPotFlowerItemTable(ModBlocks.ASTRYLIS.get()));
 
         // Special plants
         this.add(ModBlocks.SIREN_KELP.get(), this.createSingleItemTable(ModItems.SIREN_KELP.get()));
         this.add(ModBlocks.HEXED_BULRUSH.get(), createTallPlantBlock(ModBlocks.HEXED_BULRUSH.get()));
         this.add(ModBlocks.COTTONWOOD_CATKIN.get(), this.createSingleItemTable(Items.STRING));
-        this.add(ModBlocks.MOON_BERRIES_VINES.get(), vinesDrop(ModBlocks.MOON_BERRIES_VINES.get()));
-        this.add(ModBlocks.MOON_BERRIES_VINES_PLANT.get(), vinesDrop(ModBlocks.MOON_BERRIES_VINES_PLANT.get()));
+        this.add(ModBlocks.GALEBERRIES_VINE.get(), vinesDrop(ModBlocks.GALEBERRIES_VINE.get()));
+        this.add(ModBlocks.GALEBERRIES_VINE_PLANT.get(), vinesDrop(ModBlocks.GALEBERRIES_VINE_PLANT.get()));
     }
 
     private void generateFunctionalBlocks() {
@@ -94,7 +96,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.DREAMCATCHER.get());
         this.dropSelf(ModBlocks.RUSTIC_OVEN.get());
         this.dropSelf(ModBlocks.SMALL_CAULDRON.get());
-        this.dropSelf(ModBlocks.MOON_CRYSTAL_BLOCK.get());
+        this.dropSelf(ModBlocks.CELESTIAL_CRYSTAL_BLOCK.get());
         this.dropSelf(ModBlocks.SHELF.get());
         this.dropSelf(ModBlocks.CENSER.get());
 
@@ -218,9 +220,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     }
 
     protected static LootTable.Builder vinesDrop(Block pBlock) {
-        return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.MOON_BERRIES.get()))
+        return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.GALEBERRIES.get()))
                 .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties()
-                        .hasProperty(MoonBerryVineBlock.BERRIES, true))));
+                        .hasProperty(GaleberriesVineBlock.BERRIES, true))));
     }
 
     @Override

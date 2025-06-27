@@ -214,12 +214,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.SALT_BLOCK.get(),
                 "hexalia:salt", "salt","hexalia:salt_block", "salt");
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MOON_CRYSTAL_BLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CELESTIAL_CRYSTAL_BLOCK.get())
                 .pattern("PP")
                 .pattern("PP")
-                .define('P', ModItems.MOON_CRYSTAL.get())
-                .unlockedBy("has_moon_crystal",
-                        inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.MOON_CRYSTAL.get()).build()))
+                .define('P', ModItems.CELESTIAL_CRYSTAL.get())
+                .unlockedBy("has_celestial_crystal",
+                        inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.CELESTIAL_CRYSTAL.get()).build()))
                 .save(recipeOutput);
 
         // Armor Recipes
@@ -307,19 +307,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.SILKWORM.get()).build()))
                 .save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.MOON_BERRY_COOKIE.get(), 4)
-                .requires(ModItems.MOON_BERRIES.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.GALEBERRIES_COOKIE.get(), 4)
+                .requires(ModItems.GALEBERRIES.get())
                 .requires(Items.WHEAT)
                 .requires(Items.WHEAT)
                 .requires(Items.SUGAR)
-                .unlockedBy("has_moon_berries",
-                        inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.MOON_BERRIES.get()).build()))
+                .unlockedBy("has_galeberries",
+                        inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.GALEBERRIES.get()).build()))
                 .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.RAIN_IDOL.get(), 1)
                 .requires(ModItems.SILK_IDOL.get())
                 .requires(Items.STRING)
-                .requires(ModItems.MOON_CRYSTAL.get())
+                .requires(ModItems.CELESTIAL_CRYSTAL.get())
                 .requires(ModItems.WATER_NODE.get())
                 .unlockedBy("has_silk_idol",
                         inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.SILK_IDOL.get()).build()))
@@ -328,7 +328,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.CLEAR_IDOL.get(), 1)
                 .requires(ModItems.SILK_IDOL.get())
                 .requires(Items.STRING)
-                .requires(ModItems.MOON_CRYSTAL.get())
+                .requires(ModItems.CELESTIAL_CRYSTAL.get())
                 .requires(ModItems.FIRE_NODE.get())
                 .unlockedBy("has_silk_idol",
                         inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.SILK_IDOL.get()).build()))
@@ -344,10 +344,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.SILK_IDOL.get()).build()))
                 .save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.MOON_CRYSTAL.get(), 4)
-                .requires(ModBlocks.MOON_CRYSTAL_BLOCK.get())
-                .unlockedBy("has_moon_crystal_block",
-                        inventoryTrigger(ItemPredicate.Builder.item().of(ModBlocks.MOON_CRYSTAL_BLOCK.get()).build()))
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CELESTIAL_CRYSTAL.get(), 4)
+                .requires(ModBlocks.CELESTIAL_CRYSTAL_BLOCK.get())
+                .unlockedBy("has_celestial_crystal_block",
+                        inventoryTrigger(ItemPredicate.Builder.item().of(ModBlocks.CELESTIAL_CRYSTAL_BLOCK.get()).build()))
                 .save(recipeOutput);
 
         // Shapeless Recipes for Mortar & Pestle and Refined Resources
@@ -410,21 +410,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         // Ritual Brazier Recipes
         RitualBrazierRecipeBuilder.ritualBrazierRecipe(
                         Ingredient.of(Items.AMETHYST_SHARD),
-                        new ItemStack(ModItems.MOON_CRYSTAL.get())
+                        new ItemStack(ModItems.CELESTIAL_CRYSTAL.get())
                 ).unlockedByItem("has_amethyst_shard", Items.AMETHYST_SHARD)
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "moon_crystal_from_brazier"));
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "celestial_crystal_from_brazier"));
 
         RitualBrazierRecipeBuilder.ritualBrazierRecipe(
                         Ingredient.of(Items.GLOW_BERRIES),
-                        new ItemStack(ModItems.MOON_BERRIES.get())
+                        new ItemStack(ModItems.GALEBERRIES.get())
                 ).unlockedByItem("has_glow_berries", Items.GLOW_BERRIES)
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "moon_berries_from_brazier"));
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "galeberries_from_brazier"));
 
         RitualBrazierRecipeBuilder.ritualBrazierRecipe(
                         Ingredient.of(Blocks.AMETHYST_BLOCK),
-                        new ItemStack(ModBlocks.MOON_CRYSTAL_BLOCK.get())
+                        new ItemStack(ModBlocks.CELESTIAL_CRYSTAL_BLOCK.get())
                 ).unlockedByItem("has_amethyst_block", Blocks.AMETHYST_BLOCK.asItem())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "moon_crystal_block_from_brazier"));
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "celestial_crystal_block_from_brazier"));
 
         // Small Cauldron Recipes
         SmallCauldronRecipeBuilder.smallCauldronRecipe(new ItemStack(ModItems.BREW_OF_SPIKESKIN.get()))
@@ -478,7 +478,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "brew_of_homestead_from_small_cauldron"));
 
         SmallCauldronRecipeBuilder.smallCauldronRecipe(new ItemStack(ModItems.BREW_OF_DAYBLOOM.get()))
-                .addIngredient(ModItems.MOON_BERRIES.get())
+                .addIngredient(ModItems.GALEBERRIES.get())
                 .addIngredient(ModItems.SUNFIRE_TOMATO.get())
                 .addIngredient(ModItems.SPIRIT_POWDER.get())
                 .bottleSlot(ModItems.RUSTIC_BOTTLE.get())

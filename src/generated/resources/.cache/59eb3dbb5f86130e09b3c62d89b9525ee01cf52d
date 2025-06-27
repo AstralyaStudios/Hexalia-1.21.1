@@ -1,6 +1,9 @@
-// 1.21.1	2025-05-18T11:25:00.7810763	Loot Tables
+// 1.21.1	2025-06-27T20:49:47.2212912	Loot Tables
+9a3df1e2ec6884b6a1d7d652b794a71a76999999 data/hexalia/loot_table/blocks/astrylis.json
 dad5439821b7d3507e19e2713ebd7503704e41ef data/hexalia/loot_table/blocks/begonia.json
 a145885a91e57a61da1dfe8e5d3756080c0e1c03 data/hexalia/loot_table/blocks/candle_skull.json
+dae323d634bc2b76513c6b592c706ab9f212867a data/hexalia/loot_table/blocks/celestial_bloom.json
+4c19762f7b6fcf71aee190089c0b3c8f87d0461e data/hexalia/loot_table/blocks/celestial_crystal_block.json
 34d3468b75cd1cc18231a01494f1ab442143cc91 data/hexalia/loot_table/blocks/censer.json
 0abe90ab37797d0689210e442c6af6ea3623511d data/hexalia/loot_table/blocks/chillberry_bush.json
 c9bb444d04d4b15561d7c805f6d71c2ba6a5b5d1 data/hexalia/loot_table/blocks/cottonwood_button.json
@@ -25,6 +28,8 @@ a66aa89047b35650cdd91fba5b97d41a0f9f60dc data/hexalia/loot_table/blocks/dahlia.j
 f3d3fca576ecd83de493f1be17fdf082f5a00da9 data/hexalia/loot_table/blocks/dreamcatcher.json
 49a7ceeb28a3f3337cb7c7a63f96cad98c95d315 data/hexalia/loot_table/blocks/dreamshroom.json
 d528c24965332ff348ad61a3c3571b42558300c6 data/hexalia/loot_table/blocks/duckweed.json
+5af219d57d6f9327c16bf858c63d014f066bea4d data/hexalia/loot_table/blocks/galeberries_vine.json
+953135d23c70011be2d37b2731ff19fa0740bdfa data/hexalia/loot_table/blocks/galeberries_vine_plant.json
 9709db5fa6bb485bce03b928f3719ada92a1a2e7 data/hexalia/loot_table/blocks/ghost_fern.json
 92c9f4cc60f35696108e3c00c10ef8abbdd61d25 data/hexalia/loot_table/blocks/grimshade.json
 7f7cc2a9d053574ead2ac4df1e362c1ee814ee0c data/hexalia/loot_table/blocks/henbane.json
@@ -33,16 +38,14 @@ f7dd01eb12b3e62241d088e791cd0a11923c832b data/hexalia/loot_table/blocks/hexed_bu
 c19b540e7b19c169a86fbea5efc0b187b94390b6 data/hexalia/loot_table/blocks/infused_farmland.json
 4bb0d3b18121d5d97a625245beb786917a3c5335 data/hexalia/loot_table/blocks/lavender.json
 9d05805377af2443b59e5e7dcfc52a6a37907fce data/hexalia/loot_table/blocks/lotus_flower.json
-f7d2e169bdcd4a4744e8d0413500a71d01697b69 data/hexalia/loot_table/blocks/lunar_lily.json
 45d054bcdcd5ae70e9eec79f6a8117d835a7897b data/hexalia/loot_table/blocks/mandrake_crop.json
-5b383245eae6b57ae7870fe075cae105ec80eee5 data/hexalia/loot_table/blocks/moon_berries_vine.json
-e9d0f32aa6e3fea8c2893918a83a26ec36c874ff data/hexalia/loot_table/blocks/moon_berries_vine_plant.json
-1dce306df2bed783fdf4b4739403315d6f51ebd9 data/hexalia/loot_table/blocks/moon_crystal_block.json
 152c7b08861eb34b1e99e3f3917469a7e441fdbb data/hexalia/loot_table/blocks/morphora.json
 4fd7cdc715f59b4c570b476647ad239d5b2a7390 data/hexalia/loot_table/blocks/nautilite.json
 7d59d61605a12e519485f1e65e8d1280008399fa data/hexalia/loot_table/blocks/nightshade_bush.json
 ba39d301fbdacac13108dbf53f1e8e338e3689b6 data/hexalia/loot_table/blocks/pale_mushroom.json
+3188b6eb0aaad7708cb104ff9cbe56c4d2cc73eb data/hexalia/loot_table/blocks/potted_astrylis.json
 41f2a74af9e8d1daecee71369ed7c235f9a8e327 data/hexalia/loot_table/blocks/potted_begonia.json
+443b4ff39d7831bebce3e4abe910e1f2eefc1b6d data/hexalia/loot_table/blocks/potted_celestial_bloom.json
 c574f57b524236969f647b27c7a2341bbced7e51 data/hexalia/loot_table/blocks/potted_cottonwood_sapling.json
 01404cdcd2c9a58f22f0f2263172170b2a26ebc4 data/hexalia/loot_table/blocks/potted_dahlia.json
 2f5dab23861d2f2e90e665b57d48f11a64486c5d data/hexalia/loot_table/blocks/potted_dreamshroom.json
@@ -50,7 +53,6 @@ c574f57b524236969f647b27c7a2341bbced7e51 data/hexalia/loot_table/blocks/potted_c
 be0ef7041e1e8bbf29339301a7fef8568328bc83 data/hexalia/loot_table/blocks/potted_grimshade.json
 d252f765f8000bb6d8b3043ee0070d2b5fbf3778 data/hexalia/loot_table/blocks/potted_henbane.json
 9fb1f27eb1fd70beef2257d0352e4e06804aa4fd data/hexalia/loot_table/blocks/potted_lavender.json
-0d361829057c8752e0c622aea505236d19cc08ad data/hexalia/loot_table/blocks/potted_lunar_lily.json
 e5dfba66071917ac3ad408d4e553faad85e3e845 data/hexalia/loot_table/blocks/potted_morphora.json
 f3fffd535a6b17860700b25ea3c8784af8265506 data/hexalia/loot_table/blocks/potted_nightshade_bush.json
 ce6007603b55e51342c86a88ac4a056648e283cb data/hexalia/loot_table/blocks/potted_pale_mushroom.json

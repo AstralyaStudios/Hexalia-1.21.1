@@ -1,11 +1,13 @@
 package net.grapes.hexalia.util;
 
 import net.grapes.hexalia.HexaliaMod;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class ModTags {
@@ -89,5 +91,16 @@ public class ModTags {
         private static TagKey<Block> externalBlockTag(String modId, String path) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(modId, path));
         }
+    }
+
+    public static class Biomes {
+        public static final TagKey<Biome> HAS_MANDRAKES = TagKey.create(Registries.BIOME,
+                ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID, "has_mandrakes"));
+        public static final TagKey<Biome> HAS_DREAMSHROOMS = TagKey.create(Registries.BIOME,
+                ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID, "has_dreamshrooms"));
+        public static final TagKey<Biome> HAS_SIREN_KELP = TagKey.create(Registries.BIOME,
+                ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID, "has_siren_kelp"));
+        public static final TagKey<Biome> HAS_GHOST_FERNS = TagKey.create(Registries.BIOME,
+                ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID, "has_ghost_ferns"));
     }
 }

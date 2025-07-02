@@ -3,6 +3,8 @@ package net.grapes.hexalia.block.entity;
 import net.grapes.hexalia.HexaliaMod;
 import net.grapes.hexalia.block.ModBlocks;
 import net.grapes.hexalia.block.entity.custom.*;
+import net.grapes.hexalia.block.entity.wood.ModHangingSignBlockEntity;
+import net.grapes.hexalia.block.entity.wood.ModSignBlockEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -31,6 +33,31 @@ public class ModBlockEntityTypes {
             () -> BlockEntityType.Builder.of(AstrylisBlockEntity::new, ModBlocks.ASTRYLIS.get()).build(null));
     public static final Supplier<BlockEntityType<WindsongBlockEntity>> WINDSONG = BLOCK_ENTITY_TYPE.register("windsong",
             () -> BlockEntityType.Builder.of(WindsongBlockEntity::new, ModBlocks.WINDSONG.get()).build(null));
+
+    // Mod Signs
+    public static final Supplier<BlockEntityType<ModSignBlockEntity>> MOD_SIGN = BLOCK_ENTITY_TYPE.register(
+            "mod_sign",
+            () -> BlockEntityType.Builder.of(
+                            ModSignBlockEntity::new,
+                            ModBlocks.WILLOW_SIGN.get(),
+                            ModBlocks.WILLOW_WALL_SIGN.get(),
+                            ModBlocks.COTTONWOOD_SIGN.get(),
+                            ModBlocks.COTTONWOOD_WALL_SIGN.get()
+                    )
+                    .build(null)
+    );
+
+    public static final Supplier<BlockEntityType<ModHangingSignBlockEntity>> MOD_HANGING_SIGN = BLOCK_ENTITY_TYPE.register(
+            "mod_hanging_sign",
+            () -> BlockEntityType.Builder.of(
+                            ModHangingSignBlockEntity::new,
+                            ModBlocks.WILLOW_HANGING_SIGN.get(),
+                            ModBlocks.WILLOW_HANGING_WALL_SIGN.get(),                            
+                            ModBlocks.COTTONWOOD_HANGING_SIGN.get(),
+                            ModBlocks.COTTONWOOD_HANGING_WALL_SIGN.get()
+                    )
+                    .build(null)
+    );
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITY_TYPE.register(eventBus);

@@ -1,6 +1,8 @@
 package net.grapes.hexalia.datagen;
 
 import net.grapes.hexalia.HexaliaMod;
+import net.grapes.hexalia.datagen.loot.GlobalLootModifier;
+import net.grapes.hexalia.datagen.loot.ModBlockLootTableProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
@@ -31,8 +33,11 @@ public class DataGenerator {
         BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTagsProvider);
         generator.addProvider(event.includeServer(), new ModItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
-
+        generator.addProvider(event.includeServer(), new GlobalLootModifier(packOutput, lookupProvider));
         generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeServer(), new DataMapGenerator(packOutput, lookupProvider));
+        event.getGenerator().addProvider(event.includeServer(), new ModBiomeTagsProvider(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
     }
 }

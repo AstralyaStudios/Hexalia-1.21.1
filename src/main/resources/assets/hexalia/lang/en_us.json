@@ -268,5 +268,10 @@
   "block.hexalia.willow_hanging_sign": "Willow Hanging Sign",
 
   "item.hexalia.verdant_grimoire": "Verdant Grimoire",
-  "item.hexalia.verdant_grimoire.landing_text": "A well-detailed book is your trusted tool in matters of witchcraft and plant care."
+  "item.hexalia.verdant_grimoire.landing_text": "A detailed book is your trusted tool in matters of witchcraft and plant care.",
+
+  "jei.info.wild_sunfire_tomatoes": "Found in savannas or Barren Huts.",
+  "jei.info.wild_mandrakes": "Found in forests.",
+  "jei.info.saltsprout": "Found in Barren Huts.",
+  "jei.info.chillberry_bushes": "Found in taigas."
 }

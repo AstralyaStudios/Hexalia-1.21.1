@@ -1,0 +1,103 @@
+{
+  "values": {
+    "hexalia:astrylis": {
+      "chance": 0.3
+    },
+    "hexalia:begonia": {
+      "chance": 0.3
+    },
+    "hexalia:celestial_bloom": {
+      "chance": 0.3
+    },
+    "hexalia:chillberries": {
+      "chance": 0.3
+    },
+    "hexalia:cottonwood_leaves": {
+      "chance": 0.3
+    },
+    "hexalia:cottonwood_sapling": {
+      "chance": 0.3
+    },
+    "hexalia:dahlia": {
+      "chance": 0.3
+    },
+    "hexalia:dreamshroom": {
+      "chance": 0.3
+    },
+    "hexalia:duckweed": {
+      "chance": 0.3
+    },
+    "hexalia:galeberries": {
+      "chance": 0.3
+    },
+    "hexalia:ghost_fern": {
+      "chance": 0.3
+    },
+    "hexalia:grimshade": {
+      "chance": 0.3
+    },
+    "hexalia:henbane": {
+      "chance": 0.3
+    },
+    "hexalia:hexed_bulrush": {
+      "chance": 0.3
+    },
+    "hexalia:lavender": {
+      "chance": 0.3
+    },
+    "hexalia:lotus_flower": {
+      "chance": 0.3
+    },
+    "hexalia:mandrake": {
+      "chance": 0.3
+    },
+    "hexalia:mandrake_seeds": {
+      "chance": 0.3
+    },
+    "hexalia:morphora": {
+      "chance": 0.3
+    },
+    "hexalia:nautilite": {
+      "chance": 0.3
+    },
+    "hexalia:nightshade_bush": {
+      "chance": 0.3
+    },
+    "hexalia:pale_mushroom": {
+      "chance": 0.3
+    },
+    "hexalia:rabbage": {
+      "chance": 0.3
+    },
+    "hexalia:rabbage_seeds": {
+      "chance": 0.3
+    },
+    "hexalia:saltsprout": {
+      "chance": 0.3
+    },
+    "hexalia:siren_kelp": {
+      "chance": 0.3
+    },
+    "hexalia:spirit_bloom": {
+      "chance": 0.3
+    },
+    "hexalia:sunfire_tomato": {
+      "chance": 0.3
+    },
+    "hexalia:sunfire_tomato_seeds": {
+      "chance": 0.3
+    },
+    "hexalia:willow_leaves": {
+      "chance": 0.3
+    },
+    "hexalia:willow_sapling": {
+      "chance": 0.3
+    },
+    "hexalia:windsong": {
+      "chance": 0.3
+    },
+    "hexalia:witchweed": {
+      "chance": 0.3
+    }
+  }
+}

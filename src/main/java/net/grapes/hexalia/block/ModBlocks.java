@@ -2,7 +2,11 @@ package net.grapes.hexalia.block;
 
 import net.grapes.hexalia.HexaliaMod;
 import net.grapes.hexalia.block.custom.*;
+import net.grapes.hexalia.block.custom.wood.*;
+import net.grapes.hexalia.effect.ModMobEffects;
 import net.grapes.hexalia.item.ModItems;
+import net.grapes.hexalia.util.ModWoodTypes;
+import net.grapes.hexalia.worldgen.tree.ModTreeGrower;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -73,19 +77,19 @@ public class ModBlocks {
 
     // Decorative Flowers
     public static final DeferredBlock<Block> HENBANE = registerBlock("henbane",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+            () -> new FlowerBlock(MobEffects.ABSORPTION, 6, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
     public static final DeferredBlock<Block> POTTED_HENBANE = BLOCKS.register("potted_henbane",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), HENBANE, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
     public static final DeferredBlock<Block> BEGONIA = registerBlock("begonia",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+            () -> new FlowerBlock(MobEffects.REGENERATION, 6, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
     public static final DeferredBlock<Block> POTTED_BEGONIA = BLOCKS.register("potted_begonia",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), BEGONIA, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
     public static final DeferredBlock<Block> LAVENDER = registerBlock("lavender",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+            () -> new FlowerBlock(MobEffects.LUCK, 6, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
     public static final DeferredBlock<Block> POTTED_LAVENDER = BLOCKS.register("potted_lavender",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), LAVENDER, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
     public static final DeferredBlock<Block> DAHLIA = registerBlock("dahlia",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+            () -> new FlowerBlock(MobEffects.DAMAGE_BOOST, 6, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
     public static final DeferredBlock<Block> POTTED_DAHLIA = BLOCKS.register("potted_dahlia",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), DAHLIA, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
 
@@ -103,7 +107,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> HEXED_BULRUSH = registerBlock("hexed_bulrush",
             () -> new HexedBulrushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY).lightLevel(state -> 4)));
     public static final DeferredBlock<Block> NIGHTSHADE_BUSH = registerBlock("nightshade_bush",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+            () -> new FlowerBlock(MobEffects.POISON, 6, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
     public static final DeferredBlock<Block> POTTED_NIGHTSHADE_BUSH = BLOCKS.register("potted_nightshade_bush",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), NIGHTSHADE_BUSH, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
     
@@ -115,7 +119,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> RABBAGE_CROP = BLOCKS.register("rabbage_crop",
             () -> new RabbageCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POTATOES)));
     public static final DeferredBlock<Block> WILD_MANDRAKE = registerBlock("wild_mandrake",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+            () -> new FlowerBlock(ModMobEffects.STUNNED, 6, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
     public static final DeferredBlock<Block> WILD_SUNFIRE_TOMATO = registerBlock("wild_sunfire_tomato",
             () -> new WildSunfireTomatoBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
     public static final DeferredBlock<Block> CHILLBERRY_BUSH = BLOCKS.register("chillberry_bush",
@@ -164,19 +168,19 @@ public class ModBlocks {
             () -> new CatkinBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).strength(0.2f)
                     .noCollission().noOcclusion()));
     public static final DeferredBlock<Block> COTTONWOOD_LEAVES = registerBlock("cottonwood_leaves",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).strength(0.2f)));
+            () -> new Block(BlockBehaviour.Properties.of().noOcclusion()));
     public static final DeferredBlock<Block> COTTONWOOD_SAPLING = registerBlock("cottonwood_sapling",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).strength(0.2f)));
+            () -> new SaplingBlock(ModTreeGrower.COTTONWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).strength(0.2f)));
     public static final DeferredBlock<Block> POTTED_COTTONWOOD_SAPLING = BLOCKS.register("potted_cottonwood_sapling",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), COTTONWOOD_SAPLING, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
     public static final DeferredBlock<Block> COTTONWOOD_LOG = registerBlock("cottonwood_log",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> STRIPPED_COTTONWOOD_LOG = registerBlock("stripped_cottonwood_log",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> COTTONWOOD_WOOD = registerBlock("cottonwood_wood",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> STRIPPED_COTTONWOOD_WOOD = registerBlock("stripped_cottonwood_wood",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> COTTONWOOD_PLANKS = registerBlock("cottonwood_planks",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> COTTONWOOD_STAIRS = registerBlock("cottonwood_stairs",
@@ -196,30 +200,30 @@ public class ModBlocks {
     public static final DeferredBlock<Block> COTTONWOOD_DOOR = registerBlock("cottonwood_door",
             () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR).noOcclusion()));
     public static final DeferredBlock<Block> COTTONWOOD_SIGN = BLOCKS.register("cottonwood_sign",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModStandingSignBlock(ModWoodTypes.COTTONWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> COTTONWOOD_WALL_SIGN  = BLOCKS.register("cottonwood_wall_sign",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModWallSignBlock(ModWoodTypes.COTTONWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> COTTONWOOD_HANGING_SIGN  = BLOCKS.register("cottonwood_hanging_sign",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModHangingSignBlock(ModWoodTypes.COTTONWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> COTTONWOOD_HANGING_WALL_SIGN = BLOCKS.register("cottonwood_hanging_wall_sign",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModWallHangingSignBlock(ModWoodTypes.COTTONWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
 
     public static final DeferredBlock<Block> WILLOW_LEAVES = registerBlock("willow_leaves",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).strength(0.2f)));
+            () -> new Block(BlockBehaviour.Properties.of().noOcclusion()));
     public static final DeferredBlock<Block> WILLOW_SAPLING = registerBlock("willow_sapling",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).strength(0.2f)));
+            () -> new SaplingBlock(ModTreeGrower.WILLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).strength(0.2f)));
     public static final DeferredBlock<Block> POTTED_WILLOW_SAPLING = BLOCKS.register("potted_willow_sapling",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), WILLOW_SAPLING, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
     public static final DeferredBlock<Block> WILLOW_LOG = registerBlock("willow_log",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> STRIPPED_WILLOW_LOG = registerBlock("stripped_willow_log",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> WILLOW_MOSSY_WOOD = registerBlock("willow_mossy_wood",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> WILLOW_WOOD = registerBlock("willow_wood",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> STRIPPED_WILLOW_WOOD = registerBlock("stripped_willow_wood",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> WILLOW_PLANKS = registerBlock("willow_planks",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> WILLOW_STAIRS = registerBlock("willow_stairs",
@@ -239,13 +243,13 @@ public class ModBlocks {
     public static final DeferredBlock<Block> WILLOW_DOOR = registerBlock("willow_door",
             () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR).noOcclusion()));
     public static final DeferredBlock<Block> WILLOW_SIGN = BLOCKS.register("willow_sign",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModStandingSignBlock(ModWoodTypes.WILLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> WILLOW_WALL_SIGN  = BLOCKS.register("willow_wall_sign",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModWallSignBlock(ModWoodTypes.WILLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> WILLOW_HANGING_SIGN  = BLOCKS.register("willow_hanging_sign",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModHangingSignBlock(ModWoodTypes.WILLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> WILLOW_HANGING_WALL_SIGN = BLOCKS.register("willow_hanging_wall_sign",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+            () -> new ModWallHangingSignBlock(ModWoodTypes.WILLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

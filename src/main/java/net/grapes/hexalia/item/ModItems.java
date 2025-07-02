@@ -2,7 +2,9 @@ package net.grapes.hexalia.item;
 
 import net.grapes.hexalia.HexaliaMod;
 import net.grapes.hexalia.block.ModBlocks;
+import net.grapes.hexalia.block.custom.wood.ModBoatItem;
 import net.grapes.hexalia.effect.ModMobEffects;
+import net.grapes.hexalia.entity.boat.ModBoatEntity;
 import net.grapes.hexalia.item.custom.*;
 import net.grapes.hexalia.util.ModToolTiers;
 import net.minecraft.ChatFormatting;
@@ -38,7 +40,8 @@ public class ModItems {
             MandrakeItem::new, new Item.Properties());
     public static final DeferredItem<Item> MANDRAKE_SEEDS = ITEMS.register("mandrake_seeds",
             () -> new BlockItem(ModBlocks.MANDRAKE_CROP.get(), new Item.Properties()));
-    public static final DeferredItem<Item> RABBAGE = ITEMS.registerSimpleItem("rabbage");
+    public static final DeferredItem<Item> RABBAGE = ITEMS.registerItem("rabbage",
+            RabbageItem::new, new Item.Properties());
     public static final DeferredItem<Item> RABBAGE_SEEDS = ITEMS.register("rabbage_seeds",
             () -> new BlockItem(ModBlocks.RABBAGE_CROP.get(), new Item.Properties()));
     public static final DeferredItem<Item> CHILLBERRIES = ITEMS.register("chillberries",
@@ -82,7 +85,7 @@ public class ModItems {
     public static final DeferredItem<Item> PURIFYING_SALTS = ITEMS.registerItem("purifying_salts",
             PurifyingSaltsItem::new, new Item.Properties().durability(6));
     public static final DeferredItem<Item> SAGE_PENDANT = ITEMS.registerItem("sage_pendant",
-            Item::new, new Item.Properties().rarity(Rarity.UNCOMMON));
+            Item::new, new Item.Properties().rarity(Rarity.UNCOMMON).durability(64));
     public static final DeferredItem<Item> SILK_IDOL = ITEMS.registerSimpleItem("silk_idol");
     public static final DeferredItem<Item> CLEAR_IDOL = ITEMS.registerItem("clear_idol",
             WeatherIdol::new, new Item.Properties());
@@ -131,6 +134,26 @@ public class ModItems {
                     Component.translatable("tooltip.hexalia.arachnid_grace").withStyle(ChatFormatting.BLUE)));
     public static final DeferredItem<Item> BREW_OF_HOMESTEAD = ITEMS.registerItem("brew_of_homestead",
             HomesteadBrewItem::new, new Item.Properties());
+
+    // Wood-Related Items
+    public static final DeferredItem<Item> WILLOW_BOAT = ITEMS.register("willow_boat",
+            () -> new ModBoatItem(false, ModBoatEntity.Type.WILLOW, new Item.Properties()));
+    public static final DeferredItem<Item> WILLOW_CHEST_BOAT = ITEMS.register("willow_chest_boat",
+            () -> new ModBoatItem(true, ModBoatEntity.Type.WILLOW, new Item.Properties()));
+    public static final DeferredItem<Item> COTTONWOOD_BOAT = ITEMS.register("cottonwood_boat",
+            () -> new ModBoatItem(false, ModBoatEntity.Type.COTTONWOOD, new Item.Properties()));
+    public static final DeferredItem<Item> COTTONWOOD_CHEST_BOAT = ITEMS.register("cottonwood_chest_boat",
+            () -> new ModBoatItem(true, ModBoatEntity.Type.COTTONWOOD, new Item.Properties()));
+
+    public static final DeferredItem<Item> WILLOW_SIGN = ITEMS.register("willow_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.WILLOW_SIGN.get(), ModBlocks.WILLOW_WALL_SIGN.get()));
+    public static final DeferredItem<Item> COTTONWOOD_SIGN = ITEMS.register("cottonwood_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.COTTONWOOD_SIGN.get(), ModBlocks.COTTONWOOD_WALL_SIGN.get()));
+
+    public static final DeferredItem<Item> WILLOW_HANGING_SIGN = ITEMS.register("willow_hanging_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.WILLOW_HANGING_SIGN.get(), ModBlocks.WILLOW_HANGING_WALL_SIGN.get()));
+    public static final DeferredItem<Item> COTTONWOOD_HANGING_SIGN = ITEMS.register("cottonwood_hanging_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.COTTONWOOD_HANGING_SIGN.get(), ModBlocks.COTTONWOOD_HANGING_WALL_SIGN.get()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

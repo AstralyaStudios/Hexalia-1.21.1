@@ -1,4 +1,4 @@
-// 1.21.1	2025-06-27T20:49:47.2252902	Recipes
+// 1.21.1	2025-07-02T17:25:23.0081454	Recipes
 c327f3ba4eafb4c21dbb4104a1bc4c1d661f542a data/hexalia/advancement/recipes/brewing/rustic_bottle.json
 a8312b0bfae801aa7103827a4307c5c829b7dbf1 data/hexalia/advancement/recipes/building_blocks/celestial_crystal_block.json
 e15994b53b3dfc7b695ca1c1c4e0cf392e20aaa3 data/hexalia/advancement/recipes/building_blocks/cottonwood_planks.json
@@ -13,6 +13,8 @@ bc983f4930ae62d9dab0ed97fa1487a31b4288a0 data/hexalia/advancement/recipes/combat
 00471ca5da819bbb74159d665fcfad61cd5826c4 data/hexalia/advancement/recipes/decorations/candle_skull.json
 4050d3d45a0fb353eda93d1cee13d8d6b63ac7ef data/hexalia/advancement/recipes/decorations/censer.json
 d0cd4c8dcd81c0c91a1cc910d9026bbd0b1f6d2a data/hexalia/advancement/recipes/decorations/cottonwood_fence.json
+0201bd54347bac5d6e5b756f45e9ba272afa6c9f data/hexalia/advancement/recipes/decorations/cottonwood_hanging_sign.json
+475cc2abb594f9281b691c8e58401cf4f6e0c80d data/hexalia/advancement/recipes/decorations/cottonwood_sign.json
 d8a6a7c6d04e1f9b4f906b7185fcc2c6dbabf215 data/hexalia/advancement/recipes/decorations/cottonwood_slab.json
 cb14192a314def93f69b44b4257af87624b2c782 data/hexalia/advancement/recipes/decorations/dreamcatcher.json
 86e134b6c963c8502476a2aa0ba62ffc7391fbfc data/hexalia/advancement/recipes/decorations/infused_dirt.json
@@ -20,6 +22,8 @@ cb14192a314def93f69b44b4257af87624b2c782 data/hexalia/advancement/recipes/decora
 1ec5d543b6dc6eb8fdd16cd9d6d668db5e5fd2d3 data/hexalia/advancement/recipes/decorations/salt_lamp.json
 3b9db7e3b50367e515755a4e01a312aa23ab0cf7 data/hexalia/advancement/recipes/decorations/shelf.json
 df0dc88aace01e57edb9b2ac128e45908be746aa data/hexalia/advancement/recipes/decorations/willow_fence.json
+d5136d1e9675c9db87cc109ac8b1ac45515711a5 data/hexalia/advancement/recipes/decorations/willow_hanging_sign.json
+b9027e330a1edad3eed58b21f7c71ff4d1383cf7 data/hexalia/advancement/recipes/decorations/willow_sign.json
 192c1df5e3a4d9ef9a43f37ef3e82695db5646f1 data/hexalia/advancement/recipes/decorations/willow_slab.json
 60e7cad333df0e759141fd611325d2e4100e69e8 data/hexalia/advancement/recipes/decorations/wither_candle_skull.json
 48fe9549afeab610aa84d6d55cd0f9149cb090b3 data/hexalia/advancement/recipes/food/chillberry_pie.json
@@ -94,8 +98,10 @@ f29ba4137a276fca1040b1001146ee1b49d76fca data/hexalia/recipe/cottonwood_button.j
 31a61cf5fcb447f21079f93ccc078bca53b63ea3 data/hexalia/recipe/cottonwood_door.json
 fa9acaa620226c60344aa69f71cc2c1711214fd7 data/hexalia/recipe/cottonwood_fence.json
 57044ed3e7bb3b533fb0c88222a77c0b8639d2a1 data/hexalia/recipe/cottonwood_fence_gate.json
+a0b145e53141703e9510ea03929369f9672c4c6a data/hexalia/recipe/cottonwood_hanging_sign.json
 db0963fd3ef94aa92a0c2b74ec0385d0e30f2842 data/hexalia/recipe/cottonwood_planks.json
 029cfabe2f72cde22da3a4157bdc9d838512940f data/hexalia/recipe/cottonwood_pressure_plate.json
+aeaf96fd3ad6743fd189b0f0e3719ed2f2c86eb1 data/hexalia/recipe/cottonwood_sign.json
 8505fdd22f355c8c4a4933ee57384bac50a0f323 data/hexalia/recipe/cottonwood_slab.json
 8c1d9a6ffbde9426e179bc43c0d301ab36a33ffd data/hexalia/recipe/cottonwood_stairs.json
 b7b065812fe620272bef121da5f4f39173ddcaef data/hexalia/recipe/cottonwood_trapdoor.json
@@ -138,8 +144,10 @@ f7b6b9dc95666f1bd8b5adebe45b5958f697ae90 data/hexalia/recipe/storm_idol.json
 a3d19beb3a2847806e8b4a1af5c4ef5b6558f60e data/hexalia/recipe/willow_door.json
 ea9dcc61411511981919646b462f4bd64fb01c1b data/hexalia/recipe/willow_fence.json
 350a1cff03b104b06a52e64a75c587a08d30ae73 data/hexalia/recipe/willow_fence_gate.json
+3865fc8141066669dee36691caac3761c3360fb5 data/hexalia/recipe/willow_hanging_sign.json
 59a3b9997157865f2a0ce4a006bcd178f0e8617f data/hexalia/recipe/willow_planks.json
 aa105491265885a9ea4f3d2b799a60dc5e42f881 data/hexalia/recipe/willow_pressure_plate.json
+1070662f9b5e05b8ae880f503fec66997b3d32fc data/hexalia/recipe/willow_sign.json
 8422724ff53933290ef25434ba50ad2b7a86828c data/hexalia/recipe/willow_slab.json
 111e69bbc1ed1b2cd52809ec8f378282f9728f0c data/hexalia/recipe/willow_stairs.json
 168c5155a3aae6793e7709d4a4d4cd52683eca87 data/hexalia/recipe/willow_trapdoor.json

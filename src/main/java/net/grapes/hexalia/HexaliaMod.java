@@ -6,14 +6,23 @@ import net.grapes.hexalia.block.entity.renderer.RitualBrazierBlockEntityRenderer
 import net.grapes.hexalia.block.entity.renderer.RitualTableBlockEntityRenderer;
 import net.grapes.hexalia.block.entity.renderer.ShelfBlockEntityRenderer;
 import net.grapes.hexalia.effect.ModMobEffects;
+import net.grapes.hexalia.entity.ModEntities;
+import net.grapes.hexalia.entity.boat.ModBoatRenderer;
 import net.grapes.hexalia.item.ModCreativeModeTabs;
 import net.grapes.hexalia.item.ModItems;
 import net.grapes.hexalia.effect.ModEffectCure;
+import net.grapes.hexalia.loot.ModLootModifiers;
 import net.grapes.hexalia.particle.ModParticleType;
 import net.grapes.hexalia.recipe.ModRecipes;
 import net.grapes.hexalia.screen.ModMenuTypes;
 import net.grapes.hexalia.screen.custom.SmallCauldronScreen;
 import net.grapes.hexalia.sound.ModSoundEvents;
+import net.grapes.hexalia.util.ModWoodTypes;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
@@ -52,6 +61,8 @@ public class HexaliaMod {
         ModBlockEntityTypes.register(modEventBus);
         ModMenuTypes.register(modEventBus);
         ModRecipes.register(modEventBus);
+        ModEntities.register(modEventBus);
+        ModLootModifiers.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -66,19 +77,21 @@ public class HexaliaMod {
 
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        // Do something when the server starts
         LOGGER.info("HELLO from server starting");
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            EntityRenderers.register(ModEntities.RABBAGE.get(), ThrownItemRenderer::new);
+            EntityRenderers.register(ModEntities.MOD_BOAT.get(), context -> new ModBoatRenderer(context, false));
+            EntityRenderers.register(ModEntities.MOD_CHEST_BOAT.get(), context -> new ModBoatRenderer(context, true));
 
+            Sheets.addWoodType(ModWoodTypes.COTTONWOOD);
+            Sheets.addWoodType(ModWoodTypes.WILLOW);
         }
 
         @SubscribeEvent
@@ -86,6 +99,8 @@ public class HexaliaMod {
             event.registerBlockEntityRenderer(ModBlockEntityTypes.RITUAL_TABLE.get(), RitualTableBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntityTypes.RITUAL_BRAZIER.get(), RitualBrazierBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntityTypes.SHELF.get(), ShelfBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntityTypes.MOD_SIGN.get(), SignRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntityTypes.MOD_HANGING_SIGN.get(), HangingSignRenderer::new);
         }
 
         @SubscribeEvent

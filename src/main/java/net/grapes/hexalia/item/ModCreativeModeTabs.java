@@ -149,10 +149,10 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.COTTONWOOD_TRAPDOOR.get());
                 output.accept(ModBlocks.COTTONWOOD_PRESSURE_PLATE.get());
                 output.accept(ModBlocks.COTTONWOOD_BUTTON.get());
-                /*output.accept(ModItems.COTTONWOOD_SIGN.get());
+                output.accept(ModItems.COTTONWOOD_SIGN.get());
                 output.accept(ModItems.COTTONWOOD_HANGING_SIGN.get());
                 output.accept(ModItems.COTTONWOOD_BOAT.get());
-                output.accept(ModItems.COTTONWOOD_CHEST_BOAT.get());*/
+                output.accept(ModItems.COTTONWOOD_CHEST_BOAT.get());
 
                 output.accept(ModBlocks.WILLOW_SAPLING.get());
                 output.accept(ModBlocks.WILLOW_LEAVES.get());
@@ -170,12 +170,12 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.WILLOW_TRAPDOOR.get());
                 output.accept(ModBlocks.WILLOW_PRESSURE_PLATE.get());
                 output.accept(ModBlocks.WILLOW_BUTTON.get());
-                /*output.accept(ModItems.WILLOW_SIGN.get());
+                output.accept(ModItems.WILLOW_SIGN.get());
                 output.accept(ModItems.WILLOW_HANGING_SIGN.get());
                 output.accept(ModItems.WILLOW_BOAT.get());
                 output.accept(ModItems.WILLOW_CHEST_BOAT.get());
 
-                output.accept(ModItems.SILK_MOTH_SPAWN_EGG.get());*/
+                //output.accept(ModItems.SILK_MOTH_SPAWN_EGG.get());
             })
             .build());
 

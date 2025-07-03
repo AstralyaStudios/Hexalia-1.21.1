@@ -6,7 +6,11 @@
 	"refmap": "mixins.hexalia.refmap.json",
 	"mixins": [
 		"LivingEntityMixin",
-		"CobwebMixin"
+		"CobwebMixin",
+		"AnvilMixin",
+		"FishingHookMixin",
+		"MobMixin",
+		"ItemCombinerMenuAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -151,7 +151,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> RITUAL_BRAZIER = registerBlock("ritual_brazier",
             () -> new RitualBrazierBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> CENSER = registerBlock("censer",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+            () -> new CenserBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAMPFIRE).noOcclusion()));
     public static final DeferredBlock<Block> DREAMCATCHER = registerBlock("dreamcatcher",
             () -> new DreamcatcherBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
     

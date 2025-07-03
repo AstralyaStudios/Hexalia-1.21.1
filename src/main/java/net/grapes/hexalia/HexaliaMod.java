@@ -2,6 +2,7 @@ package net.grapes.hexalia;
 
 import net.grapes.hexalia.block.entity.ModBlockEntityTypes;
 import net.grapes.hexalia.block.ModBlocks;
+import net.grapes.hexalia.block.entity.renderer.CenserBlockEntityRenderer;
 import net.grapes.hexalia.block.entity.renderer.RitualBrazierBlockEntityRenderer;
 import net.grapes.hexalia.block.entity.renderer.RitualTableBlockEntityRenderer;
 import net.grapes.hexalia.block.entity.renderer.ShelfBlockEntityRenderer;
@@ -99,6 +100,8 @@ public class HexaliaMod {
             event.registerBlockEntityRenderer(ModBlockEntityTypes.RITUAL_TABLE.get(), RitualTableBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntityTypes.RITUAL_BRAZIER.get(), RitualBrazierBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntityTypes.SHELF.get(), ShelfBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntityTypes.CENSER.get(), CenserBlockEntityRenderer::new);
+
             event.registerBlockEntityRenderer(ModBlockEntityTypes.MOD_SIGN.get(), SignRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntityTypes.MOD_HANGING_SIGN.get(), HangingSignRenderer::new);
         }

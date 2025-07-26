@@ -202,9 +202,10 @@
   "advancements.hexalia.daybloom_brew.title": "Sun's Favor",
   "advancements.hexalia.daybloom_brew.description": "Drink the Brew of Daybloom and receive its effects.",
 
-  "message.hexalia.ritual.missing_ingredients": "The ritual has failed due to missing ingredients.",
   "message.hexalia.ritual.invalid_crops": "Natural energy is weak; fully grown crops are missing.",
-  "message.hexalia.ritual.missing_salt": "The ritual braziers must have salt to perform the ritual.",
+  "message.hexalia.ritual.missing_salt": "The braziers lack the salt to channel energy.",
+  "message.hexalia.ritual.wrong_recipe": "The ritual ingredients resonate incorrectly.",
+  "message.hexalia.ritual.stopped_ritual": "The ritual falters as an item is removed.",
   "message.hexalia.rain_idol": "The skies darken as rain begins to fall...",
   "message.hexalia.clear_idol": "The clouds part, revealing a clear sky...",
   "message.hexalia.storm_idol": "The skies roars as thunders begin to clash...",

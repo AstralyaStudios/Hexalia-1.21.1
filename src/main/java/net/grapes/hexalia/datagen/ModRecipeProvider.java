@@ -1,7 +1,9 @@
 package net.grapes.hexalia.datagen;
 
+import net.grapes.hexalia.HexaliaMod;
 import net.grapes.hexalia.block.ModBlocks;
 import net.grapes.hexalia.datagen.custom.RitualBrazierRecipeBuilder;
+import net.grapes.hexalia.datagen.custom.RitualTableRecipeBuilder;
 import net.grapes.hexalia.datagen.custom.SmallCauldronRecipeBuilder;
 import net.grapes.hexalia.item.ModItems;
 import net.grapes.hexalia.util.ModTags;
@@ -497,6 +499,116 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedByItem("has_rustic_bottle", ModItems.RUSTIC_BOTTLE.get())
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "brew_of_arachnid_grace_from_small_cauldron"));
 
+        // Ritual Table Recipes
+
+        RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModBlocks.GRIMSHADE.get()))
+                .addIngredient(Items.AZURE_BLUET)
+                .addIngredient(ModItems.GHOST_POWDER.get())
+                .addIngredient(Items.WITHER_ROSE)
+                .addIngredient(Items.BONE)
+                .addIngredient(Items.BLACK_DYE)
+                .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "grimshade_from_ritual_table"));
+
+        RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.RABBAGE_SEEDS.get()))
+                .addIngredient(Items.BEETROOT_SEEDS)
+                .addIngredient(ModItems.DREAM_PASTE.get())
+                .addIngredient(Items.IRON_NUGGET)
+                .addIngredient(Items.SWEET_BERRIES)
+                .addIngredient(Items.POPPY)
+                .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "rabbage_seeds_from_ritual_table"));
+
+        RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.SAGE_PENDANT.get()))
+                .addIngredient(ModItems.CELESTIAL_CRYSTAL.get())
+                .addIngredient(ModItems.SPIRIT_POWDER.get())
+                .addIngredient(Items.GOLD_NUGGET)
+                .addIngredient(Items.BOOK)
+                .addIngredient(Items.EXPERIENCE_BOTTLE)
+                .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "sage_pendant_from_ritual_table"));
+
+        RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModBlocks.MORPHORA.get()))
+                .addIngredient(Items.POPPY)
+                .addIngredient(ModItems.DREAM_PASTE.get())
+                .addIngredient(ModItems.SPIRIT_POWDER.get())
+                .addIngredient(ModItems.EARTH_NODE.get())
+                .addIngredient(ModItems.TREE_RESIN.get())
+                .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "morphora_from_ritual_table"));
+
+        RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.KELPWEAVE_BLADE.get()))
+                .addIngredient(ModItems.SIREN_PASTE.get())
+                .addIngredient(ModItems.WATER_NODE.get())
+                .addIngredient(Items.IRON_NUGGET)
+                .addIngredient(Items.KELP)
+                .addIngredient(ModItems.ANCIENT_SEED.get())
+                .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "kelpweave_blade_from_ritual_table"));
+
+        RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModBlocks.NAUTILITE.get()))
+                .addIngredient(Items.KELP)
+                .addIngredient(ModItems.SIREN_PASTE.get())
+                .addIngredient(ModItems.WATER_NODE.get())
+                .addIngredient(Items.NAUTILUS_SHELL)
+                .addIngredient(Items.PRISMARINE_CRYSTALS)
+                .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "nautilite_from_ritual_table"));
+
+        RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModBlocks.WINDSONG.get()))
+                .addIngredient(Items.OXEYE_DAISY)
+                .addIngredient(ModItems.AIR_NODE.get())
+                .addIngredient(ModItems.GHOST_POWDER.get())
+                .addIngredient(Items.FEATHER)
+                .addIngredient(Items.PHANTOM_MEMBRANE)
+                .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "windsong_from_ritual_table"));
+
+        RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModBlocks.ASTRYLIS.get()))
+                .addIngredient(Items.LILY_OF_THE_VALLEY)
+                .addIngredient(ModItems.CELESTIAL_CRYSTAL.get())
+                .addIngredient(ModItems.EARTH_NODE.get())
+                .addIngredient(Items.BONE_MEAL)
+                .addIngredient(Items.GLOWSTONE_DUST)
+                .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "astrylis_from_ritual_table"));
+
+        RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.FIRE_NODE.get()))
+                .addIngredient(Items.AMETHYST_SHARD)
+                .addIngredient(Items.COAL)
+                .addIngredient(ModItems.SUNFIRE_TOMATO.get())
+                .addIngredient(Items.GUNPOWDER)
+                .addIngredient(Items.SUNFLOWER)
+                .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "fire_node_from_ritual_table"));
+
+        RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.AIR_NODE.get()))
+                .addIngredient(Items.AMETHYST_SHARD)
+                .addIngredient(Items.FEATHER)
+                .addIngredient(Items.GLASS_BOTTLE)
+                .addIngredient(Items.STRING)
+                .addIngredient(Items.DANDELION)
+                .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "air_node_from_ritual_table"));
+
+        RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.WATER_NODE.get()))
+                .addIngredient(Items.AMETHYST_SHARD)
+                .addIngredient(Items.LILY_PAD)
+                .addIngredient(ModItems.SIREN_PASTE.get())
+                .addIngredient(Items.PRISMARINE_SHARD)
+                .addIngredient(Items.INK_SAC)
+                .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "water_node_from_ritual_table"));
+
+        RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.EARTH_NODE.get()))
+                .addIngredient(Items.AMETHYST_SHARD)
+                .addIngredient(ModItems.TREE_RESIN.get())
+                .addIngredient(Items.CLAY_BALL)
+                .addIngredient(Items.FLINT)
+                .addIngredient(ModItems.MANDRAKE.get())
+                .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "earth_node_from_ritual_table"));
+        
         // Recipes for Wood-related Blocks
         planksFromLog(recipeOutput, ModBlocks.COTTONWOOD_PLANKS.get(), ModTags.Items.COTTONWOOD_LOGS, 4);
 

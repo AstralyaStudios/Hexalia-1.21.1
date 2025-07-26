@@ -10,10 +10,12 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.grapes.hexalia.HexaliaMod;
 import net.grapes.hexalia.block.ModBlocks;
 import net.grapes.hexalia.compat.jei.category.RitualBrazierRecipeCategory;
+import net.grapes.hexalia.compat.jei.category.RitualTableRecipeCategory;
 import net.grapes.hexalia.compat.jei.category.SmallCauldronRecipeCategory;
 import net.grapes.hexalia.item.ModItems;
 import net.grapes.hexalia.recipe.ModRecipes;
 import net.grapes.hexalia.recipe.RitualBrazierRecipe;
+import net.grapes.hexalia.recipe.RitualTableRecipe;
 import net.grapes.hexalia.recipe.SmallCauldronRecipe;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
@@ -38,12 +40,14 @@ public class JEIPlugin implements IModPlugin {
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new SmallCauldronRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new RitualBrazierRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new RitualTableRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SMALL_CAULDRON.get()), SmallCauldronRecipeCategory.SMALL_CAULDRON_RECIPE_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.RITUAL_BRAZIER.get()), RitualBrazierRecipeCategory.RITUAL_BRAZIER_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.RITUAL_TABLE.get()), RitualTableRecipeCategory.RITUAL_TABLE_RECIPE_TYPE);
     }
 
     @Override
@@ -57,6 +61,10 @@ public class JEIPlugin implements IModPlugin {
         List<RitualBrazierRecipe> ritualBrazierRecipes = recipeManager
                 .getAllRecipesFor(ModRecipes.RITUAL_BRAZIER_TYPE.get()).stream().map(RecipeHolder::value).toList();
         registration.addRecipes(RitualBrazierRecipeCategory.RITUAL_BRAZIER_RECIPE_TYPE, ritualBrazierRecipes);
+
+        List<RitualTableRecipe> ritualTableRecipes = recipeManager
+                .getAllRecipesFor(ModRecipes.RITUAL_TABLE_TYPE.get()).stream().map(RecipeHolder::value).toList();
+        registration.addRecipes(RitualTableRecipeCategory.RITUAL_TABLE_RECIPE_TYPE, ritualTableRecipes);
 
         registration.addIngredientInfo(List.of(new ItemStack(ModBlocks.WILD_SUNFIRE_TOMATO.get()), new ItemStack(ModItems.SUNFIRE_TOMATO.get()),
                 new ItemStack(ModItems.SUNFIRE_TOMATO_SEEDS.get())), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.wild_sunfire_tomatoes"));

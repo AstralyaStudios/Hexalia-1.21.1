@@ -34,6 +34,16 @@ public class ModRecipes {
                 }
             });
 
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<RitualTableRecipe>> RITUAL_TABLE_SERIALIZER =
+            SERIALIZERS.register("ritual_table", RitualTableRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeType<?>, RecipeType<RitualTableRecipe>> RITUAL_TABLE_TYPE =
+            TYPES.register("ritual_table", () -> new RecipeType<RitualTableRecipe>() {
+                @Override
+                public String toString() {
+                    return "ritual_table";
+                }
+            });
+
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);
         TYPES.register(eventBus);

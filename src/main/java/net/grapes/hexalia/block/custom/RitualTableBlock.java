@@ -1,11 +1,18 @@
 package net.grapes.hexalia.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.grapes.hexalia.block.entity.custom.RitualBrazierBlockEntity;
 import net.grapes.hexalia.block.entity.custom.RitualTableBlockEntity;
+import net.grapes.hexalia.item.ModItems;
+import net.grapes.hexalia.recipe.ModRecipes;
+import net.grapes.hexalia.recipe.RitualTableRecipe;
+import net.grapes.hexalia.recipe.RitualTableRecipeInput;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
@@ -14,13 +21,14 @@ import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -30,12 +38,19 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RitualTableBlock extends BaseEntityBlock {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    private static final VoxelShape SHAPE = createShape();
+    private static final VoxelShape SHAPE = Shapes.or(
+            Shapes.box(0.1875, 0.0, 0.1875, 0.8125, 0.125, 0.8125),
+            Shapes.box(0.25, 0.125, 0.25, 0.75, 0.625, 0.75),
+            Shapes.box(0.1875, 0.625, 0.1875, 0.8125, 0.6875, 0.8125),
+            Shapes.box(0.125, 0.6875, 0.125, 0.875, 0.8125, 0.875)
+    );
 
     public static final MapCodec<RitualTableBlock> CODEC = simpleCodec(RitualTableBlock::new);
 
@@ -47,15 +62,6 @@ public class RitualTableBlock extends BaseEntityBlock {
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
-    }
-
-    private static VoxelShape createShape() {
-        return Shapes.or(
-                Shapes.box(0.1875, 0, 0.1875, 0.8125, 0.125, 0.8125),
-                Shapes.box(0.25, 0.125, 0.25, 0.75, 0.625, 0.75),
-                Shapes.box(0.1875, 0.625, 0.1875, 0.8125, 0.6875, 0.8125),
-                Shapes.box(0.125, 0.6875, 0.125, 0.875, 0.8125, 0.875)
-        );
     }
 
     @Override
@@ -79,15 +85,15 @@ public class RitualTableBlock extends BaseEntityBlock {
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new RitualTableBlockEntity(blockPos, blockState);
+    public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new RitualTableBlockEntity(pos, state);
     }
 
     @Override
-    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
         if (state.getBlock() != newState.getBlock()) {
-            if (level.getBlockEntity(pos) instanceof RitualTableBlockEntity ritualTableBlockEntity) {
-                Containers.dropContents(level, pos, ritualTableBlockEntity);
+            if (level.getBlockEntity(pos) instanceof RitualTableBlockEntity tableBE) {
+                Containers.dropContents(level, pos, tableBE);
                 level.updateNeighbourForOutputSignal(pos, this);
             }
         }
@@ -95,50 +101,168 @@ public class RitualTableBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                              Player player, InteractionHand hand, BlockHitResult hit) {
         if (hand != InteractionHand.MAIN_HAND) {
             return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
 
-        if (level.getBlockEntity(pos) instanceof RitualTableBlockEntity ritualTableBlockEntity) {
-            if (ritualTableBlockEntity.isEmpty() && !stack.isEmpty()) {
-                addItemToBlock(stack, level, pos, ritualTableBlockEntity);
+        if (level.getBlockEntity(pos) instanceof RitualTableBlockEntity tableBE) {
+            if (stack.is(ModItems.HEX_FOCUS) && tryStartRitual(level, pos, player, tableBE, stack)) {
                 return ItemInteractionResult.SUCCESS;
-            } else if (stack.isEmpty() && !ritualTableBlockEntity.getItem(0).isEmpty()) {
-                removeItemFromBlock(level, pos, player, ritualTableBlockEntity);
+            }
+
+            if (tableBE.isEmpty() && !stack.isEmpty() && !stack.is(ModItems.HEX_FOCUS)) {
+                addItemToBlock(stack, level, pos, player, tableBE);
+                return ItemInteractionResult.SUCCESS;
+            }
+
+            if (stack.isEmpty() && !tableBE.getItem(0).isEmpty()) {
+                removeItemFromBlock(level, pos, player, tableBE);
                 return ItemInteractionResult.SUCCESS;
             }
         }
-
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
-    private void addItemToBlock(ItemStack stack, Level level, BlockPos pos, RitualTableBlockEntity ritualTableBlockEntity) {
-        ritualTableBlockEntity.setItem(0, stack);
-        stack.shrink(1);
+    private boolean tryStartRitual(Level level, BlockPos pos, Player player, RitualTableBlockEntity tableBE, ItemStack held) {
+        ItemStack tableItem = tableBE.getItem(0);
+        BlockPos[] offsets = {pos.north(2), pos.south(2), pos.east(2), pos.west(2)};
+        List<ItemStack> brazierItems = new ArrayList<>();
+        List<RitualBrazierBlockEntity> brazierEntities = new ArrayList<>();
+
+        // Check salted braziers
+        for (BlockPos bPos : offsets) {
+            if (level.getBlockEntity(bPos) instanceof RitualBrazierBlockEntity brazier && !brazier.getStoredItem().isEmpty()) {
+                BlockState state = level.getBlockState(bPos);
+                if (!state.hasProperty(RitualBrazierBlock.SALTED) || !state.getValue(RitualBrazierBlock.SALTED)) {
+                    failWithMessage(level, pos, player, "message.hexalia.ritual.missing_salt");
+                    return true;
+                }
+                brazierItems.add(brazier.getStoredItem());
+                brazierEntities.add(brazier);
+            }
+        }
+
+        // Find matching recipe
+        RitualTableRecipe matchedRecipe = findMatchingRecipe(level, tableItem, brazierItems, tableBE);
+        if (matchedRecipe == null) {
+            failWithMessage(level, pos, player, "message.hexalia.ritual.wrong_recipe");
+            return true;
+        }
+
+        // Check crops
+        List<BlockPos> grownCrops = findFullyGrownCrops(level, pos, 8, 8);
+        if (grownCrops.size() < 8) {
+            failWithMessage(level, pos, player, "message.hexalia.ritual.invalid_crops");
+            return true;
+        }
+
+        // Start ritual
+        tableBE.startTransformation(matchedRecipe.getResultItem(level.registryAccess()).copy(),
+                RitualTableBlockEntity.DURATION, brazierEntities);
+        tableBE.setGrownCropPositions(grownCrops);
+
+        // Reset salted state
+        for (RitualBrazierBlockEntity brazier : brazierEntities) {
+            BlockPos bp = brazier.getBlockPos();
+            BlockState state = level.getBlockState(bp);
+            if (state.hasProperty(RitualBrazierBlock.SALTED) && state.getValue(RitualBrazierBlock.SALTED)) {
+                level.setBlock(bp, state.setValue(RitualBrazierBlock.SALTED, false), 3);
+            }
+        }
+
         playInteractionSound(level, pos);
-        spawnParticleEffects(level, pos, ParticleTypes.POOF, 5, 10);
+        spawnParticles(level, pos, ParticleTypes.POOF, 5, 10);
+        return true;
     }
 
-    private void removeItemFromBlock(Level level, BlockPos pos, Player player, RitualTableBlockEntity ritualTableBlockEntity) {
-        ItemStack stackOnBlock = ritualTableBlockEntity.getItem(0);
-        player.setItemInHand(InteractionHand.MAIN_HAND, stackOnBlock);
-        ritualTableBlockEntity.clearContent();
-        playInteractionSound(level, pos);
+    private RitualTableRecipe findMatchingRecipe(Level level, ItemStack tableItem, List<ItemStack> brazierItems,
+                                                 RitualTableBlockEntity tableBE) {
+        RitualTableRecipeInput input = new RitualTableRecipeInput(tableBE);
+        List<RecipeHolder<RitualTableRecipe>> candidates =
+                level.getRecipeManager().getRecipesFor(ModRecipes.RITUAL_TABLE_TYPE.get(), input, level);
+
+        for (RecipeHolder<RitualTableRecipe> holder : candidates) {
+            RitualTableRecipe recipe = holder.value();
+            if (!recipe.getIngredients().get(0).test(tableItem)) continue;
+
+            List<ItemStack> remaining = new ArrayList<>(brazierItems);
+            boolean allMatch = true;
+            for (Ingredient ing : recipe.getIngredients().subList(1, recipe.getIngredients().size())) {
+                boolean found = remaining.removeIf(ing::test);
+                if (!found) {
+                    allMatch = false;
+                    break;
+                }
+            }
+            if (allMatch && remaining.isEmpty()) {
+                return recipe;
+            }
+        }
+        return null;
     }
 
-    private void spawnParticleEffects(Level level, BlockPos pos, SimpleParticleType particleType, int minParticles, int maxParticles) {
-        int particleCount = ThreadLocalRandom.current().nextInt(minParticles, maxParticles);
-        for (int i = 0; i < particleCount; i++) {
-            double offsetX = ThreadLocalRandom.current().nextDouble(-0.5, 0.5);
-            double offsetY = ThreadLocalRandom.current().nextDouble(0, 0.5);
-            double offsetZ = ThreadLocalRandom.current().nextDouble(-0.5, 0.5);
-            level.addParticle(particleType, pos.getX() + 0.5 + offsetX, pos.getY() + 1.0 + offsetY, pos.getZ() + 0.5 + offsetZ, 0, 0, 0);
+    private void failWithMessage(Level level, BlockPos pos, Player player, String messageKey) {
+        spawnParticles(level, pos, ParticleTypes.SMOKE, 8, 12);
+        if (!level.isClientSide) {
+            player.displayClientMessage(Component.translatable(messageKey), true);
         }
     }
-    
-    private void playInteractionSound(Level level, BlockPos pos) { 
+
+    private List<BlockPos> findFullyGrownCrops(Level level, BlockPos center, int requiredCount, int radius) {
+        List<BlockPos> found = new ArrayList<>();
+        for (int dx = -radius; dx <= radius; dx++) {
+            for (int dz = -radius; dz <= radius; dz++) {
+                BlockPos checkPos = center.offset(dx, 0, dz);
+                BlockState state = level.getBlockState(checkPos);
+                if (state.getBlock() instanceof CropBlock crop && crop.isMaxAge(state)) {
+                    found.add(checkPos);
+                    if (found.size() >= requiredCount) return found;
+                }
+            }
+        }
+        return found;
+    }
+
+    private void addItemToBlock(ItemStack stack, Level level, BlockPos pos, Player player, RitualTableBlockEntity tableEntity) {
+        tableEntity.setItem(0, stack);
+        if (!player.getAbilities().instabuild) {
+            stack.shrink(1);
+        }
+        playInteractionSound(level, pos);
+    }
+
+    private void removeItemFromBlock(Level level, BlockPos pos, Player player, RitualTableBlockEntity tableEntity) {
+        ItemStack stackOnTable = tableEntity.getItem(0);
+        if (!player.getAbilities().instabuild) {
+            player.setItemInHand(InteractionHand.MAIN_HAND, stackOnTable);
+        }
+        tableEntity.clearContent();
+        playInteractionSound(level, pos);
+    }
+
+    private void spawnParticles(Level level, BlockPos pos, SimpleParticleType type, int min, int max) {
+        if (level instanceof ServerLevel server) {
+            int count = ThreadLocalRandom.current().nextInt(min, max);
+            for (int i = 0; i < count; i++) {
+                double x = pos.getX() + 0.5 + ThreadLocalRandom.current().nextDouble(-0.5, 0.5);
+                double y = pos.getY() + 1.0 + ThreadLocalRandom.current().nextDouble(0.0, 0.5);
+                double z = pos.getZ() + 0.5 + ThreadLocalRandom.current().nextDouble(-0.5, 0.5);
+                server.sendParticles(type, x, y, z, 1, 0.0, 0.0, 0.0, 0.0);
+            }
+        }
+    }
+
+    private void playInteractionSound(Level level, BlockPos pos) {
         level.playSound(null, pos, SoundEvents.CHISELED_BOOKSHELF_PICKUP_ENCHANTED, SoundSource.BLOCKS, 0.8f, 0.5f);
         level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 0.8f, 0.5f);
+    }
+
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        return !level.isClientSide && type == net.grapes.hexalia.block.entity.ModBlockEntityTypes.RITUAL_TABLE.get()
+                ? (lvl, pos, st, be) -> RitualTableBlockEntity.serverTick(lvl, pos, st, (RitualTableBlockEntity) be)
+                : null;
     }
 }

@@ -6,9 +6,12 @@ import net.grapes.hexalia.block.entity.renderer.CenserBlockEntityRenderer;
 import net.grapes.hexalia.block.entity.renderer.RitualBrazierBlockEntityRenderer;
 import net.grapes.hexalia.block.entity.renderer.RitualTableBlockEntityRenderer;
 import net.grapes.hexalia.block.entity.renderer.ShelfBlockEntityRenderer;
+import net.grapes.hexalia.component.ModComponents;
+import net.grapes.hexalia.component.item.MothData;
 import net.grapes.hexalia.effect.ModMobEffects;
 import net.grapes.hexalia.entity.ModEntities;
 import net.grapes.hexalia.entity.boat.ModBoatRenderer;
+import net.grapes.hexalia.entity.custom.client.SilkMothRenderer;
 import net.grapes.hexalia.item.ModCreativeModeTabs;
 import net.grapes.hexalia.item.ModItems;
 import net.grapes.hexalia.effect.ModEffectCure;
@@ -18,12 +21,15 @@ import net.grapes.hexalia.recipe.ModRecipes;
 import net.grapes.hexalia.screen.ModMenuTypes;
 import net.grapes.hexalia.screen.custom.SmallCauldronScreen;
 import net.grapes.hexalia.sound.ModSoundEvents;
+import net.grapes.hexalia.util.ModArmorMaterials;
 import net.grapes.hexalia.util.ModWoodTypes;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
@@ -64,6 +70,8 @@ public class HexaliaMod {
         ModRecipes.register(modEventBus);
         ModEntities.register(modEventBus);
         ModLootModifiers.register(modEventBus);
+        ModArmorMaterials.register(modEventBus);
+        ModComponents.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -91,8 +99,17 @@ public class HexaliaMod {
             EntityRenderers.register(ModEntities.MOD_BOAT.get(), context -> new ModBoatRenderer(context, false));
             EntityRenderers.register(ModEntities.MOD_CHEST_BOAT.get(), context -> new ModBoatRenderer(context, true));
 
+            EntityRenderers.register(ModEntities.SILK_MOTH_ENTITY.get(), SilkMothRenderer::new);
+
             Sheets.addWoodType(ModWoodTypes.COTTONWOOD);
             Sheets.addWoodType(ModWoodTypes.WILLOW);
+
+            ItemProperties.register(ModItems.BOTTLED_MOTH.get(),
+                    ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID, "variant"),
+                    (stack, level, entity, seed) -> {
+                        MothData data = stack.get(ModComponents.MOTH.get());
+                        return data != null ? (float) data.variantId() : 0f;
+                    });
         }
 
         @SubscribeEvent

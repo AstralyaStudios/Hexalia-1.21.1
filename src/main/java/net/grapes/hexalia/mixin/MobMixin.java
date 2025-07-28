@@ -1,6 +1,7 @@
 package net.grapes.hexalia.mixin;
 
 import net.grapes.hexalia.block.custom.censer.CenserEffectHandler;
+import net.grapes.hexalia.item.custom.GhostVeilItem;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -10,7 +11,6 @@ import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -51,12 +51,10 @@ public abstract class MobMixin extends LivingEntity {
 
     @Unique
     private boolean shouldIgnorePlayers() {
-        // Skip check entirely for non-monsters or bosses
         if (!((Object) this instanceof Monster) || isExcludedBoss((Object) this)) {
             return false;
         }
 
-        // Only re-check every 10 ticks (0.5 seconds)
         int currentTick = this.tickCount;
         if (currentTick - hexalia$lastCheckTick < 10) {
             return hexalia$lastCheckResult;
@@ -64,7 +62,6 @@ public abstract class MobMixin extends LivingEntity {
 
         hexalia$lastCheckTick = currentTick;
 
-        // Only check for nearest player if we don't already know about UNDEAD_VEIL
         if (!hexalia$lastCheckResult) {
             Player nearestPlayer = this.level().getNearestPlayer(
                     this.getX(),
@@ -83,10 +80,9 @@ public abstract class MobMixin extends LivingEntity {
         return hexalia$lastCheckResult;
     }
 
-    // Periodic reset to ensure mobs don't stay passive forever
     @Inject(method = "tick", at = @At("HEAD"))
     private void hexalia$resetCheck(CallbackInfo ci) {
-        if (this.tickCount % 100 == 0) { // Every 5 seconds
+        if (this.tickCount % 100 == 0) {
             hexalia$lastCheckTick = -100;
             hexalia$lastCheckResult = false;
         }
@@ -95,7 +91,7 @@ public abstract class MobMixin extends LivingEntity {
     @Unique
     private boolean isGhostVeilSneaking(Player player) {
         return player.isCrouching() &&
-                player.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof ArmorItem;
+                player.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof GhostVeilItem;
     }
 
     @Unique

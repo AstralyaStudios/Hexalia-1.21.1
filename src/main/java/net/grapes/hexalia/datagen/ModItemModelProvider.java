@@ -11,13 +11,14 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 
 public class ModItemModelProvider extends ItemModelProvider {
+
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, HexaliaMod.MODID, existingFileHelper);
     }
 
     @Override
     protected void registerModels() {
-
+        // Standard item models
         basicItem(ModItems.SALT.get());
         basicItem(ModItems.TREE_RESIN.get());
         basicItem(ModItems.SILK_FIBER.get());
@@ -89,22 +90,27 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         fenceItem(ModBlocks.COTTONWOOD_FENCE, ModBlocks.COTTONWOOD_PLANKS);
         fenceItem(ModBlocks.WILLOW_FENCE, ModBlocks.WILLOW_PLANKS);
-        
+
         basicItem(ModItems.COTTONWOOD_BOAT.get());
         basicItem(ModItems.COTTONWOOD_CHEST_BOAT.get());
         basicItem(ModItems.WILLOW_BOAT.get());
         basicItem(ModItems.WILLOW_CHEST_BOAT.get());
+
+        withExistingParent(ModItems.SILK_MOTH_SPAWN_EGG.getId().getPath(),
+                mcLoc("item/template_spawn_egg"));
     }
 
     public void buttonItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock) {
         this.withExistingParent(block.getId().getPath(), mcLoc("block/button_inventory"))
-                .texture("texture",  ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID,
-                        "block/" + baseBlock.getId().getPath()));
+                .texture("texture",
+                        ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID,
+                                "block/" + baseBlock.getId().getPath()));
     }
 
     public void fenceItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock) {
         this.withExistingParent(block.getId().getPath(), mcLoc("block/fence_inventory"))
-                .texture("texture",  ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID,
-                        "block/" + baseBlock.getId().getPath()));
+                .texture("texture",
+                        ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID,
+                                "block/" + baseBlock.getId().getPath()));
     }
 }

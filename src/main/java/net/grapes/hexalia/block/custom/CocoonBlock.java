@@ -1,9 +1,16 @@
 package net.grapes.hexalia.block.custom;
 
+import net.grapes.hexalia.entity.ModEntities;
+import net.grapes.hexalia.entity.custom.SilkMothEntity;
+import net.grapes.hexalia.entity.custom.variant.SilkMothVariant;
+import net.grapes.hexalia.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -17,6 +24,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -56,20 +64,20 @@ public class CocoonBlock extends Block {
         return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
     }
 
-    /*@Override
+    @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         level.removeBlock(pos, false);
-        Bee silkMoth = Entit.get().create(level);
+        SilkMothEntity silkMoth = ModEntities.SILK_MOTH_ENTITY.get().create(level);
         if (silkMoth != null) {
             silkMoth.moveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 0.0F, 0.0F);
 
             SilkMothVariant variant = SilkMothVariant.byId(random.nextInt(SilkMothVariant.values().length));
-            silkMoth.setSilkMothVariant(variant);
+            silkMoth.setVariant(variant);
 
             level.addFreshEntity(silkMoth);
         }
         level.gameEvent(null, GameEvent.BLOCK_DESTROY, pos);
-    }*/
+    }
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
@@ -100,7 +108,7 @@ public class CocoonBlock extends Block {
         Direction facing = state.getValue(FACING);
         BlockPos oppositePos = pos.relative(facing.getOpposite());
         BlockState oppositeState = level.getBlockState(oppositePos);
-        return oppositeState.is(Blocks.DARK_OAK_LOG);
+        return oppositeState.is(ModTags.Blocks.COCOON_LOGS);
     }
 
     @Override

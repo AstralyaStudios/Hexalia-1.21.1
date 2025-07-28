@@ -4,6 +4,7 @@ import net.grapes.hexalia.HexaliaMod;
 import net.grapes.hexalia.entity.boat.ModBoatEntity;
 import net.grapes.hexalia.entity.boat.ModChestBoatEntity;
 import net.grapes.hexalia.entity.custom.RabbageProjectile;
+import net.grapes.hexalia.entity.custom.SilkMothEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -15,6 +16,10 @@ import java.util.function.Supplier;
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPE =
             DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, HexaliaMod.MODID);
+
+    public static final Supplier<EntityType<SilkMothEntity>> SILK_MOTH_ENTITY  =
+            ENTITY_TYPE.register("silk_moth", () -> EntityType.Builder.of(SilkMothEntity::new, MobCategory.CREATURE)
+                    .sized(0.6f, 0.06f).build("silk_moth"));
 
     public static final Supplier<EntityType<RabbageProjectile>> RABBAGE  =
             ENTITY_TYPE.register("rabbage", () -> EntityType.Builder.<RabbageProjectile>of(RabbageProjectile::new, MobCategory.MISC)

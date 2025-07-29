@@ -34,6 +34,8 @@ repositories {
 
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+
+    maven { url 'https://maven.blamejared.com' }
 }
 
 base {
@@ -103,6 +105,9 @@ dependencies {
 
     implementation  group:'org.spongepowered', name: 'mixin', version: '0.8.5'
     implementation  'com.github.glitchfiend:TerraBlender-neoforge:' + minecraft_version + '-' + terrablender_version
+
+    compileOnly "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE:api"
+    runtimeOnly "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

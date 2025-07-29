@@ -13,6 +13,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -165,6 +166,15 @@ public class ModItems {
             () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.WILLOW_HANGING_SIGN.get(), ModBlocks.WILLOW_HANGING_WALL_SIGN.get()));
     public static final DeferredItem<Item> COTTONWOOD_HANGING_SIGN = ITEMS.register("cottonwood_hanging_sign",
             () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.COTTONWOOD_HANGING_SIGN.get(), ModBlocks.COTTONWOOD_HANGING_WALL_SIGN.get()));
+
+    // Compat Items
+    public static DeferredItem<Item> VERDANT_GRIMOIRE;
+    static {
+        if (ModList.get().isLoaded("patchouli")) {
+            VERDANT_GRIMOIRE = ITEMS.register("verdant_grimoire",
+                    () -> new GrimoireItem(new Item.Properties()));
+        }
+    }
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

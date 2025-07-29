@@ -32,6 +32,7 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
@@ -89,7 +90,11 @@ public class HexaliaMod {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if (event.getTab() == ModCreativeModeTabs.HEXALIA_TAB.get()) {
+            if (ModList.get().isLoaded("patchouli")) {
+                event.accept(ModItems.VERDANT_GRIMOIRE);
+            }
+        }
     }
 
     @SubscribeEvent

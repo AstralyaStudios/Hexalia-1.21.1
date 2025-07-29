@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-28T15:26:25.7750665	Item Models: hexalia
+// 1.21.1	2025-07-28T21:38:52.2896064	Item Models: hexalia
 e5a7da2fe51e60bdf425b0c5e11675c33540c1ee assets/hexalia/models/item/air_node.json
 15249bcc7b4d170a3f881d5072d7c1103423d8ed assets/hexalia/models/item/ancient_seed.json
 5de9112b974a79b8d4daac10d489cae64dc39ad2 assets/hexalia/models/item/bogged_boots.json
@@ -57,6 +57,7 @@ e7f7503d997487614b6477b7ca4abd2aea600188 assets/hexalia/models/item/spirit_powde
 3b221041e13e0fad85eb5fad104ca0b9fc190f8a assets/hexalia/models/item/sunfire_tomato.json
 f78eebd5e0ccffa74122a1686696dfe32e6070b1 assets/hexalia/models/item/sunfire_tomato_seeds.json
 b4649b8fe1245bab84615f91af5946f49a912a38 assets/hexalia/models/item/tree_resin.json
+6a8a771af7bcfe1c2f9684591680403e03279dba assets/hexalia/models/item/verdant_grimoire.json
 d35fed367b5038960fa24ac74403a36552e796c9 assets/hexalia/models/item/water_node.json
 cbf388b36d59702bbb82c3599013d813d62cf73a assets/hexalia/models/item/willow_boat.json
 4de0872518589902716446da98b712948d271980 assets/hexalia/models/item/willow_button.json

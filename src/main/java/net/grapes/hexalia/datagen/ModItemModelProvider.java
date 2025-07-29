@@ -98,6 +98,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         withExistingParent(ModItems.SILK_MOTH_SPAWN_EGG.getId().getPath(),
                 mcLoc("item/template_spawn_egg"));
+
+        basicItem(ModItems.VERDANT_GRIMOIRE.get());
+
     }
 
     public void buttonItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock) {

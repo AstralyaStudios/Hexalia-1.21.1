@@ -1,7 +1,6 @@
 package net.grapes.hexalia.item.custom.client;
 
 import net.grapes.hexalia.HexaliaMod;
-import net.grapes.hexalia.item.custom.BoggedBootsItem;
 import net.grapes.hexalia.item.custom.GhostVeilItem;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;

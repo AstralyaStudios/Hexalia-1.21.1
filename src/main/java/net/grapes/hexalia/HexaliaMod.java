@@ -23,6 +23,8 @@ import net.grapes.hexalia.screen.custom.SmallCauldronScreen;
 import net.grapes.hexalia.sound.ModSoundEvents;
 import net.grapes.hexalia.util.ModArmorMaterials;
 import net.grapes.hexalia.util.ModWoodTypes;
+import net.grapes.hexalia.worldgen.biome.ModBiomes;
+import net.grapes.hexalia.worldgen.biome.ModSurfaceRules;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
@@ -48,6 +50,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import terrablender.api.SurfaceRuleManager;
 
 @Mod(HexaliaMod.MODID)
 public class HexaliaMod {
@@ -79,7 +82,10 @@ public class HexaliaMod {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        event.enqueueWork(() -> {
+            ModBiomes.registerBiomes();
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, ModSurfaceRules.makeRules());
+        });
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {

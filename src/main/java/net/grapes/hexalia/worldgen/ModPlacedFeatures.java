@@ -67,7 +67,12 @@ public class ModPlacedFeatures {
         register(context, WITCHWEED_PLACED, configured.getOrThrow(ModConfiguredFeatures.WITCHWEED), rarityPatchSurface(1));
         register(context, HEXED_BULRUSH_PLACED, configured.getOrThrow(ModConfiguredFeatures.HEXED_BULRUSH), topSolidPatch(6));
         register(context, NIGHTSHADE_BUSH_PLACED, configured.getOrThrow(ModConfiguredFeatures.NIGHTSHADE_BUSH), rarityPatch(2));
-        register(context, DUCKWEED_PLACED, configured.getOrThrow(ModConfiguredFeatures.DUCKWEED), heightmapSurfacePatch(8));
+        register(context, DUCKWEED_PLACED, configured.getOrThrow(ModConfiguredFeatures.DUCKWEED), List.of(
+                CountPlacement.of(3),                   // 3 clusters per chunk
+                InSquarePlacement.spread(),             // spread within the chunk
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE, // snap to water surface
+                BiomeFilter.biome()
+        ));
 
         // Trees
         registerTree(context, DARK_OAK_COCOON_PLACED, configured.getOrThrow(ModConfiguredFeatures.DARK_OAK_COCOON), Blocks.DARK_OAK_SAPLING, 1, 0.1f, 1);

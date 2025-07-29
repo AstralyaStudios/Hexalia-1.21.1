@@ -31,6 +31,9 @@ repositories {
             includeGroup("software.bernie.geckolib")
         }
     }
+
+    maven { url = 'https://maven.minecraftforge.net/' }
+    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
 }
 
 base {
@@ -97,6 +100,9 @@ dependencies {
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+
+    implementation  group:'org.spongepowered', name: 'mixin', version: '0.8.5'
+    implementation  'com.github.glitchfiend:TerraBlender-neoforge:' + minecraft_version + '-' + terrablender_version
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

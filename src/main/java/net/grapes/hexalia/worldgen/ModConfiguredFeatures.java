@@ -14,6 +14,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -28,6 +29,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.material.Fluids;
 
 import java.util.function.Supplier;
 
@@ -91,7 +93,16 @@ public class ModConfiguredFeatures {
         register(context, WITCHWEED, Feature.RANDOM_PATCH, patchConfig(ModBlocks.WITCHWEED.get(), 20, 10, 5));
         register(context, HEXED_BULRUSH, Feature.RANDOM_PATCH, patchConfig(ModBlocks.HEXED_BULRUSH.get(), 5, 7, 3));
         register(context, NIGHTSHADE_BUSH, Feature.RANDOM_PATCH, patchConfig(ModBlocks.NIGHTSHADE_BUSH.get(), 3, 7, 3));
-        register(context, DUCKWEED, Feature.RANDOM_PATCH, patchConfig(ModBlocks.DUCKWEED.get(), 5, 7, 3));
+        register(context, DUCKWEED, Feature.RANDOM_PATCH, new RandomPatchConfiguration(
+                64,
+                7,
+                0,
+                PlacementUtils.filtered(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.DUCKWEED.get())),
+                        BlockPredicate.ONLY_IN_AIR_PREDICATE
+                )
+        ));
     }
 
     private static void registerTrees(BootstrapContext<ConfiguredFeature<?, ?>> context) {

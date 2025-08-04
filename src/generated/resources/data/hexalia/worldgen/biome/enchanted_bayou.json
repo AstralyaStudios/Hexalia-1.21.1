@@ -51,20 +51,7 @@
       "minecraft:patch_waterlily",
       "minecraft:brown_mushroom_swamp",
       "minecraft:red_mushroom_swamp",
-      "minecraft:seagrass_swamp",
-      "hexalia:spirit_bloom_placed",
-      "hexalia:siren_kelp_placed",
-      "hexalia:dreamshroom_placed",
-      "hexalia:ghost_fern_placed",
-      "hexalia:willow_placed",
-      "hexalia:cottonwood_placed",
-      "hexalia:cottonwood_cocoon_placed",
-      "hexalia:lotus_flower_placed",
-      "hexalia:duckweed_placed",
-      "hexalia:hexed_bulrush_placed",
-      "hexalia:pale_mushroom_placed",
-      "hexalia:nightshade_bush_placed",
-      "hexalia:witchweed_placed"
+      "minecraft:seagrass_swamp"
     ]
   ],
   "has_precipitation": true,

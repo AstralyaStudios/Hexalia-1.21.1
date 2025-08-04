@@ -1,10 +1,10 @@
 {
   "values": [
-    "minecraft:old_growth_pine_taiga",
+    "minecraft:mangrove_swamp",
     {
       "id": "hexalia:enchanted_bayou",
       "required": false
     },
-    "minecraft:mushroom_fields"
+    "minecraft:swamp"
   ]
 }

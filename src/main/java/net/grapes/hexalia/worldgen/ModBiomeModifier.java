@@ -2,6 +2,7 @@ package net.grapes.hexalia.worldgen;
 
 import net.grapes.hexalia.HexaliaMod;
 import net.grapes.hexalia.util.ModTags;
+import net.grapes.hexalia.worldgen.biome.ModBiomes;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -37,6 +38,7 @@ public class ModBiomeModifier {
     public static final ResourceKey<BiomeModifier> ADD_LAVENDER = registerKey("add_lavender");
     public static final ResourceKey<BiomeModifier> ADD_DAHLIA = registerKey("add_dahlia");
 
+    public static final ResourceKey<BiomeModifier> ADD_BAYOU_FEATURES = registerKey("add_bayou_features");
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
@@ -46,10 +48,11 @@ public class ModBiomeModifier {
         Optional<Holder.Reference<Biome>> savannaBiome = biomes.get(Biomes.SAVANNA);
         Optional<Holder.Reference<Biome>> darkForestBiome = biomes.get(Biomes.DARK_FOREST);
         Optional<Holder.Reference<Biome>> meadowBiome = biomes.get(Biomes.MEADOW);
+        Optional<Holder.Reference<Biome>> enchantedBayou = biomes.get(ModBiomes.ENCHANTED_BAYOU);
 
         // Functional Plants
         context.register(ADD_SPIRIT_BLOOM, new BiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(Tags.Biomes.IS_SWAMP),
+                biomes.getOrThrow(ModTags.Biomes.HAS_SPIRIT_BLOOMS),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.SPIRIT_BLOOM_PLACED)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
 
@@ -90,11 +93,11 @@ public class ModBiomeModifier {
 
         // Decorative Plants
         context.register(ADD_HENBANE, new BiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(Tags.Biomes.IS_PLAINS),
+                biomes.getOrThrow(ModTags.Biomes.HAS_DECORATIVE_FLOWERS),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.HENBANE_PLACED)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
         context.register(ADD_BEGONIA, new BiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(Tags.Biomes.IS_PLAINS),
+                biomes.getOrThrow(ModTags.Biomes.HAS_DECORATIVE_FLOWERS),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.BEGONIA_PLACED)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
         context.register(ADD_LAVENDER, new BiomeModifiers.AddFeaturesBiomeModifier(
@@ -111,6 +114,23 @@ public class ModBiomeModifier {
                 HolderSet.direct(darkForestBiome.get()),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.DARK_OAK_COCOON_PLACED)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
+
+        // Biomes
+        context.register(ADD_BAYOU_FEATURES, new BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(enchantedBayou.get()),
+                HolderSet.direct(
+                        placedFeatures.getOrThrow(ModPlacedFeatures.WILLOW_PLACED),
+                        placedFeatures.getOrThrow(ModPlacedFeatures.COTTONWOOD_PLACED),
+                        placedFeatures.getOrThrow(ModPlacedFeatures.COTTONWOOD_COCOON_PLACED),
+                        placedFeatures.getOrThrow(ModPlacedFeatures.LOTUS_FLOWER_PLACED),
+                        placedFeatures.getOrThrow(ModPlacedFeatures.DUCKWEED_PLACED),
+                        placedFeatures.getOrThrow(ModPlacedFeatures.HEXED_BULRUSH_PLACED),
+                        placedFeatures.getOrThrow(ModPlacedFeatures.PALE_MUSHROOM_PLACED),
+                        placedFeatures.getOrThrow(ModPlacedFeatures.NIGHTSHADE_BUSH_PLACED),
+                        placedFeatures.getOrThrow(ModPlacedFeatures.WITCHWEED_PLACED)
+                ),
+                GenerationStep.Decoration.VEGETAL_DECORATION
+        ));
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {

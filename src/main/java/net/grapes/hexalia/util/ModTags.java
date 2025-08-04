@@ -102,5 +102,9 @@ public class ModTags {
                 ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID, "has_siren_kelp"));
         public static final TagKey<Biome> HAS_GHOST_FERNS = TagKey.create(Registries.BIOME,
                 ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID, "has_ghost_ferns"));
+        public static final TagKey<Biome> HAS_SPIRIT_BLOOMS = TagKey.create(Registries.BIOME,
+                ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID, "has_spirit_blooms"));
+        public static final TagKey<Biome> HAS_DECORATIVE_FLOWERS = TagKey.create(Registries.BIOME,
+                ResourceLocation.fromNamespaceAndPath(HexaliaMod.MODID, "has_decorative_flowers"));
     }
 }

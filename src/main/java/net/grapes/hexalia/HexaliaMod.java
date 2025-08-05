@@ -59,6 +59,8 @@ public class HexaliaMod {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public HexaliaMod(IEventBus modEventBus, ModContainer modContainer) {
+        modContainer.registerConfig(ModConfig.Type.COMMON, Configuration.COMMON_CONFIG);
+        modContainer.registerConfig(ModConfig.Type.CLIENT, Configuration.CLIENT_CONFIG);
         modEventBus.addListener(this::commonSetup);
 
         ModCreativeModeTabs.register(modEventBus);
@@ -79,7 +81,6 @@ public class HexaliaMod {
 
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
-        modContainer.registerConfig(ModConfig.Type.COMMON, Configuration.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

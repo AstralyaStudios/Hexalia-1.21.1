@@ -1,5 +1,6 @@
 package net.grapes.hexalia.block.custom;
 
+import net.grapes.hexalia.Configuration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class DreamcatcherBlock extends WallMountedBlock{
 
-    private static final int CHECK_RADIUS = 16;
+
 
     public DreamcatcherBlock(Properties properties) {
         super(properties);
@@ -21,15 +22,19 @@ public class DreamcatcherBlock extends WallMountedBlock{
 
     @Override
     public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+
+        int range = Configuration.DREAMCATCHER_RADIUS.get();
+        int igniteTime = Configuration.PHANTOM_IGNITE_DURATION.get();
+
         AABB checkArea = new AABB(
-                Vec3.atCenterOf(pos.offset(-CHECK_RADIUS, -CHECK_RADIUS, -CHECK_RADIUS)),
-                Vec3.atCenterOf(pos.offset(CHECK_RADIUS, CHECK_RADIUS, CHECK_RADIUS))
+                Vec3.atCenterOf(pos.offset(-range, -range, -range)),
+                Vec3.atCenterOf(pos.offset(range, range, range))
         );
 
         List<Phantom> phantoms = level.getEntitiesOfClass(Phantom.class, checkArea);
 
         for (Phantom phantom : phantoms) {
-            phantom.igniteForSeconds(5);
+            phantom.igniteForTicks(igniteTime);
         }
 
         level.scheduleTick(pos, this, 20);

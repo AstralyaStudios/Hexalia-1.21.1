@@ -1,5 +1,6 @@
 package net.grapes.hexalia.block.entity.custom;
 
+import net.grapes.hexalia.Configuration;
 import net.grapes.hexalia.block.entity.ModBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -26,8 +27,6 @@ public class WindsongBlockEntity extends BlockEntity {
     private int activeTicks = 0;
     private long activationTime = -1;
     private int duration = 600;
-    private static final int DEFAULT_DURATION = 600;
-    private static final int AREA_RADIUS = 6;
     private int particleCooldown = 0;
 
     public WindsongBlockEntity(BlockPos pos, BlockState blockState) {
@@ -35,7 +34,7 @@ public class WindsongBlockEntity extends BlockEntity {
     }
 
     public void activate() {
-        activate(DEFAULT_DURATION);
+        activate(Configuration.WINDSONG_DURATION.get());
     }
 
     public void activate(int customDuration) {
@@ -77,7 +76,8 @@ public class WindsongBlockEntity extends BlockEntity {
             blockEntity.activeTicks--;
 
             if (level instanceof ServerLevel serverLevel) {
-                AABB area = new AABB(pos).inflate(AREA_RADIUS);
+                int radius = Configuration.WINDSONG_EFFECT_RADIUS.get();
+                AABB area = new AABB(pos).inflate(radius);
                 List<Entity> projectiles = serverLevel.getEntitiesOfClass(Entity.class, area, entity -> entity instanceof Projectile);
 
                 for (Entity projectile : projectiles) {
@@ -124,7 +124,7 @@ public class WindsongBlockEntity extends BlockEntity {
 
             for (int i = 0; i < particleCount; i++) {
                 double angle = Math.random() * 2 * Math.PI;
-                double radius = Math.random() * AREA_RADIUS;
+                double radius = Math.random() * Configuration.WINDSONG_EFFECT_RADIUS.get();
                 double x = center.x + radius * Math.cos(angle);
                 double z = center.z + radius * Math.sin(angle);
                 double y = center.y + Math.random() * 2;
@@ -150,7 +150,7 @@ public class WindsongBlockEntity extends BlockEntity {
         super.loadAdditional(tag, registries);
         this.activeTicks = tag.getInt("ActiveTicks");
         this.activationTime = tag.getLong("ActivationTime");
-        this.duration = tag.contains("Duration") ? tag.getInt("Duration") : DEFAULT_DURATION;
+        this.duration = tag.contains("Duration") ? tag.getInt("Duration") : Configuration.WINDSONG_DURATION.get();
         this.particleCooldown = tag.getInt("ParticleCooldown");
 
         if (this.activationTime != -1 && this.level != null && this.activeTicks > 0) {

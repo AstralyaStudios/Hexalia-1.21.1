@@ -1,5 +1,6 @@
 package net.grapes.hexalia.item.custom;
 
+import net.grapes.hexalia.Configuration;
 import net.grapes.hexalia.item.ModItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.Holder;
@@ -23,16 +24,14 @@ import java.util.function.Supplier;
 
 public class BrewItem extends Item {
 
-    private final int duration;
-    private final int amplifier;
+    private final int baseAmplifier;
     private final Component tooltip;
     private final Supplier<Holder<MobEffect>> effectSupplier;
 
-    public BrewItem(Properties properties, Supplier<Holder<MobEffect>> effectSupplier, int duration, int amplifier, Component tooltip) {
+    public BrewItem(Properties properties, Supplier<Holder<MobEffect>> effectSupplier, int amplifier, Component tooltip) {
         super(properties);
         this.effectSupplier = effectSupplier;
-        this.duration = duration;
-        this.amplifier = amplifier;
+        this.baseAmplifier = amplifier;
         this.tooltip = tooltip;
     }
 
@@ -47,7 +46,10 @@ public class BrewItem extends Item {
         }
 
         if (!level.isClientSide) {
-            livingEntity.addEffect(new MobEffectInstance(effectSupplier.get(), duration, amplifier));
+            int fixedDuration = Configuration.BREW_EFFECT_DURATION.get();
+            int adjustedAmplifier = baseAmplifier + Configuration.BREW_AMPLIFIER_BONUS.get();
+
+            livingEntity.addEffect(new MobEffectInstance(effectSupplier.get(), fixedDuration, Math.max(0, adjustedAmplifier)));
         }
 
         if (stack.isEmpty()) {

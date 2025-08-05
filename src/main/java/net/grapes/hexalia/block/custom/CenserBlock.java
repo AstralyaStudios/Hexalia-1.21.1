@@ -1,6 +1,7 @@
 package net.grapes.hexalia.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.grapes.hexalia.Configuration;
 import net.grapes.hexalia.block.custom.censer.CenserEffectHandler;
 import net.grapes.hexalia.block.custom.censer.HerbCombination;
 import net.grapes.hexalia.block.entity.custom.CenserBlockEntity;
@@ -45,7 +46,6 @@ public class CenserBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final MapCodec<CenserBlock> CODEC = simpleCodec(CenserBlock::new);
-
 
     public CenserBlock(Properties pProperties) {
         super(pProperties);
@@ -94,7 +94,7 @@ public class CenserBlock extends BaseEntityBlock {
                 censer.setActiveCombination(combo);
                 censer.clearItems();
                 level.setBlockAndUpdate(pos, state.setValue(LIT, true));
-                censer.setBurnTime(CenserBlockEntity.MAX_BURN_TIME);
+                censer.setBurnTime(Configuration.CENSER_EFFECT_DURATION.get());
                 CenserEffectHandler.startEffect(level, pos, combo);
             }
 
@@ -151,7 +151,9 @@ public class CenserBlock extends BaseEntityBlock {
 
     private void sendEffectActivationMessage(Level level, BlockPos pos, HerbCombination combo, Player activatingPlayer) {
         String messageKey = CenserEffectHandler.getMessageKeyForCombination(combo);
-        AABB area = new AABB(pos).inflate(CenserEffectHandler.AREA_RADIUS);
+
+        int radius = Configuration.CENSER_EFFECT_RADIUS.get();
+        AABB area = new AABB(pos).inflate(radius);
 
         for (Player player : level.getEntitiesOfClass(Player.class, area)) {
             if (!player.getUUID().equals(activatingPlayer.getUUID()) && player instanceof ServerPlayer serverPlayer) {

@@ -1,5 +1,6 @@
 package net.grapes.hexalia.item.custom;
 
+import net.grapes.hexalia.Configuration;
 import net.grapes.hexalia.effect.ModMobEffects;
 import net.grapes.hexalia.item.ModItems;
 import net.grapes.hexalia.sound.ModSoundEvents;
@@ -24,17 +25,21 @@ public class MandrakeItem extends Item {
     }
 
     @Override
-    public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity user) {
-        if (!world.isClientSide && user instanceof Player player) {
-            List<Entity> entities = world.getEntities(player, player.getBoundingBox().inflate(5.0));
+    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity user) {
+        if (!level.isClientSide && user instanceof Player player) {
+
+            double radius = Configuration.MANDRAKE_SCREAM_RADIUS.get();
+            int stunDuration = Configuration.MANDRAKE_STUN_DURATION.get();
+
+            List<Entity> entities = level.getEntities(player, player.getBoundingBox().inflate(radius));
             for (Entity entity : entities) {
                 if (entity instanceof LivingEntity livingEntity &&
                         !(player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.EARPLUGS.get()))) {
-                    livingEntity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, 60, 0));
+                    livingEntity.addEffect(new MobEffectInstance(ModMobEffects.STUNNED, stunDuration, 0));
                 }
             }
 
-            world.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.MANDRAKE_SCREAM.get(),
+            level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.MANDRAKE_SCREAM.get(),
                     SoundSource.PLAYERS, 1.0f, 1.0f);
 
             if (!player.getAbilities().instabuild) {

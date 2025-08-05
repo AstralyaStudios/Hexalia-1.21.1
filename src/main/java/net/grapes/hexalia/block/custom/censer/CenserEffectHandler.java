@@ -1,5 +1,6 @@
 package net.grapes.hexalia.block.custom.censer;
 
+import net.grapes.hexalia.Configuration;
 import net.grapes.hexalia.block.ModBlocks;
 import net.grapes.hexalia.block.custom.CenserBlock;
 import net.grapes.hexalia.block.entity.custom.CenserBlockEntity;
@@ -27,9 +28,6 @@ import java.util.*;
 import java.util.function.BiConsumer;
 
 public class CenserEffectHandler {
-
-    public static final int AREA_RADIUS = 16;
-    public static final int EFFECT_DURATION = 7200;
 
     private static final Map<Level, Set<BlockPos>> UNDEAD_VEIL_CACHE = new WeakHashMap<>();
 
@@ -98,13 +96,15 @@ public class CenserEffectHandler {
     public static void startEffect(Level level, BlockPos pos, HerbCombination combo) {
         if (level.isClientSide()) return;
 
-        ACTIVE_EFFECTS.put(pos, new ActiveCenserEffect(null, EFFECT_DURATION, combo));
+        int duration = Configuration.CENSER_EFFECT_DURATION.get();
+
+        ACTIVE_EFFECTS.put(pos, new ActiveCenserEffect(null, duration, combo));
 
         applyEffects(level, pos, combo);
 
         if (level.getBlockEntity(pos) instanceof CenserBlockEntity censer) {
             censer.setActiveCombination(combo);
-            censer.setBurnTime(EFFECT_DURATION);
+            censer.setBurnTime(duration);
         }
     }
 
@@ -127,7 +127,9 @@ public class CenserEffectHandler {
     }
 
     private static void clearEffect(Level level, BlockPos pos, HerbCombination combo) {
-        AABB area = new AABB(pos).inflate(AREA_RADIUS);
+        int radius = Configuration.CENSER_EFFECT_RADIUS.get();
+
+        AABB area = new AABB(pos).inflate(radius);
         level.getEntitiesOfClass(Player.class, area).forEach(player -> {
             player.getPersistentData().remove("HexaliaAnvilHarmony");
             player.getPersistentData().remove("HexaliaFishersBoon");
@@ -149,7 +151,8 @@ public class CenserEffectHandler {
     }
 
     private static void applyFireproofPresence(Level level, BlockPos pos) {
-        AABB area = new AABB(pos).inflate(AREA_RADIUS);
+        int radius = Configuration.CENSER_EFFECT_RADIUS.get();
+        AABB area = new AABB(pos).inflate(radius);
         level.getEntitiesOfClass(LivingEntity.class, area).forEach(entity -> {
             entity.setRemainingFireTicks(0);
             entity.addEffect(new MobEffectInstance(
@@ -164,7 +167,8 @@ public class CenserEffectHandler {
     }
 
     private static void applyUndeadVeil(Level level, BlockPos pos) {
-        AABB area = new AABB(pos).inflate(AREA_RADIUS);
+        int radius = Configuration.CENSER_EFFECT_RADIUS.get();
+        AABB area = new AABB(pos).inflate(radius);
 
         level.getEntitiesOfClass(Mob.class, area,
                         e -> e instanceof Monster &&
@@ -194,7 +198,8 @@ public class CenserEffectHandler {
     }
 
     private static void applyLivestockComfort(Level level, BlockPos pos) {
-        AABB area = new AABB(pos).inflate(AREA_RADIUS);
+        int radius = Configuration.CENSER_EFFECT_RADIUS.get();
+        AABB area = new AABB(pos).inflate(radius);
         level.getEntitiesOfClass(Animal.class, area).forEach(animal -> {
             if (animal.getAge() < 0) {
                 animal.ageUp((int)(animal.getAge() * 0.5), true);
@@ -203,21 +208,24 @@ public class CenserEffectHandler {
     }
 
     private static void applyAnvilHarmony(Level level, BlockPos pos) {
-        level.getEntitiesOfClass(Player.class, new AABB(pos).inflate(AREA_RADIUS))
+        int radius = Configuration.CENSER_EFFECT_RADIUS.get();
+        level.getEntitiesOfClass(Player.class, new AABB(pos).inflate(radius))
                 .forEach(player -> player.getPersistentData()
                         .putBoolean("HexaliaAnvilHarmony", true));
     }
 
     private static void applyFishersBoon(Level level, BlockPos pos) {
-        level.getEntitiesOfClass(Player.class, new AABB(pos).inflate(AREA_RADIUS))
+        int radius = Configuration.CENSER_EFFECT_RADIUS.get();
+        level.getEntitiesOfClass(Player.class, new AABB(pos).inflate(radius))
                 .forEach(player -> player.getPersistentData()
                         .putBoolean("HexaliaFishersBoon", true));
     }
 
     private static void applySuctionZone(Level level, BlockPos pos) {
+        int radius = Configuration.CENSER_EFFECT_RADIUS.get();
         if (!(level instanceof ServerLevel serverLevel)) return;
 
-        AABB area = new AABB(pos).inflate(AREA_RADIUS);
+        AABB area = new AABB(pos).inflate(radius);
         List<ItemEntity> items = serverLevel.getEntitiesOfClass(ItemEntity.class, area);
         if (items.isEmpty()) return;
 
@@ -304,7 +312,8 @@ public class CenserEffectHandler {
     }
 
     public static void clearPlayerEffectsInRange(Level level, BlockPos pos) {
-        AABB area = new AABB(pos).inflate(AREA_RADIUS);
+        int radius = Configuration.CENSER_EFFECT_RADIUS.get();
+        AABB area = new AABB(pos).inflate(radius);
         level.getEntitiesOfClass(Player.class, area).forEach(player -> {
             player.getPersistentData().remove("HexaliaAnvilHarmony");
             player.getPersistentData().remove("HexaliaFishersBoon");
@@ -312,12 +321,13 @@ public class CenserEffectHandler {
     }
 
     public static boolean isUndeadVeilActiveInArea(Level level, BlockPos pos) {
+        int radius = Configuration.CENSER_EFFECT_RADIUS.get();
         if (level.isClientSide()) return false;
 
         Set<BlockPos> veilPositions = UNDEAD_VEIL_CACHE.get(level);
         if (veilPositions == null || veilPositions.isEmpty()) return false;
 
-        double radiusSquared = AREA_RADIUS * AREA_RADIUS;
+        double radiusSquared = radius * radius;
         for (BlockPos center : veilPositions) {
             if (pos.distSqr(center) <= radiusSquared) {
                 return true;
@@ -327,11 +337,13 @@ public class CenserEffectHandler {
     }
 
     public static boolean isEffectActiveInArea(Level level, BlockPos pos, EffectType effectType) {
+        int radius = Configuration.CENSER_EFFECT_RADIUS.get();
+
         if (effectType == EffectType.UNDEAD_VEIL) {
             return isUndeadVeilActiveInArea(level, pos);
         }
 
-        AABB area = new AABB(pos).inflate(AREA_RADIUS);
+        AABB area = new AABB(pos).inflate(radius);
         return BlockPos.betweenClosedStream(BlockPos.containing(area.minX, area.minY, area.minZ),
                         BlockPos.containing(area.maxX, area.maxY, area.maxZ))
                 .map(level::getBlockEntity)

@@ -1,5 +1,6 @@
 package net.grapes.hexalia.block.entity.custom;
 
+import net.grapes.hexalia.Configuration;
 import net.grapes.hexalia.block.entity.ModBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -30,15 +31,13 @@ import java.util.List;
 public class NautiliteBlockEntity extends BlockEntity {
     private int activeTicks = 0;
     private long activationTime = -1;
-    private static final int DURATION = 2400;
-    private static final int EFFECT_RADIUS = 16;
 
     public NautiliteBlockEntity(BlockPos pos, BlockState blockState) {
         super(ModBlockEntityTypes.NAUTILITE.get(), pos, blockState);
     }
 
     public void activate() {
-        this.activeTicks = DURATION;
+        this.activeTicks =  Configuration.NAUTILITE_DURATION.get();;
         if (this.level != null) {
             this.activationTime = this.level.getGameTime();
         }
@@ -53,7 +52,7 @@ public class NautiliteBlockEntity extends BlockEntity {
         if (blockEntity.activationTime != -1 && level != null) {
             long currentTime = level.getGameTime();
             long elapsed = currentTime - blockEntity.activationTime;
-            int expectedTicks = DURATION - (int)elapsed;
+            int expectedTicks = Configuration.NAUTILITE_DURATION.get() - (int)elapsed;
 
             if (Math.abs(blockEntity.activeTicks - expectedTicks) > 5) {
                 blockEntity.activeTicks = Math.max(0, expectedTicks);
@@ -64,7 +63,8 @@ public class NautiliteBlockEntity extends BlockEntity {
             blockEntity.activeTicks--;
 
             if (level instanceof ServerLevel serverLevel) {
-                AABB area = new AABB(pos).inflate(EFFECT_RADIUS);
+                int radius = Configuration.NAUTILITE_EFFECT_RADIUS.get();
+                AABB area = new AABB(pos).inflate(radius);
                 List<Player> players = serverLevel.getEntitiesOfClass(Player.class, area);
                 List<LivingEntity> mobs = serverLevel.getEntitiesOfClass(LivingEntity.class, area);
 
@@ -78,7 +78,7 @@ public class NautiliteBlockEntity extends BlockEntity {
                 }
 
                 for (LivingEntity mob : mobs) {
-                    if ((mob instanceof Drowned || mob instanceof Guardian) && mob.isInWaterOrRain() && pos.closerThan(mob.blockPosition(), EFFECT_RADIUS)) {
+                    if ((mob instanceof Drowned || mob instanceof Guardian) && mob.isInWaterOrRain() && pos.closerThan(mob.blockPosition(), radius)) {
                         mob.hurt(level.damageSources().magic(), 2.0F);
                         serverLevel.sendParticles(ParticleTypes.BUBBLE, mob.getX(), mob.getY(), mob.getZ(), 10, 0.5, 0.5, 0.5, 0.1);
                     }
@@ -123,7 +123,7 @@ public class NautiliteBlockEntity extends BlockEntity {
         if (this.activationTime != -1 && this.level != null && this.activeTicks > 0) {
             long currentTime = this.level.getGameTime();
             long elapsed = currentTime - this.activationTime;
-            this.activeTicks = Math.max(0, DURATION - (int)elapsed);
+            this.activeTicks = Math.max(0, Configuration.NAUTILITE_DURATION.get() - (int)elapsed);
         }
     }
 

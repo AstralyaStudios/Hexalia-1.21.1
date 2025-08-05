@@ -121,22 +121,22 @@ public class ModItems {
     // Brews
     public static final DeferredItem<Item> RUSTIC_BOTTLE = ITEMS.registerSimpleItem("rustic_bottle");
     public static final DeferredItem<Item> BREW_OF_SPIKESKIN = ITEMS.register("brew_of_spikeskin",
-            () -> new BrewItem(new Item.Properties(), () -> ModMobEffects.SPIKESKIN, 2400, 0,
+            () -> new BrewItem(new Item.Properties(), () -> ModMobEffects.SPIKESKIN, 0,
                     Component.translatable("tooltip.hexalia.spikeskin_brew").withStyle(ChatFormatting.BLUE)));
     public static final DeferredItem<Item> BREW_OF_BLOODLUST = ITEMS.register("brew_of_bloodlust",
-            () -> new BrewItem(new Item.Properties(), () -> ModMobEffects.BLOODLUST, 2400, 0,
+            () -> new BrewItem(new Item.Properties(), () -> ModMobEffects.BLOODLUST, 0,
                     Component.translatable("tooltip.hexalia.bloodlust_brew").withStyle(ChatFormatting.BLUE)));
     public static final DeferredItem<Item> BREW_OF_SLIMEWALKER = ITEMS.register("brew_of_slimewalker",
-            () -> new BrewItem(new Item.Properties(), () -> ModMobEffects.SLIMEWALKER, 2400, 0,
+            () -> new BrewItem(new Item.Properties(), () -> ModMobEffects.SLIMEWALKER, 0,
                     Component.translatable("tooltip.hexalia.slimewalker_brew").withStyle(ChatFormatting.BLUE)));
     public static final DeferredItem<Item> BREW_OF_SIPHON = ITEMS.register("brew_of_siphon",
-            () -> new BrewItem(new Item.Properties(), () -> ModMobEffects.SIPHON, 2400, 0,
+            () -> new BrewItem(new Item.Properties(), () -> ModMobEffects.SIPHON, 0,
                     Component.translatable("tooltip.hexalia.siphon_brew").withStyle(ChatFormatting.BLUE)));
     public static final DeferredItem<Item> BREW_OF_DAYBLOOM = ITEMS.register("brew_of_daybloom",
-            () -> new BrewItem(new Item.Properties(), () -> ModMobEffects.DAYBLOOM, 2400, 0,
+            () -> new BrewItem(new Item.Properties(), () -> ModMobEffects.DAYBLOOM, 0,
                     Component.translatable("tooltip.hexalia.daybloom").withStyle(ChatFormatting.BLUE)));
     public static final DeferredItem<Item> BREW_OF_ARACHNID_GRACE = ITEMS.register("brew_of_arachnid_grace",
-            () -> new BrewItem(new Item.Properties(), () -> ModMobEffects.ARACHNID_GRACE, 2400, 0,
+            () -> new BrewItem(new Item.Properties(), () -> ModMobEffects.ARACHNID_GRACE, 0,
                     Component.translatable("tooltip.hexalia.arachnid_grace").withStyle(ChatFormatting.BLUE)));
     public static final DeferredItem<Item> BREW_OF_HOMESTEAD = ITEMS.registerItem("brew_of_homestead",
             HomesteadBrewItem::new, new Item.Properties());

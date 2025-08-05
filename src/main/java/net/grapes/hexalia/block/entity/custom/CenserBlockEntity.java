@@ -30,7 +30,6 @@ public class CenserBlockEntity extends BlockEntity {
     private final NonNullList<ItemStack> items = NonNullList.withSize(SIZE, ItemStack.EMPTY);
     private HerbCombination activeCombination = null;
     private int burnTime = 0;
-    public static final int MAX_BURN_TIME = 7200;
     private static final int EFFECT_INTERVAL = 40;
     private boolean effectActive = false;
 

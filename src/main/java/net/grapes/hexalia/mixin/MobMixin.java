@@ -1,5 +1,6 @@
 package net.grapes.hexalia.mixin;
 
+import net.grapes.hexalia.Configuration;
 import net.grapes.hexalia.block.custom.censer.CenserEffectHandler;
 import net.grapes.hexalia.item.custom.GhostVeilItem;
 import net.minecraft.world.entity.EntityType;
@@ -18,8 +19,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import static net.grapes.hexalia.block.custom.censer.CenserEffectHandler.AREA_RADIUS;
 
 @Mixin(Mob.class)
 public abstract class MobMixin extends LivingEntity {
@@ -67,7 +66,7 @@ public abstract class MobMixin extends LivingEntity {
                     this.getX(),
                     this.getY(),
                     this.getZ(),
-                    AREA_RADIUS,
+                    Configuration.CENSER_EFFECT_RADIUS.get(),
                     false
             );
 

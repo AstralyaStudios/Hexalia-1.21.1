@@ -1,4 +1,6 @@
 package net.grapes.hexalia.block.entity.custom;
+
+import net.grapes.hexalia.Configuration;
 import net.grapes.hexalia.block.entity.ModBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -13,13 +15,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+
 import javax.annotation.Nullable;
 
 public class AstrylisBlockEntity extends BlockEntity {
-    private static final int DEFAULT_DURATION = 1200;
-    private static final int BONEMEAL_INTERVAL = 240;
     private long activationTime = -1;
-    private int duration = DEFAULT_DURATION;
     private long lastBonemealTime = -1;
 
     public AstrylisBlockEntity(BlockPos pos, BlockState blockState) {
@@ -30,15 +30,17 @@ public class AstrylisBlockEntity extends BlockEntity {
         if (level instanceof ServerLevel serverLevel && entity.isActive()) {
             long currentTime = level.getGameTime();
             long elapsedTime = currentTime - entity.activationTime;
+            int interval = Configuration.ASTRYLIS_BONEMEAL_INTERVAL.get();
+            int duration = Configuration.ASTRYLIS_DURATION.get();
 
-            if (elapsedTime >= entity.duration) {
+            if (elapsedTime >= duration) {
                 entity.deactivate();
                 return;
             }
 
-            long expectedBonemealApplications = elapsedTime / BONEMEAL_INTERVAL;
+            long expectedBonemealApplications = elapsedTime / interval;
             long actualBonemealApplications = entity.lastBonemealTime == -1 ? 0 :
-                    (entity.lastBonemealTime - entity.activationTime) / BONEMEAL_INTERVAL + 1;
+                    (entity.lastBonemealTime - entity.activationTime) / interval + 1;
 
             if (expectedBonemealApplications > actualBonemealApplications) {
                 long missedApplications = Math.min(expectedBonemealApplications - actualBonemealApplications, 5);
@@ -46,7 +48,7 @@ public class AstrylisBlockEntity extends BlockEntity {
                     applyBonemealToCropsAndSaplings(serverLevel, pos);
                 }
                 entity.lastBonemealTime = currentTime;
-            } else if (elapsedTime % BONEMEAL_INTERVAL == 0 && elapsedTime > 0) {
+            } else if (elapsedTime % interval == 0 && elapsedTime > 0) {
                 applyBonemealToCropsAndSaplings(serverLevel, pos);
                 entity.lastBonemealTime = currentTime;
             }
@@ -74,12 +76,7 @@ public class AstrylisBlockEntity extends BlockEntity {
     }
 
     public void activate(long gameTime) {
-        activate(gameTime, DEFAULT_DURATION);
-    }
-
-    public void activate(long gameTime, int customDuration) {
         this.activationTime = gameTime;
-        this.duration = customDuration;
         this.lastBonemealTime = -1;
         this.setChanged();
     }
@@ -91,7 +88,7 @@ public class AstrylisBlockEntity extends BlockEntity {
     }
 
     public int getDuration() {
-        return duration;
+        return Configuration.ASTRYLIS_DURATION.get();
     }
 
     public float getProgress() {
@@ -99,14 +96,13 @@ public class AstrylisBlockEntity extends BlockEntity {
             return 0.0f;
         }
         long elapsed = level.getGameTime() - activationTime;
-        return Math.min(1.0f, (float) elapsed / duration);
+        return Math.min(1.0f, (float) elapsed / getDuration());
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         tag.putLong("activationTime", activationTime);
-        tag.putInt("duration", duration);
         tag.putLong("lastBonemealTime", lastBonemealTime);
     }
 
@@ -114,7 +110,6 @@ public class AstrylisBlockEntity extends BlockEntity {
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         this.activationTime = tag.getLong("activationTime");
-        this.duration = tag.contains("duration") ? tag.getInt("duration") : DEFAULT_DURATION;
         this.lastBonemealTime = tag.getLong("lastBonemealTime");
     }
 
@@ -122,7 +117,6 @@ public class AstrylisBlockEntity extends BlockEntity {
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
         CompoundTag tag = super.getUpdateTag(registries);
         tag.putLong("activationTime", activationTime);
-        tag.putInt("duration", duration);
         tag.putLong("lastBonemealTime", lastBonemealTime);
         return tag;
     }

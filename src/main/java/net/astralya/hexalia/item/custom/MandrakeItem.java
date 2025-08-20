@@ -1,10 +1,10 @@
 package net.astralya.hexalia.item.custom;
 
+import net.astralya.hexalia.effect.ModEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,7 +27,7 @@ public class MandrakeItem extends Item {
         super(settings);
     }
 
-    // TODO: Mandrake Scream, Stunned Effect and Earplugs
+    // TODO: Mandrake Scream and Earplugs
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
@@ -36,7 +36,7 @@ public class MandrakeItem extends Item {
             for (Entity entity : entities) {
                 if (entity instanceof LivingEntity livingEntity &&
                         !(player.getEquippedStack(EquipmentSlot.HEAD).isOf(Items.LEATHER_HELMET) && !(player.isCreative()))) {
-                    livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 60, 0));
+                    livingEntity.addStatusEffect(new StatusEffectInstance(ModEffects.STUNNED, 60, 0));
                 }
             }
             world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_ENDERMAN_SCREAM,

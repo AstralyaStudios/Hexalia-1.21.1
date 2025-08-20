@@ -53,17 +53,17 @@ public class ModItemGroups {
 
                         // Crops
                         entries.add(ModItems.MANDRAKE);
-                        /*entries.add(ModItems.SUNFIRE_TOMATO);
-                        entries.add(ModItems.CHILLBERRIES);
+                        entries.add(ModItems.SUNFIRE_TOMATO);
+                        /*entries.add(ModItems.CHILLBERRIES);
                         entries.add(ModItems.RABBAGE);
                         entries.add(ModItems.SALTSPROUT);
-                        entries.add(ModItems.GALEBERRIES);
+                        entries.add(ModItems.GALEBERRIES);*/
 
                         // Food
                         entries.add(ModItems.MANDRAKE_STEW);
                         entries.add(ModItems.SPICY_SANDWICH);
                         entries.add(ModItems.CHILLBERRY_PIE);
-                        entries.add(ModItems.GALEBERRIES_COOKIE);*/
+                        entries.add(ModItems.GALEBERRIES_COOKIE);
 
                         // Tools
                         entries.add(ModItems.MORTAR_AND_PESTLE);

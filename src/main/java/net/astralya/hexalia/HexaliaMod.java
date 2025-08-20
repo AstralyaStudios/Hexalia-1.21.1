@@ -1,5 +1,6 @@
 package net.astralya.hexalia;
 
+import net.astralya.hexalia.effect.ModEffects;
 import net.astralya.hexalia.item.ModItemGroups;
 import net.astralya.hexalia.item.ModItems;
 import net.fabricmc.api.ModInitializer;
@@ -16,5 +17,6 @@ public class HexaliaMod implements ModInitializer {
 	public void onInitialize() {
 		ModItems.registerModItems();
 		ModItemGroups.registerItemGroups();
+		ModEffects.registerEffects();
 	}
 }

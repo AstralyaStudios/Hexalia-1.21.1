@@ -1,10 +1,8 @@
 package net.astralya.hexalia.item;
 
 import net.astralya.hexalia.HexaliaMod;
+import net.astralya.hexalia.effect.ModEffects;
 import net.astralya.hexalia.item.custom.*;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -45,10 +43,10 @@ public class ModItems {
     /*public static final Item MANDRAKE_SEEDS = registerItem("mandrake_seeds",
             new AliasedBlockItem(ModBlocks.MANDRAKE_CROP, new Item.Settings()));
     public static final Item CHILLBERRIES = registerItem("chillberries",
-            new BlockItem(ModBlocks.CHILLBERRY_BUSH, new Item.Settings().food(ModFoodComponents.CHILLBERRIES)));
+            new BlockItem(ModBlocks.CHILLBERRY_BUSH, new Item.Settings().food(ModFoodComponents.CHILLBERRIES)));*/
     public static final Item SUNFIRE_TOMATO = registerItem("sunfire_tomato",
             new Item(new Item.Settings().food(ModFoodComponents.SUNFIRE_TOMATO)));
-    public static final Item SUNFIRE_TOMATO_SEEDS = registerItem("sunfire_tomato_seeds",
+    /*public static final Item SUNFIRE_TOMATO_SEEDS = registerItem("sunfire_tomato_seeds",
             new AliasedBlockItem(ModBlocks.SUNFIRE_TOMATO_CROP, new Item.Settings()));
     public static final Item GALEBERRIES = registerItem("galeberries",
             new AliasedBlockItem(ModBlocks.GALEBERRIES_VINE, new Item.Settings().food(ModFoodComponents.GALEBERRIES)));
@@ -76,8 +74,8 @@ public class ModItems {
             new Item(new Item.Settings().food(ModFoodComponents.SPICY_SANDWICH)));
     public static final Item CHILLBERRY_PIE = registerItem("chillberry_pie",
             new Item(new Item.Settings().food(ModFoodComponents.CHILLBERRY_PIE)));
-    /*public static final Item MANDRAKE_STEW = registerItem("mandrake_stew",
-            new StewItem(new Item.Settings().food(ModFoodComponents.MANDRAKE_STEW).maxCount(1)));*/
+    public static final Item MANDRAKE_STEW = registerItem("mandrake_stew",
+            new Item(new Item.Settings().food(ModFoodComponents.MANDRAKE_STEW).maxCount(1)));
     public static final Item GALEBERRIES_COOKIE = registerItem("galeberries_cookie",
             new Item(new Item.Settings().food(ModFoodComponents.GALEBERRIES_COOKIE)));
 
@@ -86,24 +84,24 @@ public class ModItems {
     public static final Item RUSTIC_BOTTLE = registerItem("rustic_bottle",
             new Item(new Item.Settings()));
     public static final Item BREW_OF_SPIKESKIN = registerItem("brew_of_spikeskin",
-            new BrewItem(new Item.Settings().maxCount(16), () -> StatusEffects.FIRE_RESISTANCE, 0,
+            new BrewItem(new Item.Settings().maxCount(16), () -> ModEffects.SPIKESKIN, 0,
                     Text.translatable("tooltip.hexalia.spikeskin_brew").formatted(Formatting.BLUE)));
     public static final Item BREW_OF_BLOODLUST = registerItem("brew_of_bloodlust",
-            new BrewItem(new Item.Settings().maxCount(16), () -> StatusEffects.FIRE_RESISTANCE, 0,
+            new BrewItem(new Item.Settings().maxCount(16), () -> ModEffects.BLOODLUST, 0,
                     Text.translatable("tooltip.hexalia.spikeskin_brew").formatted(Formatting.BLUE)));
     public static final Item BREW_OF_SLIMEWALKER = registerItem("brew_of_slimewalker",
-            new BrewItem(new Item.Settings().maxCount(16), () -> StatusEffects.FIRE_RESISTANCE, 0,
+            new BrewItem(new Item.Settings().maxCount(16), () -> ModEffects.SLIMEWALKER, 0,
                     Text.translatable("tooltip.hexalia.spikeskin_brew").formatted(Formatting.BLUE)));
     public static final Item BREW_OF_SIPHON = registerItem("brew_of_siphon",
-            new BrewItem(new Item.Settings().maxCount(16), () -> StatusEffects.FIRE_RESISTANCE, 0,
+            new BrewItem(new Item.Settings().maxCount(16), () -> ModEffects.SIPHON, 0,
                     Text.translatable("tooltip.hexalia.spikeskin_brew").formatted(Formatting.BLUE)));
     public static final Item BREW_OF_DAYBLOOM = registerItem("brew_of_daybloom",
-            new BrewItem(new Item.Settings().maxCount(16), () -> StatusEffects.FIRE_RESISTANCE, 0,
+            new BrewItem(new Item.Settings().maxCount(16), () -> ModEffects.DAYBLOOM, 0,
                     Text.translatable("tooltip.hexalia.spikeskin_brew").formatted(Formatting.BLUE)));
     public static final Item BREW_OF_HOMESTEAD = registerItem("brew_of_homestead",
             new HomesteadBrewItem(new Item.Settings().maxCount(16)));
     public static final Item BREW_OF_ARACHNID_GRACE = registerItem("brew_of_arachnid_grace",
-            new BrewItem(new Item.Settings().maxCount(16), () -> StatusEffects.FIRE_RESISTANCE, 0,
+            new BrewItem(new Item.Settings().maxCount(16), () -> ModEffects.ARACHNID_GRACE, 0,
                     Text.translatable("tooltip.hexalia.spikeskin_brew").formatted(Formatting.BLUE)));
 
     // Tools & Others

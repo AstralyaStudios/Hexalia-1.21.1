@@ -3,15 +3,15 @@
 	"id": "hexalia",
 	"version": "${version}",
 	"name": "Hexalia",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A magical mod focused on herbology and potion brewing.",
 	"authors": [
-		"Me!"
+		"SirColor from Astralya Studios"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/GrapeStudios/",
+		"sources": "https://github.com/GrapeStudios/Hexalia"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/hexalia/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -19,7 +19,7 @@
 			"net.astralya.hexalia.HexaliaMod"
 		],
 		"fabric-datagen": [
-			"net.astralya.hexalia.HexaliaDataGenerator"
+			"net.astralya.hexalia.HexaliaModDataGenerator"
 		],
 		"client": [
 			"net.astralya.hexalia.HexaliaModClient"

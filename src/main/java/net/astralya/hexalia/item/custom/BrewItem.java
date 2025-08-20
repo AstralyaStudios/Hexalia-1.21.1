@@ -56,7 +56,11 @@ public class BrewItem extends Item {
         }
 
         if (user instanceof PlayerEntity player) {
-            stack.decrementUnlessCreative(1, user);
+            if (player.getAbilities().creativeMode) {
+                return stack;
+            }
+
+            stack.decrement(1);
             ItemStack bottle = new ItemStack(ModItems.RUSTIC_BOTTLE);
             if (stack.isEmpty()) {
                 return bottle;

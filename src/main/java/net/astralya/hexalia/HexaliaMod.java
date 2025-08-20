@@ -1,5 +1,7 @@
 package net.astralya.hexalia;
 
+import net.astralya.hexalia.item.ModItemGroups;
+import net.astralya.hexalia.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -12,6 +14,7 @@ public class HexaliaMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
+		ModItems.registerModItems();
+		ModItemGroups.registerItemGroups();
 	}
 }

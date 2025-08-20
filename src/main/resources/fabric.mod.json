@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.astralya.hexalia.Hexalia"
+			"net.astralya.hexalia.HexaliaMod"
 		],
 		"fabric-datagen": [
 			"net.astralya.hexalia.HexaliaDataGenerator"

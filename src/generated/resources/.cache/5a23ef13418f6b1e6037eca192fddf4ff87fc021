@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-28T21:38:52.2896064	Item Models: hexalia
+// 1.21.1	2025-08-13T16:00:17.9287329	Item Models: hexalia
 e5a7da2fe51e60bdf425b0c5e11675c33540c1ee assets/hexalia/models/item/air_node.json
 15249bcc7b4d170a3f881d5072d7c1103423d8ed assets/hexalia/models/item/ancient_seed.json
 5de9112b974a79b8d4daac10d489cae64dc39ad2 assets/hexalia/models/item/bogged_boots.json
@@ -47,7 +47,7 @@ bc49373d64572172e6f4ec5003ed75c8f22b3774 assets/hexalia/models/item/saltsprout.j
 14fe7dd1b5d62cc738d28d74b2f032fbc699e6ec assets/hexalia/models/item/silkworm.json
 68f318de3fd4eb4775854b2c1cfd5f096726bf9e assets/hexalia/models/item/silk_fiber.json
 885016cdbc8f0dce0a2f10af483dc9925abe391b assets/hexalia/models/item/silk_idol.json
-63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/hexalia/models/item/silk_moth_spawn_egg.json
+437b213e72976f6811df2be7bd3a828f5a091258 assets/hexalia/models/item/silk_moth_spawn_egg.json
 87bb388d61716a6e6dcb8c66bc9854b0d9f200a9 assets/hexalia/models/item/siren_kelp.json
 86059798ec79814a119279d7fbb36a2c2fb77e35 assets/hexalia/models/item/siren_paste.json
 821a2ac4b14a011097350a83d29566e06bc8ebb1 assets/hexalia/models/item/spicy_sandwich.json

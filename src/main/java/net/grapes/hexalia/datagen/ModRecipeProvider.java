@@ -367,12 +367,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.MORTAR_AND_PESTLE.get()).build()))
                 .save(recipeOutput);
 
-        /*ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.VERDANT_GRIMOIRE.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.VERDANT_GRIMOIRE.get())
                 .requires(Items.BOOK)
                 .requires(ModTags.Items.HERBS)
                 .unlockedBy("has_book",
                         inventoryTrigger(ItemPredicate.Builder.item().of(Items.BOOK).build()))
-                .save(recipeOutput);*/
+                .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SIREN_PASTE.get())
                 .requires(ModItems.SIREN_KELP.get())

@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-28T13:51:19.127625	Recipes
+// 1.21.1	2025-08-08T21:25:02.1678391	Recipes
 c327f3ba4eafb4c21dbb4104a1bc4c1d661f542a data/hexalia/advancement/recipes/brewing/rustic_bottle.json
 a8312b0bfae801aa7103827a4307c5c829b7dbf1 data/hexalia/advancement/recipes/building_blocks/celestial_crystal_block.json
 e15994b53b3dfc7b695ca1c1c4e0cf392e20aaa3 data/hexalia/advancement/recipes/building_blocks/cottonwood_planks.json
@@ -51,6 +51,7 @@ f098089c24e3a5041e879f42b490079cee0af257 data/hexalia/advancement/recipes/misc/s
 607331e5f5816846350d7c9e7dfe922d5ea2298f data/hexalia/advancement/recipes/misc/spirit_powder.json
 ea844e33b09a35750b39ea6fe2b47a5b3a259863 data/hexalia/advancement/recipes/misc/string_from_mortar_and_pestle.json
 e6fc7d47c0af3cec24e3c06db19d82cbff3b57f2 data/hexalia/advancement/recipes/misc/sunfire_tomato_seeds.json
+3c9d97eec1f3f815bc732ac33b3bacc589023485 data/hexalia/advancement/recipes/misc/verdant_grimoire.json
 d419f814ab31bff60c702157d5ba43b8634f6849 data/hexalia/advancement/recipes/misc/willow_button.json
 72bda20b3e386bf8d21ee096f189cfba4f8c62e5 data/hexalia/advancement/recipes/misc/yellow_dye_from_henbane.json
 988163c9c882fe4430666973bbf8f7d9faef135e data/hexalia/advancement/recipes/redstone/cottonwood_door.json
@@ -162,6 +163,7 @@ d56e2ad0b77513c0f327619eb3b72cf23c6e4dc9 data/hexalia/recipe/spirit_powder.json
 f7b6b9dc95666f1bd8b5adebe45b5958f697ae90 data/hexalia/recipe/storm_idol.json
 148444c93e398492e50f2de7f120e4b5c2812348 data/hexalia/recipe/string_from_mortar_and_pestle.json
 6e0dc965652018f42117ec5828271defe10bca1a data/hexalia/recipe/sunfire_tomato_seeds.json
+479158d46681f0504fc55764f2b295a005879e46 data/hexalia/recipe/verdant_grimoire.json
 48c33804e8462dbfb85143773f124de4e8c0c735 data/hexalia/recipe/water_node_from_ritual_table.json
 354def132171878e41a96e4749207f091e3420cd data/hexalia/recipe/willow_button.json
 a3d19beb3a2847806e8b4a1af5c4ef5b6558f60e data/hexalia/recipe/willow_door.json

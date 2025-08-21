@@ -96,8 +96,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.WILLOW_BOAT.get());
         basicItem(ModItems.WILLOW_CHEST_BOAT.get());
 
-        withExistingParent(ModItems.SILK_MOTH_SPAWN_EGG.getId().getPath(),
-                mcLoc("item/template_spawn_egg"));
+        basicItem(ModItems.SILK_MOTH_SPAWN_EGG.get());
 
         basicItem(ModItems.VERDANT_GRIMOIRE.get());
 

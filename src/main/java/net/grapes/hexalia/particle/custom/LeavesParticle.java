@@ -13,19 +13,12 @@ public class LeavesParticle extends SimpleAnimatedParticle {
                              double velocityX, double velocityY, double velocityZ,
                              SpriteSet sprites) {
 
-    /* Happy Villager also extends SimpleAnimatedParticle and sets a tiny ‘base
-       quad-size’ scale of 1 pixel; 0 → use default, so keep 0.01 F like the
-       original to match it. */
         super(level, x, y, z, sprites, 0.01F);
 
-        /* --- Match Happy Villager behaviour ---------------------------------- */
+        this.hasPhysics = false;
+        this.friction   = 0.96F;
+        this.gravity    = 0.0F;
 
-        this.hasPhysics = false;           // floats through blocks
-        this.friction   = 0.96F;           // gentle horizontal drag
-        this.gravity    = 0.0F;            // no falling
-
-    /* If caller supplied zero velocities (typical), give it a random gentle
-       outward push like the vanilla particle does. */
         if (velocityX == 0 && velocityY == 0 && velocityZ == 0) {
             this.xd = (random.nextDouble() - 0.5D) * 0.02D;
             this.yd =  random.nextDouble()            * 0.02D;
@@ -36,14 +29,12 @@ public class LeavesParticle extends SimpleAnimatedParticle {
             this.zd = velocityZ;
         }
 
-        /* Scale & lifetime: Happy Villager is small and short-lived. */
-        this.quadSize *= (0.2F + random.nextFloat() * 0.4F);  // ≈ 0.7 – 1.3
-        this.lifetime  = 14 + random.nextInt(6);               // 14 – 19 ticks
+        this.quadSize *= (0.2F + random.nextFloat() * 0.4F);
+        this.lifetime  = 14 + random.nextInt(6);
 
-        /* Tint: keep your custom colour or pick any int RGB. */
-        this.setColor(15916745);   // pale-green leaves
+        this.setColor(15916745);
 
-        this.setSpriteFromAge(sprites);  // animates through 4×4 sheet like Happy Villager
+        this.setSpriteFromAge(sprites);
     }
 
     @Override

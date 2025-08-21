@@ -4,7 +4,9 @@
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"CobwebMixin",
-		"LivingEntityMixin"
+		"LivingEntityMixin",
+		"CropBlockMixin",
+		"SugarCaneBlockMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -1,5 +1,6 @@
 package net.astralya.hexalia.item.custom;
 
+import net.astralya.hexalia.block.ModBlocks;
 import net.astralya.hexalia.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -22,12 +23,10 @@ import java.util.Set;
 
 public class StoneDaggerItem extends Item {
 
-    // TODO: Cottonwood Logs
-
-    private static final Set<Block> STRIPPABLE_LOGS = Set.of(Blocks.DARK_OAK_LOG, Blocks.ACACIA_LOG);
+    private static final Set<Block> STRIPPABLE_LOGS = Set.of(Blocks.DARK_OAK_LOG, ModBlocks.COTTONWOOD_LOG);
     private static final Map<Block, Block> STRIPPED_BLOCKS =
             Map.of(Blocks.DARK_OAK_LOG, Blocks.STRIPPED_DARK_OAK_LOG,
-                    Blocks.ACACIA_LOG, Blocks.STRIPPED_ACACIA_LOG);
+                    ModBlocks.COTTONWOOD_LOG, ModBlocks.STRIPPED_COTTONWOOD_LOG);
 
     public StoneDaggerItem(Settings settings) {
         super(settings);
@@ -63,7 +62,7 @@ public class StoneDaggerItem extends Item {
 
             world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
 
-            Block.dropStack(world, pos, new ItemStack(ModItems.HEX_FOCUS));
+            Block.dropStack(world, pos, new ItemStack(ModBlocks.RITUAL_BRAZIER));
 
             handleItemDamage(player, context.getStack(), context);
         }

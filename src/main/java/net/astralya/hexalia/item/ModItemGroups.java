@@ -1,6 +1,7 @@
 package net.astralya.hexalia.item;
 
 import net.astralya.hexalia.HexaliaMod;
+import net.astralya.hexalia.block.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -15,10 +16,11 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("itemGroup.hexalia"))
                     .icon(() -> new ItemStack(ModItems.HEX_FOCUS)).entries((displayContext, entries) -> {
                         // Herbs
-                        //entries.add(ModBlocks.SPIRIT_BLOOM);
-                        //entries.add(ModBlocks.DREAMSHROOM);
-                        //entries.add(ModItems.SIREN_KELP);
-                        //entries.add(ModBlocks.GHOST_FERN);
+                        entries.add(ModBlocks.SPIRIT_BLOOM);
+                        entries.add(ModBlocks.DREAMSHROOM);
+                        entries.add(ModItems.SIREN_KELP);
+                        entries.add(ModBlocks.GHOST_FERN);
+                        entries.add(ModBlocks.CELESTIAL_BLOOM);
 
                         // Crushed Herbs
                         entries.add(ModItems.SIREN_PASTE);
@@ -33,31 +35,31 @@ public class ModItemGroups {
                         entries.add(ModItems.EARTH_NODE);
 
                         // Enchanted Plants
-                        //entries.add(ModBlocks.MORPHORA);
-                        //entries.add(ModBlocks.GRIMSHADE);
-                        //entries.add(ModBlocks.NAUTILITE);
-                        //entries.add(ModBlocks.WINDSONG);
-                        //entries.add(ModBlocks.ASTRYLIS);
+                        entries.add(ModBlocks.MORPHORA);
+                        entries.add(ModBlocks.GRIMSHADE);
+                        entries.add(ModBlocks.NAUTILITE);
+                        entries.add(ModBlocks.WINDSONG);
+                        entries.add(ModBlocks.ASTRYLIS);
 
                         // Other  Resources
                         entries.add(ModItems.TREE_RESIN);
                         entries.add(ModItems.CELESTIAL_CRYSTAL);
-                        //entries.add(ModBlocks.CELESTIAL_CRYSTAL_BLOCK);
+                        entries.add(ModBlocks.CELESTIAL_CRYSTAL_BLOCK);
                         entries.add(ModItems.SILK_FIBER);
                         entries.add(ModItems.SILKWORM);
 
                         // Seeds
-                        /*entries.add(ModItems.MANDRAKE_SEEDS);
+                        entries.add(ModItems.MANDRAKE_SEEDS);
                         entries.add(ModItems.SUNFIRE_TOMATO_SEEDS);
-                        entries.add(ModItems.RABBAGE_SEEDS);*/
+                        entries.add(ModItems.RABBAGE_SEEDS);
 
                         // Crops
                         entries.add(ModItems.MANDRAKE);
                         entries.add(ModItems.SUNFIRE_TOMATO);
-                        /*entries.add(ModItems.CHILLBERRIES);
+                        entries.add(ModItems.CHILLBERRIES);
                         entries.add(ModItems.RABBAGE);
                         entries.add(ModItems.SALTSPROUT);
-                        entries.add(ModItems.GALEBERRIES);*/
+                        entries.add(ModItems.GALEBERRIES);
 
                         // Food
                         entries.add(ModItems.MANDRAKE_STEW);
@@ -75,20 +77,20 @@ public class ModItemGroups {
                         entries.add(ModItems.STORM_IDOL);
 
                         // Functional Blocks
-                        //entries.add(ModBlocks.RUSTIC_OVEN);
-                        //entries.add(ModItems.SMALL_CAULDRON);
-                        //entries.add(ModBlocks.SHELF);
-                        //entries.add(ModItems.RITUAL_TABLE);
-                        //entries.add(ModBlocks.INFUSED_DIRT);
-                        //entries.add(ModBlocks.INFUSED_FARMLAND);
-                        //entries.add(ModBlocks.RITUAL_BRAZIER);
-                        //entries.add(ModBlocks.CENSER);
-                        //entries.add(ModBlocks.DREAMCATCHER);
+                        entries.add(ModBlocks.RUSTIC_OVEN);
+                        entries.add(ModItems.SMALL_CAULDRON);
+                        entries.add(ModBlocks.SHELF);
+                        entries.add(ModItems.RITUAL_TABLE);
+                        entries.add(ModBlocks.INFUSED_DIRT);
+                        entries.add(ModBlocks.INFUSED_FARMLAND);
+                        entries.add(ModBlocks.RITUAL_BRAZIER);
+                        entries.add(ModBlocks.CENSER);
+                        entries.add(ModBlocks.DREAMCATCHER);
 
                         // Salt
                         entries.add(ModItems.SALT);
                         entries.add(ModItems.PURIFYING_SALTS);
-                        //entries.add(ModBlocks.SALT_BLOCK);
+                        entries.add(ModBlocks.SALT_BLOCK);
 
                         // Brews
                         entries.add(ModItems.RUSTIC_BOTTLE);
@@ -101,22 +103,21 @@ public class ModItemGroups {
                         entries.add(ModItems.BREW_OF_ARACHNID_GRACE);
 
                         // Decorative Plants
-                        //entries.add(ModBlocks.HENBANE);
-                        //entries.add(ModBlocks.BEGONIA);
-                        //entries.add(ModBlocks.LAVENDER);
-                        //entries.add(ModBlocks.DAHLIA);
-                        //entries.add(ModItems.LOTUS_FLOWER);
-                        //entries.add(ModBlocks.PALE_MUSHROOM);
-                        //entries.add(ModBlocks.WITCHWEED);
-                        //entries.add(ModBlocks.HEXED_BULRUSH);
-                        //entries.add(ModBlocks.NIGHTSHADE_BUSH);
-                        //entries.add(ModItems.DUCKWEED);
+                        entries.add(ModBlocks.HENBANE);
+                        entries.add(ModBlocks.BEGONIA);
+                        entries.add(ModBlocks.LAVENDER);
+                        entries.add(ModBlocks.DAHLIA);
+                        entries.add(ModItems.LOTUS_FLOWER);
+                        entries.add(ModBlocks.PALE_MUSHROOM);
+                        entries.add(ModBlocks.WITCHWEED);
+                        entries.add(ModBlocks.HEXED_BULRUSH);
+                        entries.add(ModBlocks.NIGHTSHADE_BUSH);
+                        entries.add(ModItems.DUCKWEED);
 
                         // Decorative Blocks
-                        //entries.add(ModBlocks.PARCHMENT);
-                        //entries.add(ModItems.CANDLE_SKULL);
-                        //entries.add(ModItems.WITHER_CANDLE_SKULL);
-                        //entries.add(ModItems.SALT_LAMP);
+                        entries.add(ModItems.CANDLE_SKULL);
+                        entries.add(ModItems.WITHER_CANDLE_SKULL);
+                        entries.add(ModItems.SALT_LAMP);
 
                         // Rare Items
                         entries.add(ModItems.ANCIENT_SEED);
@@ -129,45 +130,45 @@ public class ModItemGroups {
                         //entries.add(ModItems.BOGGED_BOOTS);
 
                         // Wood-related Items
-                        //entries.add(ModBlocks.COTTONWOOD_SAPLING);
-                        //entries.add(ModBlocks.COTTONWOOD_LEAVES);
-                        //entries.add(ModBlocks.COTTONWOOD_LOG);
-                        //entries.add(ModBlocks.COTTONWOOD_WOOD);
-                        //entries.add(ModBlocks.STRIPPED_COTTONWOOD_LOG);
-                        //entries.add(ModBlocks.STRIPPED_COTTONWOOD_WOOD);
-                        //entries.add(ModBlocks.COTTONWOOD_PLANKS);
-                        //entries.add(ModBlocks.COTTONWOOD_STAIRS);
-                        //entries.add(ModBlocks.COTTONWOOD_SLAB);
-                        //entries.add(ModBlocks.COTTONWOOD_FENCE);
-                        //entries.add(ModBlocks.COTTONWOOD_FENCE_GATE);
-                        //entries.add(ModBlocks.COTTONWOOD_DOOR);
-                        //entries.add(ModBlocks.COTTONWOOD_TRAPDOOR);
-                        //entries.add(ModBlocks.COTTONWOOD_PRESSURE_PLATE);
-                        //entries.add(ModBlocks.COTTONWOOD_BUTTON);
+                        entries.add(ModBlocks.COTTONWOOD_SAPLING);
+                        entries.add(ModBlocks.COTTONWOOD_LEAVES);
+                        entries.add(ModBlocks.COTTONWOOD_LOG);
+                        entries.add(ModBlocks.COTTONWOOD_WOOD);
+                        entries.add(ModBlocks.STRIPPED_COTTONWOOD_LOG);
+                        entries.add(ModBlocks.STRIPPED_COTTONWOOD_WOOD);
+                        entries.add(ModBlocks.COTTONWOOD_PLANKS);
+                        entries.add(ModBlocks.COTTONWOOD_STAIRS);
+                        entries.add(ModBlocks.COTTONWOOD_SLAB);
+                        entries.add(ModBlocks.COTTONWOOD_FENCE);
+                        entries.add(ModBlocks.COTTONWOOD_FENCE_GATE);
+                        entries.add(ModBlocks.COTTONWOOD_DOOR);
+                        entries.add(ModBlocks.COTTONWOOD_TRAPDOOR);
+                        entries.add(ModBlocks.COTTONWOOD_PRESSURE_PLATE);
+                        entries.add(ModBlocks.COTTONWOOD_BUTTON);
                         //entries.add(ModItems.COTTONWOOD_BOAT);
                         //entries.add(ModItems.COTTONWOOD_CHEST_BOAT);
                         //entries.add(ModItems.COTTONWOOD_SIGN);
                         //entries.add(ModItems.COTTONWOOD_HANGING_SIGN);
-                        //entries.add(ModBlocks.WILLOW_SAPLING);
-                        //entries.add(ModBlocks.WILLOW_LEAVES);
-                        //entries.add(ModBlocks.WILLOW_LOG);
-                        //entries.add(ModBlocks.WILLOW_WOOD);
-                        //entries.add(ModBlocks.WILLOW_MOSSY_WOOD);
-                        //entries.add(ModBlocks.STRIPPED_WILLOW_LOG);
-                        //entries.add(ModBlocks.STRIPPED_WILLOW_WOOD);
-                        //entries.add(ModBlocks.WILLOW_PLANKS);
-                        //entries.add(ModBlocks.WILLOW_STAIRS);
-                        //entries.add(ModBlocks.WILLOW_SLAB);
-                        //entries.add(ModBlocks.WILLOW_FENCE);
-                        //entries.add(ModBlocks.WILLOW_FENCE_GATE);
-                        //entries.add(ModBlocks.WILLOW_DOOR);
-                        //entries.add(ModBlocks.WILLOW_TRAPDOOR);
-                        //entries.add(ModBlocks.WILLOW_PRESSURE_PLATE);
-                        //entries.add(ModBlocks.WILLOW_BUTTON);
+                        entries.add(ModBlocks.WILLOW_SAPLING);
+                        entries.add(ModBlocks.WILLOW_LEAVES);
+                        entries.add(ModBlocks.WILLOW_LOG);
+                        entries.add(ModBlocks.WILLOW_WOOD);
+                        entries.add(ModBlocks.WILLOW_MOSSY_WOOD);
+                        entries.add(ModBlocks.STRIPPED_WILLOW_LOG);
+                        entries.add(ModBlocks.STRIPPED_WILLOW_WOOD);
+                        entries.add(ModBlocks.WILLOW_PLANKS);
+                        entries.add(ModBlocks.WILLOW_STAIRS);
+                        entries.add(ModBlocks.WILLOW_SLAB);
+                        entries.add(ModBlocks.WILLOW_FENCE);
+                        entries.add(ModBlocks.WILLOW_FENCE_GATE);
+                        entries.add(ModBlocks.WILLOW_DOOR);
+                        entries.add(ModBlocks.WILLOW_TRAPDOOR);
+                        entries.add(ModBlocks.WILLOW_PRESSURE_PLATE);
+                        entries.add(ModBlocks.WILLOW_BUTTON);
                         //entries.add(ModItems.WILLOW_BOAT);
                         //entries.add(ModItems.WILLOW_CHEST_BOAT);
                         //entries.add(ModItems.WILLOW_SIGN);
-                        // entries.add(ModItems.WILLOW_HANGING_SIGN);
+                        //entries.add(ModItems.WILLOW_HANGING_SIGN);
 
                         // Spawn Eggs
                         //entries.add(ModItems.SILK_MOTH_SPAWN_EGG);

@@ -6,13 +6,17 @@ import net.astralya.hexalia.particle.custom.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.world.biome.FoliageColors;
 
 public class HexaliaModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         registerBlockRenderLayers();
         registerParticles();
+        registerColorProviders();
     }
 
     private void registerBlockRenderLayers() {
@@ -52,5 +56,14 @@ public class HexaliaModClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticleType.MOTE, MoteParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticleType.GHOST, GhostParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticleType.LEAVES, LeavesParticle.Factory::new);
+    }
+
+    private void registerColorProviders() {
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) ->
+                        world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefaultColor(),
+                ModBlocks.COTTONWOOD_LEAVES, ModBlocks.WILLOW_LEAVES);
+
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FoliageColors.getDefaultColor(),
+                ModBlocks.COTTONWOOD_LEAVES, ModBlocks.WILLOW_LEAVES);
     }
 }

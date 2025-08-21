@@ -1,6 +1,8 @@
 package net.astralya.hexalia.item.custom;
 
+import net.astralya.hexalia.Configuration;
 import net.astralya.hexalia.effect.ModEffects;
+import net.astralya.hexalia.sound.ModSoundEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -32,14 +34,14 @@ public class MandrakeItem extends Item {
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (!world.isClient && user instanceof PlayerEntity player) {
-            List<Entity> entities = world.getOtherEntities(player, player.getBoundingBox().expand(5.0));
+            List<Entity> entities = world.getOtherEntities(player, player.getBoundingBox().expand(Configuration.get().mandrakeScreamRadius));
             for (Entity entity : entities) {
                 if (entity instanceof LivingEntity livingEntity &&
                         !(player.getEquippedStack(EquipmentSlot.HEAD).isOf(Items.LEATHER_HELMET) && !(player.isCreative()))) {
-                    livingEntity.addStatusEffect(new StatusEffectInstance(ModEffects.STUNNED, 60, 0));
+                    livingEntity.addStatusEffect(new StatusEffectInstance(ModEffects.STUNNED, Configuration.get().mandrakeStunDuration, 0));
                 }
             }
-            world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_ENDERMAN_SCREAM,
+            world.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.MANDRAKE_SCREAM,
                     SoundCategory.PLAYERS, 1.0f, 1.0f);
             if (!player.isCreative()) {
                 stack.decrement(1);

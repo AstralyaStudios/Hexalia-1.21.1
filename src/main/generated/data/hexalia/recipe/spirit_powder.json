@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hexalia:mortar_and_pestle"
+    },
+    {
+      "item": "hexalia:spirit_bloom"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "hexalia:spirit_powder"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hexalia:mortar_and_pestle"
+    },
+    {
+      "item": "hexalia:saltsprout"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "hexalia:salt"
+  }
+}

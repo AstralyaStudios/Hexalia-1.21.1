@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hexalia:mortar_and_pestle"
+    },
+    {
+      "item": "hexalia:ghost_fern"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "hexalia:ghost_powder"
+  }
+}

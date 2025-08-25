@@ -8,6 +8,7 @@ import net.astralya.hexalia.item.ModItemGroups;
 import net.astralya.hexalia.item.ModItems;
 import net.astralya.hexalia.particle.ModParticleType;
 import net.astralya.hexalia.sound.ModSoundEvents;
+import net.astralya.hexalia.util.ModRegistries;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -24,9 +25,11 @@ public class HexaliaMod implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModEffects.registerEffects();
 		ModBlocks.registerModBlocks();
+		ModBlocks.registerBlockProperties();
 		ModParticleType.registerParticles();
 		ModSoundEvents.registerSounds();
 		ModBlockEntityTypes.registerBlockEntities();
 		ModBoats.registerBoats();
+		ModRegistries.registerModStuff();
 	}
 }

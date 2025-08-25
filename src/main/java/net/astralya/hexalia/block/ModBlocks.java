@@ -7,6 +7,9 @@ import net.astralya.hexalia.block.custom.wood.ModSignBlock;
 import net.astralya.hexalia.block.custom.wood.ModWallHangingSignBlock;
 import net.astralya.hexalia.block.custom.wood.ModWallSignBlock;
 import net.astralya.hexalia.util.ModWoodTypes;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.*;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
@@ -243,6 +246,62 @@ public class ModBlocks {
     public static final Block WILLOW_HANGING_WALL_SIGN = registerBlockWithoutBlockItem("willow_hanging_wall_sign",
             new ModWallHangingSignBlock(ModWoodTypes.WILLOW_WOOD_TYPE, AbstractBlock.Settings.copy(Blocks.MANGROVE_SIGN).nonOpaque()));
 
+    public static void registerBlockProperties() {
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.COTTONWOOD_LEAVES, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.WILLOW_LEAVES, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.COTTONWOOD_SAPLING, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.WILLOW_SAPLING, 0.3F);
+
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.SPIRIT_BLOOM, 0.5F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.DREAMSHROOM, 0.5F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.HENBANE, 0.5F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.BEGONIA, 0.5F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.LAVENDER, 0.5F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.DAHLIA, 0.5F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.PALE_MUSHROOM, 0.5F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.WITCHWEED, 0.5F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.GHOST_FERN, 0.5F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.HEXED_BULRUSH, 0.5F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.NIGHTSHADE_BUSH, 0.5F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.CELESTIAL_BLOOM, 0.5F);
+
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.MORPHORA, 0.8F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.GRIMSHADE, 0.8F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.WINDSONG, 0.8F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.ASTRYLIS, 0.8F);
+
+        StrippableBlockRegistry.register(ModBlocks.COTTONWOOD_LOG, ModBlocks.STRIPPED_COTTONWOOD_LOG);
+        StrippableBlockRegistry.register(ModBlocks.COTTONWOOD_WOOD, ModBlocks.STRIPPED_COTTONWOOD_WOOD);
+        StrippableBlockRegistry.register(ModBlocks.WILLOW_LOG, ModBlocks.STRIPPED_WILLOW_LOG);
+        StrippableBlockRegistry.register(ModBlocks.WILLOW_WOOD, ModBlocks.STRIPPED_WILLOW_WOOD);
+        StrippableBlockRegistry.register(ModBlocks.WILLOW_MOSSY_WOOD, ModBlocks.STRIPPED_WILLOW_WOOD);
+
+        FlammableBlockRegistry instance = FlammableBlockRegistry.getDefaultInstance();
+        instance.add(ModBlocks.SPIRIT_BLOOM, 60, 100);
+        instance.add(ModBlocks.CHILLBERRY_BUSH, 60, 100);
+        instance.add(ModBlocks.WILD_MANDRAKE, 60, 100);
+        instance.add(ModBlocks.HENBANE, 60, 100);
+        instance.add(ModBlocks.DREAMCATCHER, 5, 20);
+        instance.add(ModBlocks.SILKWORM_COCOON, 6, 100);
+        instance.add(ModBlocks.COTTONWOOD_LOG, 5, 20);
+        instance.add(ModBlocks.COTTONWOOD_WOOD, 5, 20);
+        instance.add(ModBlocks.STRIPPED_COTTONWOOD_LOG, 5, 20);
+        instance.add(ModBlocks.STRIPPED_COTTONWOOD_WOOD, 5, 20);
+        instance.add(ModBlocks.COTTONWOOD_PLANKS, 5, 20);
+        instance.add(ModBlocks.WILLOW_LOG, 5, 20);
+        instance.add(ModBlocks.WILLOW_WOOD, 5, 20);
+        instance.add(ModBlocks.STRIPPED_WILLOW_LOG, 5, 20);
+        instance.add(ModBlocks.STRIPPED_WILLOW_WOOD, 5, 20);
+        instance.add(ModBlocks.WILLOW_PLANKS, 5, 20);
+        instance.add(ModBlocks.WITCHWEED, 60, 100);
+        instance.add(ModBlocks.NIGHTSHADE_BUSH, 60, 100);
+        instance.add(ModBlocks.LAVENDER, 60, 100);
+        instance.add(ModBlocks.BEGONIA, 60, 100);
+        instance.add(ModBlocks.DAHLIA, 60, 100);
+        instance.add(ModBlocks.GALEBERRIES_VINE, 60, 100);
+        instance.add(ModBlocks.GALEBERRIES_VINE_PLANT, 60, 100);
+        instance.add(ModBlocks.RITUAL_BRAZIER, 5, 20);
+    }
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {
         return Registry.register(Registries.BLOCK, Identifier.of(HexaliaMod.MODID, name), block);

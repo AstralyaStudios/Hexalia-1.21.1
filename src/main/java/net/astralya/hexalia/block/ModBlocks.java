@@ -44,21 +44,21 @@ public class ModBlocks {
 
     // Enchanted Flora
     public static final Block MORPHORA = registerBlock("morphora",
-            new MorphoraBlock(AbstractBlock.Settings.copy(Blocks.AZALEA)));
+            new MorphoraBlock(AbstractBlock.Settings.copy(Blocks.AZALEA).noCollision()));
     public static final Block POTTED_MORPHORA = registerBlockWithoutBlockItem("potted_morphora",
             new FlowerPotBlock(MORPHORA, AbstractBlock.Settings.copy(Blocks.POTTED_ALLIUM)));
     public static final Block GRIMSHADE = registerBlock("grimshade",
-            new GrimshadeBlock(AbstractBlock.Settings.copy(Blocks.AZALEA)));
+            new GrimshadeBlock(AbstractBlock.Settings.copy(Blocks.AZALEA).noCollision()));
     public static final Block POTTED_GRIMSHADE = registerBlockWithoutBlockItem("potted_grimshade",
             new FlowerPotBlock(GRIMSHADE, AbstractBlock.Settings.copy(Blocks.POTTED_ALLIUM)));
     public static final Block NAUTILITE = registerBlock("nautilite",
-            new NautiliteBlock(AbstractBlock.Settings.copy(Blocks.AZALEA)));
+            new NautiliteBlock(AbstractBlock.Settings.copy(Blocks.AZALEA).noCollision()));
     public static final Block WINDSONG = registerBlock("windsong",
-            new WindsongBlock(AbstractBlock.Settings.copy(Blocks.AZALEA)));
+            new WindsongBlock(AbstractBlock.Settings.copy(Blocks.AZALEA).noCollision()));
     public static final Block POTTED_WINDSONG = registerBlockWithoutBlockItem("potted_windsong",
             new FlowerPotBlock(WINDSONG, AbstractBlock.Settings.copy(Blocks.POTTED_ALLIUM)));
     public static final Block ASTRYLIS = registerBlock("astrylis",
-            new AstrylisBlock(AbstractBlock.Settings.copy(Blocks.AZALEA)));
+            new AstrylisBlock(AbstractBlock.Settings.copy(Blocks.AZALEA).noCollision()));
     public static final Block POTTED_ASTRYLIS = registerBlockWithoutBlockItem("potted_astrylis",
             new FlowerPotBlock(ASTRYLIS, AbstractBlock.Settings.copy(Blocks.POTTED_ALLIUM)));
 

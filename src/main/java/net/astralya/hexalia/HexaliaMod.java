@@ -1,6 +1,7 @@
 package net.astralya.hexalia;
 
 import net.astralya.hexalia.block.ModBlocks;
+import net.astralya.hexalia.block.entity.ModBlockEntityTypes;
 import net.astralya.hexalia.effect.ModEffects;
 import net.astralya.hexalia.item.ModItemGroups;
 import net.astralya.hexalia.item.ModItems;
@@ -24,5 +25,6 @@ public class HexaliaMod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModParticleType.registerParticles();
 		ModSoundEvents.registerSounds();
+		ModBlockEntityTypes.registerBlockEntities();
 	}
 }

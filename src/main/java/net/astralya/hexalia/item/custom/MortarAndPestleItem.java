@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 public class MortarAndPestleItem extends Item {
 
-    // TODO: Test When Recipes are Done
+    // TODO: IT IS NOT BEING DAMAGED
 
     public MortarAndPestleItem(Settings settings) {
         super(settings);

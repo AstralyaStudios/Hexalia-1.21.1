@@ -227,6 +227,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     }
 
     private void addSignAndBoatTags() {
+
+        //TODO
         // Boats
         /*getOrCreateTagBuilder(ItemTags.BOATS)
                 .add(ModItems.COTTONWOOD_BOAT)
@@ -234,7 +236,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.CHEST_BOATS)
                 .add(ModItems.COTTONWOOD_CHEST_BOAT)
-                .add(ModItems.WILLOW_CHEST_BOAT);
+                .add(ModItems.WILLOW_CHEST_BOAT);*/
 
         // Signs
         getOrCreateTagBuilder(ItemTags.SIGNS)
@@ -243,7 +245,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.HANGING_SIGNS)
                 .add(ModItems.COTTONWOOD_HANGING_SIGN)
-                .add(ModItems.WILLOW_HANGING_SIGN);*/
+                .add(ModItems.WILLOW_HANGING_SIGN);
     }
 
     private void addSereneSeasonsTags() {

@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-21T23:37:02.7338969	Hexalia/Recipes
+// 1.21.1	2025-08-25T07:51:16.6819655	Hexalia/Recipes
 e1c97b1c22b999cc36e2f26ed641c52b52edb2f0 data\hexalia\advancement\recipes\misc\cobweb_from_fiber.json
 977d7a987ce2238d4ca0ae2932ae26c723d14a3d data\hexalia\advancement\recipes\misc\pink_dye.json
 cc46850d52e693b016cd687938962f207fd6a205 data\hexalia\advancement\recipes\misc\salt_block.json
@@ -6,6 +6,7 @@ cc46850d52e693b016cd687938962f207fd6a205 data\hexalia\advancement\recipes\misc\s
 d0cd4c8dcd81c0c91a1cc910d9026bbd0b1f6d2a data\hexalia\advancement\recipes\decorations\cottonwood_fence.json
 e396c6290d93bdf13d02cd1476640ac39925f880 data\hexalia\recipe\hex_focus.json
 c7bcb801de929506fa52b33a547e29562095b91c data\hexalia\recipe\shelf.json
+1070662f9b5e05b8ae880f503fec66997b3d32fc data\hexalia\recipe\willow_sign.json
 e151c177c529c5bfbe49283d48471ccc74232f3d data\hexalia\recipe\salt_from_mortar_and_pestle.json
 00471ca5da819bbb74159d665fcfad61cd5826c4 data\hexalia\advancement\recipes\misc\candle_skull.json
 988163c9c882fe4430666973bbf8f7d9faef135e data\hexalia\advancement\recipes\redstone\cottonwood_door.json
@@ -18,11 +19,13 @@ fd4cc71323e0198146d8dc6310474df354511fad data\hexalia\recipe\leather_from_salt.j
 8422724ff53933290ef25434ba50ad2b7a86828c data\hexalia\recipe\willow_slab.json
 319e1d4f0465ad96e2cf8366f7320859c1f1db97 data\hexalia\advancement\recipes\misc\mortar_and_pestle.json
 c2b9e9082ff84b5689338318b0287c3c4c513107 data\hexalia\advancement\recipes\misc\mandrake_seeds.json
+a0b145e53141703e9510ea03929369f9672c4c6a data\hexalia\recipe\cottonwood_hanging_sign.json
 1870f5f26a7ab4faf65b5a10fdb1411009b0b152 data\hexalia\recipe\celestial_crystal_block.json
 e02ba805cd022e45dd1f4d04f763c65b48aed4fe data\hexalia\recipe\storm_idol.json
 a515aeeddb7c4be95daadd51b45e1ba5a1351f8c data\hexalia\recipe\galeberries_cookie.json
 adbddc39870378f3a5bd1147cf16b33c4293b2d2 data\hexalia\advancement\recipes\misc\rain_idol.json
 8e2f8435f9fc7ac04d20bab610481a5fa83035fc data\hexalia\recipe\spirit_powder.json
+b9027e330a1edad3eed58b21f7c71ff4d1383cf7 data\hexalia\advancement\recipes\decorations\willow_sign.json
 3b358b61a11361e4a657a554acc48d979d3820a6 data\hexalia\recipe\candle_skull.json
 5f762c42cadc8889d54dd28eeb6036ea9e0730c0 data\hexalia\recipe\purple_dye.json
 67fa257b22b22ef3ee7e16ba68c6b1b3adb3c8a2 data\hexalia\recipe\salt_block.json
@@ -41,11 +44,14 @@ e0b6dce9aafb862c7cd861a9f703fcb8dbca9830 data\hexalia\recipe\black_dye.json
 a04c28607745ca446ae1b09efb092b786d85acbd data\hexalia\advancement\recipes\misc\silk_idol.json
 91689241a11db03fe25c3e7b4a3e4200752e69b4 data\hexalia\advancement\recipes\misc\leather_from_salt.json
 6bf4cbac7187a803e0238c31d531c9344cb20325 data\hexalia\advancement\recipes\misc\purifying_salts.json
+0201bd54347bac5d6e5b756f45e9ba272afa6c9f data\hexalia\advancement\recipes\decorations\cottonwood_hanging_sign.json
 86e134b6c963c8502476a2aa0ba62ffc7391fbfc data\hexalia\advancement\recipes\misc\infused_dirt.json
+475cc2abb594f9281b691c8e58401cf4f6e0c80d data\hexalia\advancement\recipes\decorations\cottonwood_sign.json
 38ff5cbc40c9c39f63b444f0db404b9c36df1459 data\hexalia\recipe\chillberry_pie.json
 192c1df5e3a4d9ef9a43f37ef3e82695db5646f1 data\hexalia\advancement\recipes\decorations\willow_slab.json
 ea9dcc61411511981919646b462f4bd64fb01c1b data\hexalia\recipe\willow_fence.json
 c64f4231b783523935ee0b3b71437ced3c3242cd data\hexalia\recipe\mortar_and_pestle.json
+aeaf96fd3ad6743fd189b0f0e3719ed2f2c86eb1 data\hexalia\recipe\cottonwood_sign.json
 6e0dc965652018f42117ec5828271defe10bca1a data\hexalia\recipe\sunfire_tomato_seeds.json
 39f31614cf02c0e32ab981b48798d5374bf2a358 data\hexalia\advancement\recipes\redstone\cottonwood_trapdoor.json
 8818145725158114200a4aae23e66787e71ccf96 data\hexalia\advancement\recipes\misc\black_dye.json
@@ -75,6 +81,7 @@ df0dc88aace01e57edb9b2ac128e45908be746aa data\hexalia\advancement\recipes\decora
 607331e5f5816846350d7c9e7dfe922d5ea2298f data\hexalia\advancement\recipes\misc\spirit_powder.json
 b7b065812fe620272bef121da5f4f39173ddcaef data\hexalia\recipe\cottonwood_trapdoor.json
 3d303dd86844d1bf1d6a7779ed67478b6d679aa0 data\hexalia\recipe\silk_fiber.json
+3865fc8141066669dee36691caac3761c3360fb5 data\hexalia\recipe\willow_hanging_sign.json
 168c5155a3aae6793e7709d4a4d4cd52683eca87 data\hexalia\recipe\willow_trapdoor.json
 ca427008936f37d9a9aa7fc58b789235d6d207c2 data\hexalia\advancement\recipes\redstone\willow_fence_gate.json
 7283d9f7686230f081847174c8fe0afd0fc8c8e0 data\hexalia\advancement\recipes\misc\dream_paste.json
@@ -91,6 +98,7 @@ fbcefb3aea052d42ea0b5761192b38cc97fd71ec data\hexalia\recipe\ghost_powder.json
 4ad00f02b711ccc0863459170ee10ad2881782c9 data\hexalia\advancement\recipes\misc\silk_fiber.json
 57044ed3e7bb3b533fb0c88222a77c0b8639d2a1 data\hexalia\recipe\cottonwood_fence_gate.json
 3f43cd47fba97a132a4cde9bb31be6d378c34519 data\hexalia\recipe\salt.json
+d5136d1e9675c9db87cc109ac8b1ac45515711a5 data\hexalia\advancement\recipes\decorations\willow_hanging_sign.json
 086cd3ff655582b63632fe5308f672336226cc0d data\hexalia\recipe\dream_paste.json
 85563356d30b918cd8fff94b631a15ccfc4b18be data\hexalia\recipe\string_from_mortar_and_pestle.json
 19ae3958e2f2a93121ad273b67b2fe7a57733b3e data\hexalia\advancement\recipes\misc\salt_lamp.json

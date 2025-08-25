@@ -2,6 +2,11 @@ package net.astralya.hexalia.block;
 
 import net.astralya.hexalia.HexaliaMod;
 import net.astralya.hexalia.block.custom.*;
+import net.astralya.hexalia.block.custom.wood.ModHangingSignBlock;
+import net.astralya.hexalia.block.custom.wood.ModSignBlock;
+import net.astralya.hexalia.block.custom.wood.ModWallHangingSignBlock;
+import net.astralya.hexalia.block.custom.wood.ModWallSignBlock;
+import net.astralya.hexalia.util.ModWoodTypes;
 import net.minecraft.block.*;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
@@ -151,92 +156,92 @@ public class ModBlocks {
 
     // Tree-Related Blocks
     public static final Block COTTONWOOD_LEAVES = registerBlock("cottonwood_leaves",
-            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(0.2f)));
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LEAVES).strength(0.2f)));
     public static final Block COTTONWOOD_CATKIN = registerBlock("cottonwood_catkin",
-            new CatkinBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(0.2f)));
+            new CatkinBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LEAVES).strength(0.2f)));
     public static final Block COTTONWOOD_SAPLING = registerBlock("cottonwood_sapling",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
     public static final Block POTTED_COTTONWOOD_SAPLING = registerBlock("potted_cottonwood_sapling",
             new FlowerPotBlock(COTTONWOOD_SAPLING, AbstractBlock.Settings.copy(Blocks.POTTED_OAK_SAPLING)));
     public static final Block COTTONWOOD_LOG = registerBlock("cottonwood_log",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LOG)));
     public static final Block COTTONWOOD_WOOD = registerBlock("cottonwood_wood",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LOG)));
     public static final Block STRIPPED_COTTONWOOD_LOG = registerBlock("stripped_cottonwood_log",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LOG)));
     public static final Block STRIPPED_COTTONWOOD_WOOD = registerBlock("stripped_cottonwood_wood",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LOG)));
     public static final Block COTTONWOOD_PLANKS = registerBlock("cottonwood_planks",
-            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
+            new Block(AbstractBlock.Settings.copy(Blocks.MANGROVE_PLANKS)));
     public static final Block COTTONWOOD_STAIRS = registerBlock("cottonwood_stairs",
             new StairsBlock(ModBlocks.COTTONWOOD_PLANKS.getDefaultState(),
-                    AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
+                    AbstractBlock.Settings.copy(Blocks.MANGROVE_STAIRS)));
     public static final Block COTTONWOOD_SLAB = registerBlock("cottonwood_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_SLAB)));
     public static final Block COTTONWOOD_BUTTON = registerBlock("cottonwood_button",
-            new ButtonBlock(BlockSetType.OAK, 10, AbstractBlock.Settings.copy(Blocks.OAK_BUTTON)));
+            new ButtonBlock(BlockSetType.MANGROVE, 10, AbstractBlock.Settings.copy(Blocks.MANGROVE_BUTTON)));
     public static final Block COTTONWOOD_PRESSURE_PLATE = registerBlock("cottonwood_pressure_plate",
-            new PressurePlateBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE)));
+            new PressurePlateBlock(BlockSetType.MANGROVE, AbstractBlock.Settings.copy(Blocks.MANGROVE_PRESSURE_PLATE)));
     public static final Block COTTONWOOD_FENCE = registerBlock("cottonwood_fence",
-            new FenceBlock(AbstractBlock.Settings.copy(Blocks.OAK_FENCE)));
+            new FenceBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_FENCE)));
     public static final Block COTTONWOOD_FENCE_GATE = registerBlock("cottonwood_fence_gate",
-            new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE)));
+            new FenceGateBlock(WoodType.MANGROVE, AbstractBlock.Settings.copy(Blocks.MANGROVE_FENCE_GATE)));
     public static final Block COTTONWOOD_TRAPDOOR = registerBlock("cottonwood_trapdoor",
-            new TrapdoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR).nonOpaque()));
+            new TrapdoorBlock(BlockSetType.MANGROVE, AbstractBlock.Settings.copy(Blocks.MANGROVE_TRAPDOOR).nonOpaque()));
     public static final Block COTTONWOOD_DOOR = registerBlock("cottonwood_door",
-            new DoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_DOOR).nonOpaque()));
-    /*public static final Block COTTONWOOD_SIGN = registerBlockWithoutBlockItem("cottonwood_sign",
-            new ModStandingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_SIGN).nonOpaque(), ModWoodTypes.COTTONWOOD));
+            new DoorBlock(BlockSetType.MANGROVE, AbstractBlock.Settings.copy(Blocks.MANGROVE_DOOR).nonOpaque()));
+    public static final Block COTTONWOOD_SIGN = registerBlockWithoutBlockItem("cottonwood_sign",
+            new ModSignBlock(ModWoodTypes.COTTONWOOD_WOOD_TYPE, AbstractBlock.Settings.copy(Blocks.MANGROVE_SIGN).nonOpaque()));
     public static final Block COTTONWOOD_WALL_SIGN = registerBlockWithoutBlockItem("cottonwood_wall_sign",
-            new ModWallSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN), ModWoodTypes.COTTONWOOD));
+            new ModWallSignBlock(ModWoodTypes.COTTONWOOD_WOOD_TYPE, AbstractBlock.Settings.copy(Blocks.MANGROVE_WALL_SIGN).nonOpaque()));
     public static final Block COTTONWOOD_HANGING_SIGN = registerBlockWithoutBlockItem("cottonwood_hanging_sign",
-            new ModHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN), ModWoodTypes.COTTONWOOD));
+            new ModHangingSignBlock(ModWoodTypes.COTTONWOOD_WOOD_TYPE, AbstractBlock.Settings.copy(Blocks.MANGROVE_SIGN).nonOpaque()));
     public static final Block COTTONWOOD_HANGING_WALL_SIGN = registerBlockWithoutBlockItem("cottonwood_hanging_wall_sign",
-            new ModWallHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodTypes.COTTONWOOD));*/
+            new ModWallHangingSignBlock(ModWoodTypes.COTTONWOOD_WOOD_TYPE, AbstractBlock.Settings.copy(Blocks.MANGROVE_SIGN).nonOpaque()));
 
     public static final Block WILLOW_LEAVES = registerBlock("willow_leaves",
-            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(0.2f)));
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LEAVES).strength(0.2f)));
     public static final Block WILLOW_SAPLING = registerBlock("willow_sapling",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
     public static final Block POTTED_WILLOW_SAPLING = registerBlock("potted_willow_sapling",
             new FlowerPotBlock(WILLOW_SAPLING, AbstractBlock.Settings.copy(Blocks.POTTED_OAK_SAPLING)));
     public static final Block WILLOW_LOG = registerBlock("willow_log",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LOG)));
     public static final Block WILLOW_WOOD = registerBlock("willow_wood",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LOG)));
     public static final Block WILLOW_MOSSY_WOOD = registerBlock("willow_mossy_wood",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LOG)));
     public static final Block STRIPPED_WILLOW_LOG = registerBlock("stripped_willow_log",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LOG)));
     public static final Block STRIPPED_WILLOW_WOOD = registerBlock("stripped_willow_wood",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LOG)));
     public static final Block WILLOW_PLANKS = registerBlock("willow_planks",
-            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
+            new Block(AbstractBlock.Settings.copy(Blocks.MANGROVE_PLANKS)));
     public static final Block WILLOW_STAIRS = registerBlock("willow_stairs",
             new StairsBlock(ModBlocks.WILLOW_PLANKS.getDefaultState(),
-                    AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
+                    AbstractBlock.Settings.copy(Blocks.MANGROVE_STAIRS)));
     public static final Block WILLOW_SLAB = registerBlock("willow_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_SLAB)));
     public static final Block WILLOW_BUTTON = registerBlock("willow_button",
-            new ButtonBlock(BlockSetType.OAK, 10, AbstractBlock.Settings.copy(Blocks.OAK_BUTTON)));
+            new ButtonBlock(BlockSetType.MANGROVE, 10, AbstractBlock.Settings.copy(Blocks.MANGROVE_BUTTON)));
     public static final Block WILLOW_PRESSURE_PLATE = registerBlock("willow_pressure_plate",
-            new PressurePlateBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE)));
+            new PressurePlateBlock(BlockSetType.MANGROVE, AbstractBlock.Settings.copy(Blocks.MANGROVE_PRESSURE_PLATE)));
     public static final Block WILLOW_FENCE = registerBlock("willow_fence",
-            new FenceBlock(AbstractBlock.Settings.copy(Blocks.OAK_FENCE)));
+            new FenceBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_FENCE)));
     public static final Block WILLOW_FENCE_GATE = registerBlock("willow_fence_gate",
-            new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE)));
+            new FenceGateBlock(WoodType.MANGROVE, AbstractBlock.Settings.copy(Blocks.MANGROVE_FENCE_GATE)));
     public static final Block WILLOW_TRAPDOOR = registerBlock("willow_trapdoor",
-            new TrapdoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR).nonOpaque()));
+            new TrapdoorBlock(BlockSetType.MANGROVE, AbstractBlock.Settings.copy(Blocks.MANGROVE_TRAPDOOR).nonOpaque()));
     public static final Block WILLOW_DOOR = registerBlock("willow_door",
-            new DoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_DOOR).nonOpaque()));
-    /*public static final Block WILLOW_SIGN = registerBlockWithoutBlockItem("willow_sign",
-            new ModStandingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_SIGN).nonOpaque(), ModWoodTypes.WILLOW));
+            new DoorBlock(BlockSetType.MANGROVE, AbstractBlock.Settings.copy(Blocks.MANGROVE_DOOR).nonOpaque()));
+    public static final Block WILLOW_SIGN = registerBlockWithoutBlockItem("willow_sign",
+            new ModSignBlock(ModWoodTypes.WILLOW_WOOD_TYPE, AbstractBlock.Settings.copy(Blocks.MANGROVE_SIGN).nonOpaque()));
     public static final Block WILLOW_WALL_SIGN = registerBlockWithoutBlockItem("willow_wall_sign",
-            new ModWallSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN), ModWoodTypes.WILLOW));
+            new ModWallSignBlock(ModWoodTypes.WILLOW_WOOD_TYPE, AbstractBlock.Settings.copy(Blocks.MANGROVE_WALL_SIGN).nonOpaque()));
     public static final Block WILLOW_HANGING_SIGN = registerBlockWithoutBlockItem("willow_hanging_sign",
-            new ModHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN), ModWoodTypes.WILLOW));
+            new ModHangingSignBlock(ModWoodTypes.WILLOW_WOOD_TYPE, AbstractBlock.Settings.copy(Blocks.MANGROVE_SIGN).nonOpaque()));
     public static final Block WILLOW_HANGING_WALL_SIGN = registerBlockWithoutBlockItem("willow_hanging_wall_sign",
-            new ModWallHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodTypes.WILLOW));*/
+            new ModWallHangingSignBlock(ModWoodTypes.WILLOW_WOOD_TYPE, AbstractBlock.Settings.copy(Blocks.MANGROVE_SIGN).nonOpaque()));
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {

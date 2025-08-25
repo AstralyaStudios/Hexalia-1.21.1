@@ -163,11 +163,11 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.COTTONWOOD_FENCE_GATE);
         addDrop(ModBlocks.COTTONWOOD_TRAPDOOR);
         addDrop(ModBlocks.COTTONWOOD_DOOR, doorDrops(ModBlocks.COTTONWOOD_DOOR));
-        // signs (present on NeoForge list)
-        // addDrop(ModBlocks.COTTONWOOD_SIGN, ModBlocks.COTTONWOOD_SIGN.asItem());
-        // addDrop(ModBlocks.COTTONWOOD_WALL_SIGN, ModBlocks.COTTONWOOD_SIGN.asItem());
-        // addDrop(ModBlocks.COTTONWOOD_HANGING_SIGN, ModBlocks.COTTONWOOD_HANGING_SIGN.asItem());
-        // addDrop(ModBlocks.COTTONWOOD_HANGING_WALL_SIGN, ModBlocks.COTTONWOOD_HANGING_SIGN.asItem());
+        // signs
+         addDrop(ModBlocks.COTTONWOOD_SIGN, ModBlocks.COTTONWOOD_SIGN.asItem());
+         addDrop(ModBlocks.COTTONWOOD_WALL_SIGN, ModBlocks.COTTONWOOD_SIGN.asItem());
+         addDrop(ModBlocks.COTTONWOOD_HANGING_SIGN, ModBlocks.COTTONWOOD_HANGING_SIGN.asItem());
+         addDrop(ModBlocks.COTTONWOOD_HANGING_WALL_SIGN, ModBlocks.COTTONWOOD_HANGING_SIGN.asItem());
 
         // Willow
         addDrop(ModBlocks.WILLOW_LEAVES,
@@ -188,11 +188,11 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.WILLOW_FENCE_GATE);
         addDrop(ModBlocks.WILLOW_TRAPDOOR);
         addDrop(ModBlocks.WILLOW_DOOR, doorDrops(ModBlocks.WILLOW_DOOR));
-        // signs (present on NeoForge list)
-        // addDrop(ModBlocks.WILLOW_SIGN, ModBlocks.WILLOW_SIGN.asItem());
-        // addDrop(ModBlocks.WILLOW_WALL_SIGN, ModBlocks.WILLOW_SIGN.asItem());
-        // addDrop(ModBlocks.WILLOW_HANGING_SIGN, ModBlocks.WILLOW_HANGING_SIGN.asItem());
-        // addDrop(ModBlocks.WILLOW_HANGING_WALL_SIGN, ModBlocks.WILLOW_HANGING_SIGN.asItem());
+        // signs
+         addDrop(ModBlocks.WILLOW_SIGN, ModBlocks.WILLOW_SIGN.asItem());
+         addDrop(ModBlocks.WILLOW_WALL_SIGN, ModBlocks.WILLOW_SIGN.asItem());
+         addDrop(ModBlocks.WILLOW_HANGING_SIGN, ModBlocks.WILLOW_HANGING_SIGN.asItem());
+         addDrop(ModBlocks.WILLOW_HANGING_WALL_SIGN, ModBlocks.WILLOW_HANGING_SIGN.asItem());
     }
     protected LootTable.Builder createTallPlantBlock(Block bulrushBlock) {
         LootCondition.Builder lower = BlockStatePropertyLootCondition.builder(bulrushBlock)

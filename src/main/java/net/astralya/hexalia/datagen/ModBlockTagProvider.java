@@ -191,7 +191,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.WILLOW_DOOR);
 
         // Signs
-        /*getOrCreateTagBuilder(BlockTags.SIGNS)
+        getOrCreateTagBuilder(BlockTags.SIGNS)
                 .add(ModBlocks.COTTONWOOD_SIGN)
                 .add(ModBlocks.COTTONWOOD_WALL_SIGN)
                 .add(ModBlocks.WILLOW_SIGN)
@@ -201,7 +201,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.COTTONWOOD_HANGING_SIGN)
                 .add(ModBlocks.COTTONWOOD_HANGING_WALL_SIGN)
                 .add(ModBlocks.WILLOW_HANGING_SIGN)
-                .add(ModBlocks.WILLOW_HANGING_WALL_SIGN);*/
+                .add(ModBlocks.WILLOW_HANGING_WALL_SIGN);
     }
 
     private void addCustomModTags() {

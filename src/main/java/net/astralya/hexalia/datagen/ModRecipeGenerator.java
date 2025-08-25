@@ -2,7 +2,6 @@ package net.astralya.hexalia.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.astralya.hexalia.HexaliaMod;
 import net.astralya.hexalia.block.ModBlocks;
 import net.astralya.hexalia.item.ModItems;
 import net.astralya.hexalia.util.ModTags;
@@ -18,9 +17,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
-
 
 public class ModRecipeGenerator extends FabricRecipeProvider {
 
@@ -178,6 +175,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.SALT,
                 RecipeCategory.MISC, ModBlocks.SALT_BLOCK);
 
+
+        //TODO
         /* Armor Recipes
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GHOSTVEIL)
                 .pattern("T T")
@@ -347,7 +346,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .input(ModBlocks.GHOST_FERN)
                 .criterion(hasItem(ModItems.MORTAR_AND_PESTLE), conditionsFromItem(ModItems.MORTAR_AND_PESTLE))
                 .offerTo(exporter);
-
+        //TODO
         /*ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.VERDANT_GRIMOIRE)
                 .input(Items.BOOK)
                 .input(ModTags.Items.HERBS)
@@ -494,8 +493,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion("has_planks", InventoryChangedCriterion.Conditions.items(ModBlocks.COTTONWOOD_PLANKS))
                 .offerTo(exporter);
 
+        // TODO
         /*offerBoatRecipe(exporter, ModItems.COTTONWOOD_BOAT, ModBlocks.COTTONWOOD_PLANKS);
-        offerChestBoatRecipe(exporter, ModItems.COTTONWOOD_CHEST_BOAT, ModItems.COTTONWOOD_BOAT);
+        offerChestBoatRecipe(exporter, ModItems.COTTONWOOD_CHEST_BOAT, ModItems.COTTONWOOD_BOAT);*/
 
         createSignRecipe(ModItems.COTTONWOOD_SIGN, Ingredient.ofItems(ModBlocks.COTTONWOOD_PLANKS))
                 .criterion("has_planks", InventoryChangedCriterion.Conditions.items(ModBlocks.COTTONWOOD_PLANKS))
@@ -504,7 +504,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion("has_planks", InventoryChangedCriterion.Conditions.items(ModBlocks.WILLOW_PLANKS))
                 .offerTo(exporter);
         offerHangingSignRecipe(exporter, ModItems.COTTONWOOD_HANGING_SIGN, ModBlocks.STRIPPED_COTTONWOOD_LOG);
-        offerHangingSignRecipe(exporter, ModItems.WILLOW_HANGING_SIGN, ModBlocks.STRIPPED_WILLOW_LOG);*/
+        offerHangingSignRecipe(exporter, ModItems.WILLOW_HANGING_SIGN, ModBlocks.STRIPPED_WILLOW_LOG);
 
         offerPlanksRecipe(exporter, ModBlocks.WILLOW_PLANKS, ModTags.Items.WILLOW_LOGS, 4);
         offerSingleOutputShapelessRecipe(exporter, ModBlocks.WILLOW_BUTTON, ModBlocks.WILLOW_PLANKS, "wooden_button");

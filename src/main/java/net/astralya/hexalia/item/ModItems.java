@@ -156,20 +156,20 @@ public class ModItems {
     /*public static final Item COTTONWOOD_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.COTTONWOOD_BOAT_ID,
             ModBoats.COTTONWOOD_BOAT_KEY, false);
     public static final Item COTTONWOOD_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.COTTONWOOD_CHEST_BOAT_ID,
-            ModBoats.COTTONWOOD_BOAT_KEY, true);
+            ModBoats.COTTONWOOD_BOAT_KEY, true);*/
     public static final Item COTTONWOOD_SIGN = registerItem("cottonwood_sign",
             new SignItem(new Item.Settings().maxCount(16), ModBlocks.COTTONWOOD_SIGN, ModBlocks.COTTONWOOD_WALL_SIGN));
     public static final Item COTTONWOOD_HANGING_SIGN = registerItem("cottonwood_hanging_sign",
             new HangingSignItem(ModBlocks.COTTONWOOD_HANGING_SIGN, ModBlocks.COTTONWOOD_HANGING_WALL_SIGN, new Item.Settings().maxCount(16)));
 
-    public static final Item WILLOW_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.WILLOW_BOAT_ID,
+    /*public static final Item WILLOW_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.WILLOW_BOAT_ID,
             ModBoats.WILLOW_BOAT_KEY, false);
     public static final Item WILLOW_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.WILLOW_CHEST_BOAT_ID,
-            ModBoats.WILLOW_BOAT_KEY, true);
+            ModBoats.WILLOW_BOAT_KEY, true);*/
     public static final Item WILLOW_SIGN = registerItem("willow_sign",
             new SignItem(new Item.Settings().maxCount(16), ModBlocks.WILLOW_SIGN, ModBlocks.WILLOW_WALL_SIGN));
     public static final Item WILLOW_HANGING_SIGN = registerItem("willow_hanging_sign",
-            new HangingSignItem(ModBlocks.WILLOW_HANGING_SIGN, ModBlocks.WILLOW_HANGING_WALL_SIGN, new Item.Settings().maxCount(16)));*/
+            new HangingSignItem(ModBlocks.WILLOW_HANGING_SIGN, ModBlocks.WILLOW_HANGING_WALL_SIGN, new Item.Settings().maxCount(16)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(HexaliaMod.MODID, name), item);

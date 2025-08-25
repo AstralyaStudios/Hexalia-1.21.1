@@ -1,14 +1,20 @@
 package net.astralya.hexalia;
 
 import net.astralya.hexalia.block.ModBlocks;
+import net.astralya.hexalia.block.entity.ModBlockEntityTypes;
 import net.astralya.hexalia.particle.ModParticleType;
 import net.astralya.hexalia.particle.custom.*;
+import net.astralya.hexalia.util.ModWoodTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.TexturedRenderLayers;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
+import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
 import net.minecraft.world.biome.FoliageColors;
 
 public class HexaliaModClient implements ClientModInitializer {
@@ -17,6 +23,8 @@ public class HexaliaModClient implements ClientModInitializer {
         registerBlockRenderLayers();
         registerParticles();
         registerColorProviders();
+        registerWoodTypes();
+        registerBlockEntityRenderers();
     }
 
     private void registerBlockRenderLayers() {
@@ -70,5 +78,15 @@ public class HexaliaModClient implements ClientModInitializer {
 
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FoliageColors.getDefaultColor(),
                 ModBlocks.COTTONWOOD_LEAVES, ModBlocks.WILLOW_LEAVES);
+    }
+
+    private void registerBlockEntityRenderers() {
+        BlockEntityRendererFactories.register(ModBlockEntityTypes.MOD_SIGN, SignBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntityTypes.MOD_HANGING_SIGN, HangingSignBlockEntityRenderer::new);
+    }
+
+    private void registerWoodTypes() {
+        TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.WILLOW_WOOD_TYPE, TexturedRenderLayers.getSignTextureId(ModWoodTypes.WILLOW_WOOD_TYPE));
+        TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.COTTONWOOD_WOOD_TYPE, TexturedRenderLayers.getSignTextureId(ModWoodTypes.COTTONWOOD_WOOD_TYPE));
     }
 }

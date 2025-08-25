@@ -147,8 +147,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.COTTONWOOD_BUTTON);
                         //entries.add(ModItems.COTTONWOOD_BOAT);
                         //entries.add(ModItems.COTTONWOOD_CHEST_BOAT);
-                        //entries.add(ModItems.COTTONWOOD_SIGN);
-                        //entries.add(ModItems.COTTONWOOD_HANGING_SIGN);
+                        entries.add(ModItems.COTTONWOOD_SIGN);
+                        entries.add(ModItems.COTTONWOOD_HANGING_SIGN);
                         entries.add(ModBlocks.WILLOW_SAPLING);
                         entries.add(ModBlocks.WILLOW_LEAVES);
                         entries.add(ModBlocks.WILLOW_LOG);
@@ -167,8 +167,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WILLOW_BUTTON);
                         //entries.add(ModItems.WILLOW_BOAT);
                         //entries.add(ModItems.WILLOW_CHEST_BOAT);
-                        //entries.add(ModItems.WILLOW_SIGN);
-                        //entries.add(ModItems.WILLOW_HANGING_SIGN);
+                        entries.add(ModItems.WILLOW_SIGN);
+                        entries.add(ModItems.WILLOW_HANGING_SIGN);
 
                         // Spawn Eggs
                         //entries.add(ModItems.SILK_MOTH_SPAWN_EGG);

@@ -1,8 +1,10 @@
 package net.astralya.hexalia.item;
 
+import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.astralya.hexalia.HexaliaMod;
 import net.astralya.hexalia.block.ModBlocks;
 import net.astralya.hexalia.effect.ModEffects;
+import net.astralya.hexalia.entity.boat.ModBoats;
 import net.astralya.hexalia.item.custom.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -150,22 +152,22 @@ public class ModItems {
     public static final Item EARPLUGS = registerItem("earplugs",
             new ArmorItem(ModArmorMaterials.EARPLUGS, ArmorItem.Type.HELMET, new Item.Settings()));
     public static final Item BOGGED_BOOTS = registerItem("bogged_boots",
-            new BoggedBootsItem(ModArmorMaterials.BOGGED, ArmorItem.Type.BOOTS, new Item.Settings()));
+            new BoggedBootsItem(ModArmorMaterials.BOGGED, ArmorItem.Type.BOOTS, new Item.Settings()));*/
 
     // Wooden-related Items
-    /*public static final Item COTTONWOOD_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.COTTONWOOD_BOAT_ID,
+    public static final Item COTTONWOOD_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.COTTONWOOD_BOAT_ID,
             ModBoats.COTTONWOOD_BOAT_KEY, false);
     public static final Item COTTONWOOD_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.COTTONWOOD_CHEST_BOAT_ID,
-            ModBoats.COTTONWOOD_BOAT_KEY, true);*/
+            ModBoats.COTTONWOOD_BOAT_KEY, true);
     public static final Item COTTONWOOD_SIGN = registerItem("cottonwood_sign",
             new SignItem(new Item.Settings().maxCount(16), ModBlocks.COTTONWOOD_SIGN, ModBlocks.COTTONWOOD_WALL_SIGN));
     public static final Item COTTONWOOD_HANGING_SIGN = registerItem("cottonwood_hanging_sign",
             new HangingSignItem(ModBlocks.COTTONWOOD_HANGING_SIGN, ModBlocks.COTTONWOOD_HANGING_WALL_SIGN, new Item.Settings().maxCount(16)));
 
-    /*public static final Item WILLOW_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.WILLOW_BOAT_ID,
+    public static final Item WILLOW_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.WILLOW_BOAT_ID,
             ModBoats.WILLOW_BOAT_KEY, false);
     public static final Item WILLOW_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.WILLOW_CHEST_BOAT_ID,
-            ModBoats.WILLOW_BOAT_KEY, true);*/
+            ModBoats.WILLOW_BOAT_KEY, true);
     public static final Item WILLOW_SIGN = registerItem("willow_sign",
             new SignItem(new Item.Settings().maxCount(16), ModBlocks.WILLOW_SIGN, ModBlocks.WILLOW_WALL_SIGN));
     public static final Item WILLOW_HANGING_SIGN = registerItem("willow_hanging_sign",

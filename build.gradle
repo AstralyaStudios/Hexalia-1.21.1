@@ -21,6 +21,11 @@ repositories {
 		name = "ModMaven"
 		url = "https://modmaven.dev"
 	}
+
+	maven {
+		name = 'TerraformersMC'
+		url = 'https://maven.terraformersmc.com/'
+	}
 }
 
 fabricApi {
@@ -39,8 +44,10 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	modCompileOnlyApi("mezz.jei:jei-1.21-fabric-api:${jei_version}")
-	// at runtime, use the full JEI jar for Fabric
 	modRuntimeOnly("mezz.jei:jei-1.21-fabric:${jei_version}")
+
+	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:11.0.0"
+	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:11.0.0"
 }
 
 processResources {

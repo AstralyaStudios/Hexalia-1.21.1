@@ -145,8 +145,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.COTTONWOOD_TRAPDOOR);
                         entries.add(ModBlocks.COTTONWOOD_PRESSURE_PLATE);
                         entries.add(ModBlocks.COTTONWOOD_BUTTON);
-                        //entries.add(ModItems.COTTONWOOD_BOAT);
-                        //entries.add(ModItems.COTTONWOOD_CHEST_BOAT);
+                        entries.add(ModItems.COTTONWOOD_BOAT);
+                        entries.add(ModItems.COTTONWOOD_CHEST_BOAT);
                         entries.add(ModItems.COTTONWOOD_SIGN);
                         entries.add(ModItems.COTTONWOOD_HANGING_SIGN);
                         entries.add(ModBlocks.WILLOW_SAPLING);
@@ -165,8 +165,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WILLOW_TRAPDOOR);
                         entries.add(ModBlocks.WILLOW_PRESSURE_PLATE);
                         entries.add(ModBlocks.WILLOW_BUTTON);
-                        //entries.add(ModItems.WILLOW_BOAT);
-                        //entries.add(ModItems.WILLOW_CHEST_BOAT);
+                        entries.add(ModItems.WILLOW_BOAT);
+                        entries.add(ModItems.WILLOW_CHEST_BOAT);
                         entries.add(ModItems.WILLOW_SIGN);
                         entries.add(ModItems.WILLOW_HANGING_SIGN);
 

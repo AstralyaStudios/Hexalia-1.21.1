@@ -228,15 +228,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     private void addSignAndBoatTags() {
 
-        //TODO
         // Boats
-        /*getOrCreateTagBuilder(ItemTags.BOATS)
+        getOrCreateTagBuilder(ItemTags.BOATS)
                 .add(ModItems.COTTONWOOD_BOAT)
                 .add(ModItems.WILLOW_BOAT);
 
         getOrCreateTagBuilder(ItemTags.CHEST_BOATS)
                 .add(ModItems.COTTONWOOD_CHEST_BOAT)
-                .add(ModItems.WILLOW_CHEST_BOAT);*/
+                .add(ModItems.WILLOW_CHEST_BOAT);
 
         // Signs
         getOrCreateTagBuilder(ItemTags.SIGNS)

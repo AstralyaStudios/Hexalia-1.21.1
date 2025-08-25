@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-25T07:51:16.6819655	Hexalia/Recipes
+// 1.21.1	2025-08-25T09:22:33.3097312	Hexalia/Recipes
 e1c97b1c22b999cc36e2f26ed641c52b52edb2f0 data\hexalia\advancement\recipes\misc\cobweb_from_fiber.json
 977d7a987ce2238d4ca0ae2932ae26c723d14a3d data\hexalia\advancement\recipes\misc\pink_dye.json
 cc46850d52e693b016cd687938962f207fd6a205 data\hexalia\advancement\recipes\misc\salt_block.json
@@ -19,6 +19,7 @@ fd4cc71323e0198146d8dc6310474df354511fad data\hexalia\recipe\leather_from_salt.j
 8422724ff53933290ef25434ba50ad2b7a86828c data\hexalia\recipe\willow_slab.json
 319e1d4f0465ad96e2cf8366f7320859c1f1db97 data\hexalia\advancement\recipes\misc\mortar_and_pestle.json
 c2b9e9082ff84b5689338318b0287c3c4c513107 data\hexalia\advancement\recipes\misc\mandrake_seeds.json
+631c18dc46b80a9c97d77fcf97b1608eaf0fb8bf data\hexalia\advancement\recipes\transportation\cottonwood_boat.json
 a0b145e53141703e9510ea03929369f9672c4c6a data\hexalia\recipe\cottonwood_hanging_sign.json
 1870f5f26a7ab4faf65b5a10fdb1411009b0b152 data\hexalia\recipe\celestial_crystal_block.json
 e02ba805cd022e45dd1f4d04f763c65b48aed4fe data\hexalia\recipe\storm_idol.json
@@ -50,6 +51,8 @@ a04c28607745ca446ae1b09efb092b786d85acbd data\hexalia\advancement\recipes\misc\s
 38ff5cbc40c9c39f63b444f0db404b9c36df1459 data\hexalia\recipe\chillberry_pie.json
 192c1df5e3a4d9ef9a43f37ef3e82695db5646f1 data\hexalia\advancement\recipes\decorations\willow_slab.json
 ea9dcc61411511981919646b462f4bd64fb01c1b data\hexalia\recipe\willow_fence.json
+7b914fbff490dd997d97f888e7c7f56b3f0287b5 data\hexalia\recipe\willow_chest_boat.json
+8ae8d2e44c4b47dd2ff3b1ad66d1be5bdabff551 data\hexalia\recipe\willow_boat.json
 c64f4231b783523935ee0b3b71437ced3c3242cd data\hexalia\recipe\mortar_and_pestle.json
 aeaf96fd3ad6743fd189b0f0e3719ed2f2c86eb1 data\hexalia\recipe\cottonwood_sign.json
 6e0dc965652018f42117ec5828271defe10bca1a data\hexalia\recipe\sunfire_tomato_seeds.json
@@ -58,8 +61,11 @@ aeaf96fd3ad6743fd189b0f0e3719ed2f2c86eb1 data\hexalia\recipe\cottonwood_sign.jso
 ea844e33b09a35750b39ea6fe2b47a5b3a259863 data\hexalia\advancement\recipes\misc\string_from_mortar_and_pestle.json
 575ffbcb72994ad9bbc8d4af6dc704a0f8f239eb data\hexalia\recipe\clear_idol.json
 31a61cf5fcb447f21079f93ccc078bca53b63ea3 data\hexalia\recipe\cottonwood_door.json
+a27daaed55e8fcecd5e3b02ca02b5d93c86685a0 data\hexalia\recipe\cottonwood_boat.json
+1788fb3b3e5e70398194770aaf174f296ab61aaf data\hexalia\advancement\recipes\transportation\cottonwood_chest_boat.json
 e6fc7d47c0af3cec24e3c06db19d82cbff3b57f2 data\hexalia\advancement\recipes\misc\sunfire_tomato_seeds.json
 111e69bbc1ed1b2cd52809ec8f378282f9728f0c data\hexalia\recipe\willow_stairs.json
+e75d791ce647e003fbe6f789856801d5367ac875 data\hexalia\advancement\recipes\transportation\willow_boat.json
 78d11d5daf4ced6231fbd3030126ee118ff7252e data\hexalia\advancement\recipes\misc\orange_dye.json
 85d1123cdb310bd1decd09d12bd391d250bf3bae data\hexalia\recipe\rustic_bottle.json
 9fe108e92a34a84f17cc51fab8708c75b4f2aa8b data\hexalia\recipe\purifying_salts.json
@@ -107,7 +113,9 @@ d5136d1e9675c9db87cc109ac8b1ac45515711a5 data\hexalia\advancement\recipes\decora
 2241ad633eeaee8e0956a0b58ad4ba2c58b69eb6 data\hexalia\advancement\recipes\misc\small_cauldron.json
 b3bdba360471db487b104ee4cc7b19441bc6d7b3 data\hexalia\advancement\recipes\building_blocks\willow_planks.json
 aac0ce59d8e3421f2e7b4e95d0df52afa699754c data\hexalia\recipe\pink_dye.json
+cbd69ecdda6f08362385dc2664c35d7285a2aee6 data\hexalia\advancement\recipes\transportation\willow_chest_boat.json
 4e032456c986a91a7cc7443b0f2ce7a04ea10b34 data\hexalia\advancement\recipes\misc\shelf.json
+59fa534cfa7c148e3dc4315b36ab0bc61c50a813 data\hexalia\recipe\cottonwood_chest_boat.json
 a9ccfdd4659f34cade068eba67cf1168c94a6894 data\hexalia\advancement\recipes\food\spicy_sandwich.json
 509820b51af054d7481e9a84748b8f37b2bafd11 data\hexalia\advancement\recipes\misc\galeberries_cookie.json
 547028efe98ccbfc0a4c18142eb4ec7418e5c014 data\hexalia\recipe\small_cauldron.json

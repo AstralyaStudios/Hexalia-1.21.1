@@ -3,6 +3,7 @@ package net.astralya.hexalia;
 import net.astralya.hexalia.block.ModBlocks;
 import net.astralya.hexalia.block.entity.ModBlockEntityTypes;
 import net.astralya.hexalia.effect.ModEffects;
+import net.astralya.hexalia.entity.boat.ModBoats;
 import net.astralya.hexalia.item.ModItemGroups;
 import net.astralya.hexalia.item.ModItems;
 import net.astralya.hexalia.particle.ModParticleType;
@@ -26,5 +27,6 @@ public class HexaliaMod implements ModInitializer {
 		ModParticleType.registerParticles();
 		ModSoundEvents.registerSounds();
 		ModBlockEntityTypes.registerBlockEntities();
+		ModBoats.registerBoats();
 	}
 }

@@ -1,7 +1,9 @@
 package net.astralya.hexalia;
 
+import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.astralya.hexalia.block.ModBlocks;
 import net.astralya.hexalia.block.entity.ModBlockEntityTypes;
+import net.astralya.hexalia.entity.boat.ModBoats;
 import net.astralya.hexalia.particle.ModParticleType;
 import net.astralya.hexalia.particle.custom.*;
 import net.astralya.hexalia.util.ModWoodTypes;
@@ -88,5 +90,7 @@ public class HexaliaModClient implements ClientModInitializer {
     private void registerWoodTypes() {
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.WILLOW_WOOD_TYPE, TexturedRenderLayers.getSignTextureId(ModWoodTypes.WILLOW_WOOD_TYPE));
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.COTTONWOOD_WOOD_TYPE, TexturedRenderLayers.getSignTextureId(ModWoodTypes.COTTONWOOD_WOOD_TYPE));
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.WILLOW_BOAT_ID, false);
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.COTTONWOOD_BOAT_ID, false);
     }
 }

@@ -1,5 +1,6 @@
 package net.astralya.hexalia.block.custom;
 
+import net.astralya.hexalia.block.ModBlocks;
 import net.minecraft.block.*;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -26,7 +27,7 @@ public class CatkinBlock extends Block {
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return world.getBlockState(pos.up()).isOf(Blocks.DARK_OAK_LEAVES);
+        return world.getBlockState(pos.up()).isOf(ModBlocks.COTTONWOOD_LEAVES);
     }
 
     @Override

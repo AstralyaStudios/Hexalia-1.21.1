@@ -4,6 +4,7 @@ import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.astralya.hexalia.HexaliaMod;
 import net.astralya.hexalia.block.ModBlocks;
 import net.astralya.hexalia.effect.ModEffects;
+import net.astralya.hexalia.entity.ModEntities;
 import net.astralya.hexalia.entity.boat.ModBoats;
 import net.astralya.hexalia.item.custom.*;
 import net.minecraft.item.*;
@@ -137,9 +138,8 @@ public class ModItems {
     // Entity
     public static final Item BOTTLED_MOTH = registerItem("bottled_moth",
             new BottledMothItem(new Item.Settings().maxCount(1)));
-    /*public static final Item SILK_MOTH_SPAWN_EGG = registerItem("silk_moth_spawn_egg",
-            new SpawnEggItem(ModEntities.SILK_MOTH,
-                    0xAE8f7A, 0x846552, new Item.Settings()));*/
+    public static final Item SILK_MOTH_SPAWN_EGG = registerItem("silk_moth_spawn_egg",
+            new CustomModelSpawnEggItem(ModEntities.SILK_MOTH_ENTITY, new Item.Settings()));
 
     // Weapons & Armor
     public static final Item KELPWEAVE_BLADE = registerItem("kelpweave_blade",

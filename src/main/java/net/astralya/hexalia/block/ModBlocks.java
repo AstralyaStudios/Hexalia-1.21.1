@@ -7,6 +7,7 @@ import net.astralya.hexalia.block.custom.wood.ModSignBlock;
 import net.astralya.hexalia.block.custom.wood.ModWallHangingSignBlock;
 import net.astralya.hexalia.block.custom.wood.ModWallSignBlock;
 import net.astralya.hexalia.util.ModWoodTypes;
+import net.astralya.hexalia.worldgen.tree.ModSaplingGenerators;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
@@ -163,7 +164,7 @@ public class ModBlocks {
     public static final Block COTTONWOOD_CATKIN = registerBlock("cottonwood_catkin",
             new CatkinBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LEAVES).strength(0.2f)));
     public static final Block COTTONWOOD_SAPLING = registerBlock("cottonwood_sapling",
-            new Block(AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+            new SaplingBlock(ModSaplingGenerators.COTTONWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
     public static final Block POTTED_COTTONWOOD_SAPLING = registerBlock("potted_cottonwood_sapling",
             new FlowerPotBlock(COTTONWOOD_SAPLING, AbstractBlock.Settings.copy(Blocks.POTTED_OAK_SAPLING)));
     public static final Block COTTONWOOD_LOG = registerBlock("cottonwood_log",
@@ -205,7 +206,7 @@ public class ModBlocks {
     public static final Block WILLOW_LEAVES = registerBlock("willow_leaves",
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LEAVES).strength(0.2f)));
     public static final Block WILLOW_SAPLING = registerBlock("willow_sapling",
-            new Block(AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+            new SaplingBlock(ModSaplingGenerators.WILLOW, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
     public static final Block POTTED_WILLOW_SAPLING = registerBlock("potted_willow_sapling",
             new FlowerPotBlock(WILLOW_SAPLING, AbstractBlock.Settings.copy(Blocks.POTTED_OAK_SAPLING)));
     public static final Block WILLOW_LOG = registerBlock("willow_log",

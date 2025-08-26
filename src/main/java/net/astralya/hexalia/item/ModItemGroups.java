@@ -171,7 +171,7 @@ public class ModItemGroups {
                         entries.add(ModItems.WILLOW_HANGING_SIGN);
 
                         // Spawn Eggs
-                        //entries.add(ModItems.SILK_MOTH_SPAWN_EGG);
+                        entries.add(ModItems.SILK_MOTH_SPAWN_EGG);
 
                         /* Compat Items
                         if (ModUtil.isModLoaded("patchouli")) {

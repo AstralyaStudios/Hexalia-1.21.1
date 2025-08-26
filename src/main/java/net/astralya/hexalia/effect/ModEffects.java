@@ -14,7 +14,6 @@ import net.minecraft.util.Identifier;
 
 public class ModEffects {
 
-
     public static final RegistryEntry<StatusEffect> OVERFED = registerStatusEffect("overfed",
             new OverfedEffect(StatusEffectCategory.NEUTRAL, 0xB02B2B)
                     .addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED,

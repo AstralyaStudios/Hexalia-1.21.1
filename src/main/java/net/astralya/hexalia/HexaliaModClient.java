@@ -3,7 +3,12 @@ package net.astralya.hexalia;
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.astralya.hexalia.block.ModBlocks;
 import net.astralya.hexalia.block.entity.ModBlockEntityTypes;
+import net.astralya.hexalia.component.ModComponents;
+import net.astralya.hexalia.component.item.MothData;
+import net.astralya.hexalia.entity.ModEntities;
 import net.astralya.hexalia.entity.boat.ModBoats;
+import net.astralya.hexalia.entity.custom.client.SilkMothRenderer;
+import net.astralya.hexalia.item.ModItems;
 import net.astralya.hexalia.particle.ModParticleType;
 import net.astralya.hexalia.particle.custom.*;
 import net.astralya.hexalia.util.ModWoodTypes;
@@ -11,12 +16,15 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.world.BiomeColors;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.FoliageColors;
 
 public class HexaliaModClient implements ClientModInitializer {
@@ -27,6 +35,7 @@ public class HexaliaModClient implements ClientModInitializer {
         registerColorProviders();
         registerWoodTypes();
         registerBlockEntityRenderers();
+        registerEntityRenderers();
     }
 
     private void registerBlockRenderLayers() {
@@ -80,6 +89,21 @@ public class HexaliaModClient implements ClientModInitializer {
 
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FoliageColors.getDefaultColor(),
                 ModBlocks.COTTONWOOD_LEAVES, ModBlocks.WILLOW_LEAVES);
+    }
+
+    private void registerEntityRenderers() {
+        EntityRendererRegistry.register(ModEntities.SILK_MOTH_ENTITY, SilkMothRenderer::new);
+
+        ModelPredicateProviderRegistry.register(
+                ModItems.BOTTLED_MOTH,
+                Identifier.of(HexaliaMod.MODID, "variant"),
+                (stack, world, entity, seed) -> {
+                    MothData data = stack.get(ModComponents.MOTH);
+                    int id = (data != null) ? data.variantId() : 0;
+                    return id * 0.1f;
+                }
+        );
+
     }
 
     private void registerBlockEntityRenderers() {

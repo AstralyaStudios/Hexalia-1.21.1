@@ -1,5 +1,5 @@
 {
-  "processor": "net.grapes.hexalia.compat.patchouli.TransmutationProcessor",
+  "processor": "net.astralya.hexalia.compat.patchouli.TransmutationProcessor",
   "components": [
     {
       "type": "patchouli:image",

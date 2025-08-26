@@ -125,9 +125,9 @@ public class ModItemGroups {
                         entries.add(ModItems.SAGE_PENDANT);
 
                         // Armor Items
-                        //entries.add(ModItems.EARPLUGS);
-                        //entries.add(ModItems.GHOSTVEIL);
-                        //entries.add(ModItems.BOGGED_BOOTS);
+                        entries.add(ModItems.EARPLUGS);
+                        entries.add(ModItems.GHOSTVEIL);
+                        entries.add(ModItems.BOGGED_BOOTS);
 
                         // Wood-related Items
                         entries.add(ModBlocks.COTTONWOOD_SAPLING);

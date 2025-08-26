@@ -9,9 +9,7 @@ import net.minecraft.block.CropBlock;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
@@ -47,15 +45,15 @@ public class MandrakeCropBlock extends CropBlock {
         builder.add(AGE);
     }
 
-
-
     @Override
     public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-    if (!world.isClient() && state.get(AGE) == MAX_AGE) {
-        if (!(player.getEquippedStack(EquipmentSlot.HEAD).isOf(Items.LEATHER_HELMET))) {
-            player.addStatusEffect(new StatusEffectInstance(ModEffects.STUNNED, 60, 0));
-            world.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.MANDRAKE_SCREAM,
-                    SoundCategory.PLAYERS, 1.0f, 1.0f);
+        if (!world.isClient() && state.get(AGE) == MAX_AGE) {
+            boolean isWearingEarplugs = player.getEquippedStack(EquipmentSlot.HEAD).isOf(ModItems.EARPLUGS);
+            boolean isCreative = player.isCreative();
+            if (!isWearingEarplugs && !isCreative) {
+                player.addStatusEffect(new StatusEffectInstance(ModEffects.STUNNED, 60, 0));
+                world.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.MANDRAKE_SCREAM,
+                        SoundCategory.PLAYERS, 1.0f, 1.0f);
             }
         }
         return super.onBreak(world, pos, state, player);

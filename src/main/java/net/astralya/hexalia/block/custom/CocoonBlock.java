@@ -1,5 +1,8 @@
 package net.astralya.hexalia.block.custom;
 
+import net.astralya.hexalia.entity.ModEntities;
+import net.astralya.hexalia.entity.custom.SilkMothEntity;
+import net.astralya.hexalia.entity.custom.variant.SilkMothVariant;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
@@ -20,6 +23,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.event.GameEvent;
 
 public class CocoonBlock extends Block {
 
@@ -53,10 +57,19 @@ public class CocoonBlock extends Block {
         return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
-    // TODO Add Silk Moth
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        super.scheduledTick(state, world, pos, random);
+        world.removeBlock(pos, false);
+        SilkMothEntity silkMoth = ModEntities.SILK_MOTH_ENTITY.create(world);
+        if (silkMoth != null) {
+            silkMoth.refreshPositionAndAngles(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 0.0F, 0.0F);
+
+            SilkMothVariant variant = SilkMothVariant.byId(random.nextInt(SilkMothVariant.values().length));
+            silkMoth.setVariant(variant);
+
+            world.spawnEntity(silkMoth);
+        }
+        world.emitGameEvent(null, GameEvent.BLOCK_DESTROY, pos);
     }
 
     @Override

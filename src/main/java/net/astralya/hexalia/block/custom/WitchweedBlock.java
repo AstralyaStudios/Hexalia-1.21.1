@@ -1,5 +1,6 @@
 package net.astralya.hexalia.block.custom;
 
+import net.astralya.hexalia.entity.custom.SilkMothEntity;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -15,8 +16,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
-
-// TODO: SilkMothEntity
 
 public class WitchweedBlock extends FlowerBlock {
 
@@ -41,7 +40,7 @@ public class WitchweedBlock extends FlowerBlock {
         if (!world.isClient && (world.getDifficulty() != Difficulty.PEACEFUL)) {
             if (entity instanceof LivingEntity livingEntity) {
                 if (!livingEntity.bypassesSteppingEffects() && !(livingEntity instanceof FrogEntity)
-                        && !(livingEntity instanceof BeeEntity)) {
+                        && !(livingEntity instanceof SilkMothEntity) && !(livingEntity instanceof BeeEntity)) {
                     if (livingEntity instanceof PlayerEntity player && player.isCreative()) {
                         return;
                     }

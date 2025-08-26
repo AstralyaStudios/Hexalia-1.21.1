@@ -1,5 +1,5 @@
 {
-  "processor": "net.grapes.hexalia.compat.patchouli.RitualBrazierProcessor",
+  "processor": "net.astralya.hexalia.compat.patchouli.RitualBrazierProcessor",
   "components": [
     {
       "type": "patchouli:image",

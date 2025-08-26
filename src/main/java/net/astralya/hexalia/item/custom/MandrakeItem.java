@@ -2,6 +2,7 @@ package net.astralya.hexalia.item.custom;
 
 import net.astralya.hexalia.Configuration;
 import net.astralya.hexalia.effect.ModEffects;
+import net.astralya.hexalia.item.ModItems;
 import net.astralya.hexalia.sound.ModSoundEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
@@ -11,10 +12,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
-import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -29,15 +28,13 @@ public class MandrakeItem extends Item {
         super(settings);
     }
 
-    // TODO: Mandrake Scream and Earplugs
-
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (!world.isClient && user instanceof PlayerEntity player) {
             List<Entity> entities = world.getOtherEntities(player, player.getBoundingBox().expand(Configuration.get().mandrakeScreamRadius));
             for (Entity entity : entities) {
                 if (entity instanceof LivingEntity livingEntity &&
-                        !(player.getEquippedStack(EquipmentSlot.HEAD).isOf(Items.LEATHER_HELMET) && !(player.isCreative()))) {
+                        !(player.getEquippedStack(EquipmentSlot.HEAD).isOf(ModItems.EARPLUGS) && !(player.isCreative()))) {
                     livingEntity.addStatusEffect(new StatusEffectInstance(ModEffects.STUNNED, Configuration.get().mandrakeStunDuration, 0));
                 }
             }

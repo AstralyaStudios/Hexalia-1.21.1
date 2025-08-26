@@ -1,10 +1,9 @@
 package net.astralya.hexalia.worldgen.biome;
 
+import net.astralya.hexalia.entity.ModEntities;
 import net.astralya.hexalia.particle.ModParticleType;
-import net.astralya.hexalia.worldgen.ModPlacedFeatures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.sound.BiomeMoodSound;
@@ -28,8 +27,7 @@ public class ModOverworldBiomes {
     public static Biome enchantedBayou(RegistryEntryLookup<PlacedFeature> placedFeatureGetter, RegistryEntryLookup<ConfiguredCarver<?>> carverGetter) {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
-        //todo
-        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.BEE, 2, 1, 1));
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.SILK_MOTH_ENTITY, 2, 1, 1));
         spawnBuilder.spawn(SpawnGroup.WATER_AMBIENT, new SpawnSettings.SpawnEntry(EntityType.TROPICAL_FISH, 25, 8, 8));
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.FROG, 10, 2, 5));
         spawnBuilder.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SLIME, 100, 4, 4));

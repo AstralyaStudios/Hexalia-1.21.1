@@ -147,12 +147,12 @@ public class ModItems {
                     .attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ANCIENT, 3, -2.0f))));
     public static final Item RABBAGE = registerItem("rabbage",
             new RabbageItem(new Item.Settings().maxCount(16)));
-    /*public static final Item GHOSTVEIL = registerItem("ghostveil",
-            new GhostVeilItem(ModArmorMaterials.GHOST, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
+    public static final Item GHOSTVEIL = registerItem("ghostveil",
+            new GhostVeilItem(ModArmorMaterials.BOGGED, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxCount(1)));
     public static final Item EARPLUGS = registerItem("earplugs",
-            new ArmorItem(ModArmorMaterials.EARPLUGS, ArmorItem.Type.HELMET, new Item.Settings()));
+            new ArmorItem(ModArmorMaterials.EARPLUGS, ArmorItem.Type.HELMET, new Item.Settings().maxCount(1)));
     public static final Item BOGGED_BOOTS = registerItem("bogged_boots",
-            new BoggedBootsItem(ModArmorMaterials.BOGGED, ArmorItem.Type.BOOTS, new Item.Settings()));*/
+            new BoggedBootsItem(ModArmorMaterials.BOGGED, ArmorItem.Type.BOOTS, new Item.Settings().maxCount(1)));
 
     // Wooden-related Items
     public static final Item COTTONWOOD_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.COTTONWOOD_BOAT_ID,

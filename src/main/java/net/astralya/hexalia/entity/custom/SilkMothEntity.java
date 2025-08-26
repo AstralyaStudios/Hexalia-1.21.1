@@ -8,6 +8,8 @@ import net.astralya.hexalia.entity.ai.silkmoth.FlyWanderGoal;
 import net.astralya.hexalia.entity.custom.variant.SilkMothVariant;
 import net.astralya.hexalia.item.ModItems;
 import net.minecraft.block.BlockState;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.CustomModelDataComponent;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Flutterer;
@@ -44,9 +46,11 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 
+import java.util.Objects;
+
 public class SilkMothEntity extends AnimalEntity implements GeoEntity, Flutterer {
 
-    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+    private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
             DataTracker.registerData(SilkMothEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -161,17 +165,11 @@ public class SilkMothEntity extends AnimalEntity implements GeoEntity, Flutterer
         if (heldItem.isOf(ModItems.RUSTIC_BOTTLE) && !this.getWorld().isClient()) {
             ItemStack bottledMoth = new ItemStack(ModItems.BOTTLED_MOTH);
 
-            String name = this.hasCustomName() ? this.getCustomName().getString() : "";
             int variantId = this.getVariant().getId();
+            String name = this.hasCustomName() ? Objects.requireNonNull(this.getCustomName()).getString() : "";
 
-            // Create moth data
-            MothData mothData = new MothData(name, variantId);
-            bottledMoth.set(ModComponents.MOTH, mothData);
-
-            // DEBUG: Verify the data was set
-            MothData storedData = bottledMoth.get(ModComponents.MOTH);
-            System.out.println("Captured moth - Name: '" + name + "', Variant: " + variantId);
-            System.out.println("Stored data: " + storedData);
+            bottledMoth.set(ModComponents.MOTH, new MothData(name, variantId));
+            bottledMoth.set(DataComponentTypes.CUSTOM_MODEL_DATA, new CustomModelDataComponent(variantId));
 
             this.discard();
 
@@ -190,6 +188,7 @@ public class SilkMothEntity extends AnimalEntity implements GeoEntity, Flutterer
 
         return super.interactMob(player, hand);
     }
+
 
     @Override
     protected void initDataTracker(net.minecraft.entity.data.DataTracker.Builder builder) {
@@ -218,7 +217,7 @@ public class SilkMothEntity extends AnimalEntity implements GeoEntity, Flutterer
         super.writeCustomDataToNbt(nbt);
         nbt.putInt("SilkMothVariant", this.getVariant().getId());
         if (this.hasCustomName()) {
-            nbt.putString("MothName", this.getCustomName().getString());
+            nbt.putString("MothName", Objects.requireNonNull(this.getCustomName()).getString());
         }
     }
 

@@ -22,7 +22,6 @@ public class ModMaterialRules {
                 MaterialRules.sequence(MaterialRules.condition(MaterialRules.biome(ModBiomes.ENCHANTED_BAYOU),
                                 MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, grassWithMudPatches)),
 
-                        // Default to a grass and dirt surface
                         MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, grassSurface)
                 ));
     }

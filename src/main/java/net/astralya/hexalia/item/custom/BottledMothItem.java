@@ -6,6 +6,8 @@ import net.astralya.hexalia.entity.ModEntities;
 import net.astralya.hexalia.entity.custom.SilkMothEntity;
 import net.astralya.hexalia.entity.custom.variant.SilkMothVariant;
 import net.astralya.hexalia.item.ModItems;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.CustomModelDataComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -39,12 +41,13 @@ public class BottledMothItem extends Item {
             SilkMothEntity moth = new SilkMothEntity(ModEntities.SILK_MOTH_ENTITY, world);
 
             MothData data = stack.get(ModComponents.MOTH);
-            if (data != null) {
-                moth.setVariant(SilkMothVariant.byId(data.variantId()));
-                if (!data.name().isEmpty()) {
-                    moth.setCustomName(Text.literal(data.name()));
-                }
-            }
+            CustomModelDataComponent modelData = stack.get(DataComponentTypes.CUSTOM_MODEL_DATA);
+
+            int variantId = data != null ? data.variantId() : (modelData != null ? modelData.value() : 0);
+            String restoredName = data != null ? data.name() : "";
+
+            moth.setVariant(SilkMothVariant.byId(variantId));
+            if (!restoredName.isEmpty()) moth.setCustomName(Text.literal(restoredName));
 
             moth.refreshPositionAndAngles(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 0, 0);
             world.spawnEntity(moth);
@@ -62,14 +65,26 @@ public class BottledMothItem extends Item {
         return ActionResult.success(world.isClient());
     }
 
+
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         super.appendTooltip(stack, context, tooltip, type);
+
         MothData data = stack.get(ModComponents.MOTH);
+        int variantId = data != null ? data.variantId() : 0;
+        String variantName = switch (variantId) {
+            case 1 -> "Blue";
+            case 2 -> "Pink";
+            case 3 -> "Black";
+            default -> "Brown";
+        };
+
         if (data != null && !data.name().isEmpty()) {
             tooltip.add(Text.translatable("tooltip.hexalia.bottled_moth", data.name())
                     .formatted(Formatting.ITALIC, Formatting.GREEN));
         }
-        tooltip.add(Text.literal("Variant: " + (data == null ? -1 : data.variantId())));
+
+        tooltip.add(Text.literal("Variant: " + variantName).formatted(Formatting.GRAY));
     }
+
 }

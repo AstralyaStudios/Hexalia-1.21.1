@@ -3,6 +3,8 @@ package net.astralya.hexalia;
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.astralya.hexalia.block.ModBlocks;
 import net.astralya.hexalia.block.entity.ModBlockEntityTypes;
+import net.astralya.hexalia.block.entity.renderer.RitualBrazierBlockEntityRenderer;
+import net.astralya.hexalia.block.entity.renderer.ShelfBlockEntityRenderer;
 import net.astralya.hexalia.component.ModComponents;
 import net.astralya.hexalia.component.item.MothData;
 import net.astralya.hexalia.entity.ModEntities;
@@ -11,6 +13,8 @@ import net.astralya.hexalia.entity.custom.client.SilkMothRenderer;
 import net.astralya.hexalia.item.ModItems;
 import net.astralya.hexalia.particle.ModParticleType;
 import net.astralya.hexalia.particle.custom.*;
+import net.astralya.hexalia.screen.ModScreenHandlers;
+import net.astralya.hexalia.screen.custom.SmallCauldronScreen;
 import net.astralya.hexalia.util.ModWoodTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -18,6 +22,7 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.world.BiomeColors;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
@@ -36,6 +41,7 @@ public class HexaliaModClient implements ClientModInitializer {
         registerWoodTypes();
         registerBlockEntityRenderers();
         registerEntityRenderers();
+        registerScreens();
     }
 
     private void registerBlockRenderLayers() {
@@ -106,9 +112,15 @@ public class HexaliaModClient implements ClientModInitializer {
 
     }
 
+    private void registerScreens() {
+        HandledScreens.register(ModScreenHandlers.SMALL_CAULDRON_SCREEN, SmallCauldronScreen::new);
+    }
+
     private void registerBlockEntityRenderers() {
         BlockEntityRendererFactories.register(ModBlockEntityTypes.MOD_SIGN, SignBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntityTypes.MOD_HANGING_SIGN, HangingSignBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntityTypes.RITUAL_BRAZIER, RitualBrazierBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntityTypes.SHELF, ShelfBlockEntityRenderer::new);
     }
 
     private void registerWoodTypes() {

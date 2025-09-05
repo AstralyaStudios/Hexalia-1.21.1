@@ -2,11 +2,9 @@ package net.astralya.hexalia.block.entity;
 
 import net.astralya.hexalia.HexaliaMod;
 import net.astralya.hexalia.block.ModBlocks;
-import net.astralya.hexalia.block.entity.custom.AstrylisBlockEntity;
-import net.astralya.hexalia.block.entity.custom.NautiliteBlockEntity;
+import net.astralya.hexalia.block.entity.custom.*;
 import net.astralya.hexalia.block.entity.wood.ModHangingSignBlockEntity;
 import net.astralya.hexalia.block.entity.wood.ModSignBlockEntity;
-import net.astralya.hexalia.block.entity.custom.WindsongBlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -22,9 +20,14 @@ public class ModBlockEntityTypes {
             Identifier.of(HexaliaMod.MODID, "astrylis"), BlockEntityType.Builder.create(AstrylisBlockEntity::new, ModBlocks.ASTRYLIS).build(null));
     public static final BlockEntityType<WindsongBlockEntity> WINDSONG = Registry.register(Registries.BLOCK_ENTITY_TYPE,
             Identifier.of(HexaliaMod.MODID, "windsong"), BlockEntityType.Builder.create(WindsongBlockEntity::new, ModBlocks.WINDSONG).build(null));
+    public static final BlockEntityType<RitualBrazierBlockEntity> RITUAL_BRAZIER = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+            Identifier.of(HexaliaMod.MODID, "ritual_brazier"), BlockEntityType.Builder.create(RitualBrazierBlockEntity::new, ModBlocks.RITUAL_BRAZIER).build(null));
+    public static final BlockEntityType<ShelfBlockEntity> SHELF = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+            Identifier.of(HexaliaMod.MODID, "shelf"), BlockEntityType.Builder.create(ShelfBlockEntity::new, ModBlocks.SHELF).build(null));
+    public static final BlockEntityType<SmallCauldronBlockEntity> SMALL_CAULDRON = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+            Identifier.of(HexaliaMod.MODID, "small_cauldron"), BlockEntityType.Builder.create(SmallCauldronBlockEntity::new, ModBlocks.SMALL_CAULDRON).build(null));
 
     // Signs
-
     public static final BlockEntityType<ModSignBlockEntity> MOD_SIGN = Registry.register(Registries.BLOCK_ENTITY_TYPE,
             Identifier.of(HexaliaMod.MODID, "mod_sign"), BlockEntityType.Builder.create(
                     ModSignBlockEntity::new,

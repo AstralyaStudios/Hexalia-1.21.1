@@ -1,0 +1,23 @@
+{
+  "type": "hexalia:small_cauldron",
+  "bottle_slot": {
+    "item": "hexalia:rustic_bottle"
+  },
+  "brewtime": 175,
+  "experience": 5.0,
+  "ingredients": [
+    {
+      "item": "hexalia:galeberries"
+    },
+    {
+      "item": "hexalia:sunfire_tomato"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "hexalia:brew_of_daybloom"
+  }
+}

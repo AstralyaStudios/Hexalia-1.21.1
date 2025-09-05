@@ -84,7 +84,7 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "minecraft:bee",
+        "type": "hexalia:silk_moth",
         "maxCount": 1,
         "minCount": 1,
         "weight": 2

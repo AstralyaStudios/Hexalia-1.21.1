@@ -1,0 +1,23 @@
+{
+  "type": "hexalia:small_cauldron",
+  "bottle_slot": {
+    "item": "hexalia:rustic_bottle"
+  },
+  "brewtime": 175,
+  "experience": 5.0,
+  "ingredients": [
+    {
+      "item": "minecraft:cactus"
+    },
+    {
+      "item": "hexalia:mandrake"
+    },
+    {
+      "item": "hexalia:ghost_powder"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "hexalia:brew_of_spikeskin"
+  }
+}

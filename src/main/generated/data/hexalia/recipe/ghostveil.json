@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "hexalia:silk_fiber"
+    },
+    "S": {
+      "item": "hexalia:ghost_fern"
+    },
+    "T": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "T T",
+    "PTP",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "hexalia:ghostveil"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "hexalia:small_cauldron",
+  "bottle_slot": {
+    "item": "hexalia:rustic_bottle"
+  },
+  "brewtime": 175,
+  "experience": 5.0,
+  "ingredients": [
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "item": "minecraft:feather"
+    },
+    {
+      "item": "minecraft:spider_eye"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "hexalia:brew_of_slimewalker"
+  }
+}

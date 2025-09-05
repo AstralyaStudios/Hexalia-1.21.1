@@ -1,0 +1,10 @@
+{
+  "type": "hexalia:ritual_brazier",
+  "input": {
+    "item": "minecraft:glow_berries"
+  },
+  "output": {
+    "count": 1,
+    "id": "hexalia:galeberries"
+  }
+}

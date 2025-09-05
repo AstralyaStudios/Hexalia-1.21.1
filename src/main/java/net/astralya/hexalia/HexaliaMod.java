@@ -10,6 +10,8 @@ import net.astralya.hexalia.entity.custom.SilkMothEntity;
 import net.astralya.hexalia.item.ModItemGroups;
 import net.astralya.hexalia.item.ModItems;
 import net.astralya.hexalia.particle.ModParticleType;
+import net.astralya.hexalia.recipe.ModRecipes;
+import net.astralya.hexalia.screen.ModScreenHandlers;
 import net.astralya.hexalia.sound.ModSoundEvents;
 import net.astralya.hexalia.util.ModRegistries;
 import net.astralya.hexalia.worldgen.biome.ModBiomes;
@@ -43,6 +45,8 @@ public class HexaliaMod implements ModInitializer, TerraBlenderApi {
 		ModRegistries.registerModStuff();
 		ModWorldGeneration.generateModWorldGeneration();
 		ModEntities.registerModEntities();
+        ModRecipes.registerRecipes();
+        ModScreenHandlers.registerScreenHandlers();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.SILK_MOTH_ENTITY, SilkMothEntity.setAttributes());
 	}

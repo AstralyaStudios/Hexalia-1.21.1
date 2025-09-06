@@ -28,6 +28,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collections;
 import java.util.Optional;
 
 public class SmallCauldronBlockEntity extends SyncBlockEntity
@@ -115,7 +116,7 @@ public class SmallCauldronBlockEntity extends SyncBlockEntity
         super.readNbt(nbt, registries);
         progress = nbt.getInt("small_cauldron.progress");
         maxProgress = nbt.getInt("small_cauldron.max_progress");
-        items.replaceAll(s -> ItemStack.EMPTY);
+        Collections.fill(items, ItemStack.EMPTY);
         Inventories.readNbt(nbt, items, registries);
     }
 
@@ -246,8 +247,8 @@ public class SmallCauldronBlockEntity extends SyncBlockEntity
 
         items.set(OUTPUT_SLOT, new ItemStack(result.getItem(), current.getCount() + result.getCount()));
 
-        for (int i = 0; i < 3; i++) decrementSlot(i, 1);
-        if (!recipe.getBottleSlot().isEmpty()) decrementSlot(BOTTLE_SLOT, 1);
+        for (int i = 0; i < 3; i++) decrementSlot(i);
+        if (!recipe.getBottleSlot().isEmpty()) decrementSlot(BOTTLE_SLOT);
 
         if (lastInteractedPlayer != null) grantExperience(lastInteractedPlayer, recipe.getExperience());
 
@@ -281,10 +282,10 @@ public class SmallCauldronBlockEntity extends SyncBlockEntity
         return max >= current + count;
     }
 
-    private void decrementSlot(int slot, int amount) {
+    private void decrementSlot(int slot) {
         ItemStack s = items.get(slot);
         if (s.isEmpty()) return;
-        int remain = s.getCount() - amount;
+        int remain = s.getCount() - 1;
         items.set(slot, remain > 0 ? s.copyWithCount(remain) : ItemStack.EMPTY);
     }
 

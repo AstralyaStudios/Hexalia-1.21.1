@@ -219,14 +219,14 @@ public class ShelfBlock extends BlockWithEntity {
         Map<Direction, VoxelShape> shapes = new HashMap<>();
         VoxelShape baseShape = createShape();
         for (Direction direction : Direction.Type.HORIZONTAL) {
-            shapes.put(direction, rotateShape(Direction.NORTH, direction, baseShape));
+            shapes.put(direction, rotateShape(direction, baseShape));
         }
         return shapes;
     }
 
-    private static VoxelShape rotateShape(Direction from, Direction to, VoxelShape shape) {
+    private static VoxelShape rotateShape(Direction to, VoxelShape shape) {
         VoxelShape[] buffer = new VoxelShape[]{shape, VoxelShapes.empty()};
-        int times = (to.getHorizontal() - from.getHorizontal() + 4) % 4;
+        int times = (to.getHorizontal() - Direction.NORTH.getHorizontal() + 4) % 4;
         for (int i = 0; i < times; i++) {
             buffer[0].forEachBox((minX, minY, minZ, maxX, maxY, maxZ) ->
                     buffer[1] = VoxelShapes.union(

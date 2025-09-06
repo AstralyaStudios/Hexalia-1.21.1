@@ -15,6 +15,8 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.Collections;
+
 public class ShelfBlockEntity extends SyncBlockEntity {
 
     private static final int SIZE = 6;
@@ -69,9 +71,7 @@ public class ShelfBlockEntity extends SyncBlockEntity {
     }
 
     public void clearContents() {
-        for (int i = 0; i < items.size(); i++) {
-            items.set(i, ItemStack.EMPTY);
-        }
+        Collections.fill(items, ItemStack.EMPTY);
         markDirty();
     }
 
@@ -84,7 +84,7 @@ public class ShelfBlockEntity extends SyncBlockEntity {
     @Override
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.readNbt(nbt, registryLookup);
-        items.replaceAll(s -> ItemStack.EMPTY);
+        Collections.fill(items, ItemStack.EMPTY);
         net.minecraft.inventory.Inventories.readNbt(nbt, items, registryLookup);
         for (int i = 0; i < items.size(); i++) {
             ItemStack s = items.get(i);

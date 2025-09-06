@@ -1,7 +1,7 @@
 package net.astralya.hexalia.datagen;
 
-import net.astralya.hexalia.HexaliaMod;
 import net.astralya.hexalia.datagen.custom.RitualBrazierRecipeBuilder;
+import net.astralya.hexalia.datagen.custom.RitualTableRecipeBuilder;
 import net.astralya.hexalia.datagen.custom.SmallCauldronRecipeBuilder;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -13,6 +13,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -437,54 +438,114 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .experience(5.0f)
                 .offerTo(exporter, Identifier.of(ModItems.BREW_OF_ARACHNID_GRACE + "_from_small_cauldron"));
 
+        // Recipes for Ritual Table Items
+        RitualTableRecipeBuilder.ritual(new ItemStack(ModBlocks.GRIMSHADE, 1))
+                .tableItem(Blocks.AZURE_BLUET)
+                .brazierItem(ModItems.GHOST_POWDER)
+                .brazierItem(Items.WITHER_ROSE)
+                .brazierItem(Items.BONE)
+                .brazierItem(Items.BLACK_DYE)
+                .criterion("has_azure_bluet", InventoryChangedCriterion.Conditions.items(Blocks.AZURE_BLUET))
+                .offerTo(exporter, Identifier.of((ModBlocks.GRIMSHADE).asItem() + "_from_ritual_table"));
 
-        /* Recipes for Transmutation Items
-        new TransmutationRecipeBuilder(List.of(ModItems.GHOST_POWDER, Items.WITHER_ROSE, Items.BONE, Items.BLACK_DYE),
-                Blocks.AZURE_BLUET, ModBlocks.GRIMSHADE).criterion(hasItem(ModItems.HEX_FOCUS), conditionsFromItem(ModItems.HEX_FOCUS))
-                .offerTo(exporter);
-        new TransmutationRecipeBuilder(List.of(ModItems.DREAM_PASTE, Items.IRON_NUGGET, Items.SWEET_BERRIES, Blocks.POPPY),
-                Items.BEETROOT_SEEDS, ModItems.RABBAGE_SEEDS).criterion(hasItem(ModItems.HEX_FOCUS), conditionsFromItem(ModItems.HEX_FOCUS))
-                .offerTo(exporter);
+        RitualTableRecipeBuilder.ritual(new ItemStack(ModItems.RABBAGE_SEEDS, 1))
+                .tableItem(Items.BEETROOT_SEEDS)
+                .brazierItem(ModItems.DREAM_PASTE)
+                .brazierItem(Items.IRON_NUGGET)
+                .brazierItem(Items.SWEET_BERRIES)
+                .brazierItem(Blocks.POPPY)
+                .criterion("has_beetroot_seeds", InventoryChangedCriterion.Conditions.items(Items.BEETROOT_SEEDS))
+                .offerTo(exporter, Identifier.of((ModItems.RABBAGE_SEEDS) + "_from_ritual_table"));
 
-        new TransmutationRecipeBuilder(List.of(ModItems.SPIRIT_POWDER, Items.GOLD_NUGGET, Items.BOOK, Items.EXPERIENCE_BOTTLE),
-                ModItems.CELESTIAL_CRYSTAL, ModItems.SAGE_PENDANT).criterion(hasItem(ModItems.HEX_FOCUS), conditionsFromItem(ModItems.HEX_FOCUS))
-                .offerTo(exporter);
+        RitualTableRecipeBuilder.ritual(new ItemStack(ModItems.SAGE_PENDANT, 1))
+                .tableItem(ModItems.CELESTIAL_CRYSTAL)
+                .brazierItem(ModItems.SPIRIT_POWDER)
+                .brazierItem(Items.GOLD_NUGGET)
+                .brazierItem(Items.BOOK)
+                .brazierItem(Items.EXPERIENCE_BOTTLE)
+                .criterion("has_celestial_crystal", InventoryChangedCriterion.Conditions.items(ModItems.CELESTIAL_CRYSTAL))
+                .offerTo(exporter, Identifier.of((ModItems.SAGE_PENDANT) + "_from_ritual_table"));
 
-        new TransmutationRecipeBuilder(List.of(ModItems.DREAM_PASTE, ModItems.SPIRIT_POWDER, ModItems.EARTH_NODE, ModItems.TREE_RESIN),
-                Blocks.POPPY, ModBlocks.MORPHORA).criterion(hasItem(ModItems.HEX_FOCUS), conditionsFromItem(ModItems.HEX_FOCUS))
-                .offerTo(exporter);
+        RitualTableRecipeBuilder.ritual(new ItemStack(ModBlocks.MORPHORA, 1))
+                .tableItem(Blocks.POPPY)
+                .brazierItem(ModItems.DREAM_PASTE)
+                .brazierItem(ModItems.SPIRIT_POWDER)
+                .brazierItem(ModItems.EARTH_NODE)
+                .brazierItem(ModItems.TREE_RESIN)
+                .criterion("has_poppy", InventoryChangedCriterion.Conditions.items(Blocks.POPPY))
+                .offerTo(exporter, Identifier.of((ModBlocks.MORPHORA).asItem() + "_from_ritual_table"));
 
-        new TransmutationRecipeBuilder(List.of(ModItems.SIREN_PASTE, ModItems.WATER_NODE, Items.IRON_NUGGET, Items.KELP),
-                ModItems.ANCIENT_SEED, ModItems.KELPWEAVE_BLADE).criterion(hasItem(ModItems.HEX_FOCUS), conditionsFromItem(ModItems.HEX_FOCUS))
-                .offerTo(exporter);
+        RitualTableRecipeBuilder.ritual(new ItemStack(ModItems.KELPWEAVE_BLADE, 1))
+                .tableItem(ModItems.ANCIENT_SEED)
+                .brazierItem(ModItems.SIREN_PASTE)
+                .brazierItem(ModItems.WATER_NODE)
+                .brazierItem(Items.IRON_NUGGET)
+                .brazierItem(Items.KELP)
+                .criterion("has_ancient_seed", InventoryChangedCriterion.Conditions.items(ModItems.ANCIENT_SEED))
+                .offerTo(exporter, Identifier.of((ModItems.KELPWEAVE_BLADE) + "_from_ritual_table"));
 
-        new TransmutationRecipeBuilder(List.of(ModItems.SIREN_PASTE, ModItems.WATER_NODE, Items.NAUTILUS_SHELL, Items.PRISMARINE_CRYSTALS),
-                Items.KELP, ModBlocks.NAUTILITE).criterion(hasItem(ModItems.HEX_FOCUS), conditionsFromItem(ModItems.HEX_FOCUS))
-                .offerTo(exporter);
+        RitualTableRecipeBuilder.ritual(new ItemStack(ModBlocks.NAUTILITE, 1))
+                .tableItem(Items.KELP)
+                .brazierItem(ModItems.SIREN_PASTE)
+                .brazierItem(ModItems.WATER_NODE)
+                .brazierItem(Items.NAUTILUS_SHELL)
+                .brazierItem(Items.PRISMARINE_CRYSTALS)
+                .criterion("has_kelp", InventoryChangedCriterion.Conditions.items(Items.KELP))
+                .offerTo(exporter, Identifier.of((ModBlocks.NAUTILITE).asItem() + "_from_ritual_table"));
 
-        new TransmutationRecipeBuilder(List.of(ModItems.AIR_NODE, ModItems.GHOST_POWDER, Items.FEATHER, Items.PHANTOM_MEMBRANE),
-                Blocks.OXEYE_DAISY, ModBlocks.WINDSONG).criterion(hasItem(ModItems.HEX_FOCUS), conditionsFromItem(ModItems.HEX_FOCUS))
-                .offerTo(exporter);
+        RitualTableRecipeBuilder.ritual(new ItemStack(ModBlocks.WINDSONG, 1))
+                .tableItem(Blocks.OXEYE_DAISY)
+                .brazierItem(ModItems.AIR_NODE)
+                .brazierItem(ModItems.GHOST_POWDER)
+                .brazierItem(Items.FEATHER)
+                .brazierItem(Items.PHANTOM_MEMBRANE)
+                .criterion("has_oxeye_daisy", InventoryChangedCriterion.Conditions.items(Blocks.OXEYE_DAISY))
+                .offerTo(exporter, Identifier.of((ModBlocks.WINDSONG).asItem() + "_from_ritual_table"));
 
-        new TransmutationRecipeBuilder(List.of(ModItems.CELESTIAL_CRYSTAL, ModItems.EARTH_NODE, Items.BONE_MEAL, Items.GLOWSTONE_DUST),
-                Blocks.LILY_OF_THE_VALLEY, ModBlocks.ASTRYLIS).criterion(hasItem(ModItems.HEX_FOCUS), conditionsFromItem(ModItems.HEX_FOCUS))
-                .offerTo(exporter);
+        RitualTableRecipeBuilder.ritual(new ItemStack(ModBlocks.ASTRYLIS, 1))
+                .tableItem(Blocks.LILY_OF_THE_VALLEY)
+                .brazierItem(ModItems.CELESTIAL_CRYSTAL)
+                .brazierItem(ModItems.EARTH_NODE)
+                .brazierItem(Items.BONE_MEAL)
+                .brazierItem(Items.GLOWSTONE_DUST)
+                .criterion("has_lily_of_the_valley", InventoryChangedCriterion.Conditions.items(Blocks.LILY_OF_THE_VALLEY))
+                .offerTo(exporter, Identifier.of((ModBlocks.ASTRYLIS).asItem() + "_from_ritual_table"));
 
-        new TransmutationRecipeBuilder(List.of(Items.COAL, ModItems.SUNFIRE_TOMATO, Items.GUNPOWDER, Blocks.SUNFLOWER),
-                Items.AMETHYST_SHARD, ModItems.FIRE_NODE).criterion(hasItem(ModItems.HEX_FOCUS), conditionsFromItem(ModItems.HEX_FOCUS))
-                .offerTo(exporter);
+        RitualTableRecipeBuilder.ritual(new ItemStack(ModItems.FIRE_NODE, 1))
+                .tableItem(Items.AMETHYST_SHARD)
+                .brazierItem(Items.COAL)
+                .brazierItem(ModItems.SUNFIRE_TOMATO)
+                .brazierItem(Items.GUNPOWDER)
+                .brazierItem(Blocks.SUNFLOWER)
+                .criterion("has_amethyst_shard", InventoryChangedCriterion.Conditions.items(Items.AMETHYST_SHARD))
+                .offerTo(exporter, Identifier.of((ModItems.FIRE_NODE) + "_from_ritual_table"));
 
-        new TransmutationRecipeBuilder(List.of(Items.FEATHER, Items.GLASS_BOTTLE, Items.STRING, Blocks.DANDELION),
-                Items.AMETHYST_SHARD, ModItems.AIR_NODE).criterion(hasItem(ModItems.HEX_FOCUS), conditionsFromItem(ModItems.HEX_FOCUS))
-                .offerTo(exporter);
+        RitualTableRecipeBuilder.ritual(new ItemStack(ModItems.AIR_NODE, 1))
+                .tableItem(Items.AMETHYST_SHARD)
+                .brazierItem(Items.FEATHER)
+                .brazierItem(Items.GLASS_BOTTLE)
+                .brazierItem(Items.STRING)
+                .brazierItem(Blocks.DANDELION)
+                .criterion("has_amethyst_shard", InventoryChangedCriterion.Conditions.items(Items.AMETHYST_SHARD))
+                .offerTo(exporter, Identifier.of((ModItems.AIR_NODE) + "_from_ritual_table"));
 
-        new TransmutationRecipeBuilder(List.of(Blocks.LILY_PAD, ModItems.SIREN_PASTE, Items.PRISMARINE_SHARD, Items.INK_SAC),
-                Items.AMETHYST_SHARD, ModItems.WATER_NODE).criterion(hasItem(ModItems.HEX_FOCUS), conditionsFromItem(ModItems.HEX_FOCUS))
-                .offerTo(exporter);
+        RitualTableRecipeBuilder.ritual(new ItemStack(ModItems.WATER_NODE, 1))
+                .tableItem(Items.AMETHYST_SHARD)
+                .brazierItem(Blocks.LILY_PAD)
+                .brazierItem(ModItems.SIREN_PASTE)
+                .brazierItem(Items.PRISMARINE_SHARD)
+                .brazierItem(Items.INK_SAC)
+                .criterion("has_amethyst_shard", InventoryChangedCriterion.Conditions.items(Items.AMETHYST_SHARD))
+                .offerTo(exporter, Identifier.of((ModItems.WATER_NODE) + "_from_ritual_table"));
 
-        new TransmutationRecipeBuilder(List.of(ModItems.TREE_RESIN, Items.CLAY_BALL, Items.FLINT, ModItems.MANDRAKE),
-                Items.AMETHYST_SHARD, ModItems.EARTH_NODE).criterion(hasItem(ModItems.HEX_FOCUS), conditionsFromItem(ModItems.HEX_FOCUS))
-                .offerTo(exporter);*/
+        RitualTableRecipeBuilder.ritual(new ItemStack(ModItems.EARTH_NODE, 1))
+                .tableItem(Items.AMETHYST_SHARD)
+                .brazierItem(ModItems.TREE_RESIN)
+                .brazierItem(Items.CLAY_BALL)
+                .brazierItem(Items.FLINT)
+                .brazierItem(ModItems.MANDRAKE)
+                .criterion("has_amethyst_shard", InventoryChangedCriterion.Conditions.items(Items.AMETHYST_SHARD))
+                .offerTo(exporter, Identifier.of((ModItems.EARTH_NODE) + "_from_ritual_table"));
 
         // Celestial Ritual
         new RitualBrazierRecipeBuilder(Items.AMETHYST_SHARD, ModItems.CELESTIAL_CRYSTAL.getDefaultStack())

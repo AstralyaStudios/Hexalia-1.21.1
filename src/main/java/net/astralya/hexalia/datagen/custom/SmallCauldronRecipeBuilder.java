@@ -91,19 +91,4 @@ public class SmallCauldronRecipeBuilder implements CraftingRecipeJsonBuilder {
         );
         exporter.accept(recipeId, recipe, advEntry);
     }
-
-    public static SmallCauldronRecipeBuilder siphonRecipe(ItemConvertible dandelion,
-                                                          ItemConvertible rottenFlesh,
-                                                          ItemConvertible spiderEye,
-                                                          ItemConvertible rusticBottle,
-                                                          ItemConvertible brewOfSiphon) {
-        return SmallCauldronRecipeBuilder.smallCauldron()
-                .addIngredient(dandelion)
-                .addIngredient(rottenFlesh)
-                .addIngredient(spiderEye)
-                .bottle(rusticBottle)
-                .result(brewOfSiphon, 1)
-                .experience(5.0f)
-                .brewTime(175);
-    }
 }

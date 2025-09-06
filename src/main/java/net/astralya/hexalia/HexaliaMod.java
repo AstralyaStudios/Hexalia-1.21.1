@@ -1,6 +1,7 @@
 package net.astralya.hexalia;
 
 import net.astralya.hexalia.block.ModBlocks;
+import net.astralya.hexalia.block.custom.censer.CenserServerTickHandler;
 import net.astralya.hexalia.block.entity.ModBlockEntityTypes;
 import net.astralya.hexalia.component.ModComponents;
 import net.astralya.hexalia.effect.ModEffects;
@@ -47,6 +48,8 @@ public class HexaliaMod implements ModInitializer, TerraBlenderApi {
 		ModEntities.registerModEntities();
         ModRecipes.registerRecipes();
         ModScreenHandlers.registerScreenHandlers();
+
+        CenserServerTickHandler.register();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.SILK_MOTH_ENTITY, SilkMothEntity.setAttributes());
 	}

@@ -1,0 +1,24 @@
+{
+  "type": "hexalia:ritual_table",
+  "ingredients": [
+    {
+      "item": "hexalia:ancient_seed"
+    },
+    {
+      "item": "hexalia:siren_paste"
+    },
+    {
+      "item": "hexalia:water_node"
+    },
+    {
+      "item": "minecraft:iron_nugget"
+    },
+    {
+      "item": "minecraft:kelp"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "hexalia:kelpweave_blade"
+  }
+}

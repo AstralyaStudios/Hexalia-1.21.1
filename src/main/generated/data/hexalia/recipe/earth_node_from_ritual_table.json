@@ -1,0 +1,24 @@
+{
+  "type": "hexalia:ritual_table",
+  "ingredients": [
+    {
+      "item": "minecraft:amethyst_shard"
+    },
+    {
+      "item": "hexalia:tree_resin"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "minecraft:flint"
+    },
+    {
+      "item": "hexalia:mandrake"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "hexalia:earth_node"
+  }
+}

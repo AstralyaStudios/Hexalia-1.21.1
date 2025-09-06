@@ -3,7 +3,9 @@ package net.astralya.hexalia;
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.astralya.hexalia.block.ModBlocks;
 import net.astralya.hexalia.block.entity.ModBlockEntityTypes;
+import net.astralya.hexalia.block.entity.renderer.CenserBlockEntityRenderer;
 import net.astralya.hexalia.block.entity.renderer.RitualBrazierBlockEntityRenderer;
+import net.astralya.hexalia.block.entity.renderer.RitualTableBlockEntityRenderer;
 import net.astralya.hexalia.block.entity.renderer.ShelfBlockEntityRenderer;
 import net.astralya.hexalia.component.ModComponents;
 import net.astralya.hexalia.component.item.MothData;
@@ -121,6 +123,8 @@ public class HexaliaModClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(ModBlockEntityTypes.MOD_HANGING_SIGN, HangingSignBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntityTypes.RITUAL_BRAZIER, RitualBrazierBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntityTypes.SHELF, ShelfBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntityTypes.CENSER, CenserBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntityTypes.RITUAL_TABLE, RitualTableBlockEntityRenderer::new);
     }
 
     private void registerWoodTypes() {

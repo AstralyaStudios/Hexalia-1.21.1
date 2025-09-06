@@ -1,0 +1,24 @@
+{
+  "type": "hexalia:ritual_table",
+  "ingredients": [
+    {
+      "item": "minecraft:kelp"
+    },
+    {
+      "item": "hexalia:siren_paste"
+    },
+    {
+      "item": "hexalia:water_node"
+    },
+    {
+      "item": "minecraft:nautilus_shell"
+    },
+    {
+      "item": "minecraft:prismarine_crystals"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "hexalia:nautilite"
+  }
+}

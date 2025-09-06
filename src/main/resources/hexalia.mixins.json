@@ -6,7 +6,8 @@
 		"CobwebMixin",
 		"LivingEntityMixin",
 		"CropBlockMixin",
-		"SugarCaneBlockMixin"
+		"SugarCaneBlockMixin",
+        "ExperienceMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

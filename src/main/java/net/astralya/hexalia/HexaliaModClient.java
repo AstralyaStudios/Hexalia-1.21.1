@@ -31,6 +31,7 @@ import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.FoliageColors;
 
@@ -112,6 +113,7 @@ public class HexaliaModClient implements ClientModInitializer {
                 }
         );
 
+        EntityRendererRegistry.register(ModEntities.RABBAGE, FlyingItemEntityRenderer::new);
     }
 
     private void registerScreens() {

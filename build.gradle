@@ -29,6 +29,11 @@ repositories {
 			includeGroup("software.bernie.geckolib")
 		}
 	}
+
+    maven {
+        name "patchouli"
+        url "https://maven.blamejared.com"
+    }
 }
 
 fabricApi {
@@ -48,6 +53,8 @@ dependencies {
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+
+    modImplementation "vazkii.patchouli:Patchouli:${patchouli_version}-FABRIC"
 
     modApi "dev.architectury:architectury-fabric:13.0.6"
     modApi "me.shedaniel.cloth:cloth-config-fabric:15.0.140"

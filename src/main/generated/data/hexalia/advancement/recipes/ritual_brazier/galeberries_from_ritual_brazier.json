@@ -2,7 +2,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "hexalia:galeberries_from_brazier"
+        "recipe": "hexalia:galeberries_from_ritual_brazier"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -14,7 +14,7 @@
   ],
   "rewards": {
     "recipes": [
-      "hexalia:galeberries_from_brazier"
+      "hexalia:galeberries_from_ritual_brazier"
     ]
   }
 }

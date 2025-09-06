@@ -2,6 +2,7 @@ package net.astralya.hexalia.item;
 
 import net.astralya.hexalia.HexaliaMod;
 import net.astralya.hexalia.block.ModBlocks;
+import net.astralya.hexalia.util.ModUtil;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -173,15 +174,10 @@ public class ModItemGroups {
                         // Spawn Eggs
                         entries.add(ModItems.SILK_MOTH_SPAWN_EGG);
 
-                        /* Compat Items
+                        // Compat Items
                         if (ModUtil.isModLoaded("patchouli")) {
                             entries.add(ModItems.VERDANT_GRIMOIRE);
                         }
-
-                        if (ModUtil.isModLoaded("farmersdelight")) {
-                            entries.add(ModItems.WITCH_SALAD);
-                        }*/
-
 
                     }).build());
 

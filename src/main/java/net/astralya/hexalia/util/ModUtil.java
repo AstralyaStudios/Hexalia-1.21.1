@@ -1,6 +1,7 @@
 package net.astralya.hexalia.util;
 
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -26,4 +27,7 @@ public class ModUtil {
         return PlayerLookup.tracking(world, pos);
     }
 
+    public static boolean isModLoaded(String modId) {
+        return FabricLoader.getInstance().isModLoaded(modId);
+    }
 }

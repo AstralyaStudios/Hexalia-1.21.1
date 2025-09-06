@@ -1,5 +1,5 @@
 {
-  "processor": "net.astralya.hexalia.compat.patchouli.TransmutationProcessor",
+  "processor": "net.astralya.hexalia.compat.patchouli.RitualTableProcessor",
   "components": [
     {
       "type": "patchouli:image",

@@ -550,13 +550,13 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         // Celestial Ritual
         new RitualBrazierRecipeBuilder(Items.AMETHYST_SHARD, ModItems.CELESTIAL_CRYSTAL.getDefaultStack())
                 .criterion("has_amethyst_shard", conditionsFromItem(Items.AMETHYST_SHARD))
-                .offerTo(exporter, Identifier.of(ModItems.CELESTIAL_CRYSTAL + "_from_brazier"));
+                .offerTo(exporter, Identifier.of(ModItems.CELESTIAL_CRYSTAL + "_from_ritual_brazier"));
         new RitualBrazierRecipeBuilder(Items.GLOW_BERRIES, ModItems.GALEBERRIES.getDefaultStack())
                 .criterion("has_glow_berries", conditionsFromItem(Items.GLOW_BERRIES))
-                .offerTo(exporter, Identifier.of(ModItems.GALEBERRIES + "_from_brazier"));
+                .offerTo(exporter, Identifier.of(ModItems.GALEBERRIES + "_from_ritual_brazier"));
         new RitualBrazierRecipeBuilder(Blocks.AMETHYST_BLOCK, ModBlocks.CELESTIAL_CRYSTAL_BLOCK.asItem().getDefaultStack())
                 .criterion("has_amethyst_block", conditionsFromItem(Blocks.AMETHYST_BLOCK))
-                .offerTo(exporter, Identifier.of(ModBlocks.CELESTIAL_CRYSTAL_BLOCK.asItem() + "_from_brazier"));
+                .offerTo(exporter, Identifier.of(ModBlocks.CELESTIAL_CRYSTAL_BLOCK.asItem() + "_from_ritual_brazier"));
 
         // Recipes for Wooden Blocks
         offerPlanksRecipe(exporter, ModBlocks.COTTONWOOD_PLANKS, ModTags.Items.COTTONWOOD_LOGS, 4);

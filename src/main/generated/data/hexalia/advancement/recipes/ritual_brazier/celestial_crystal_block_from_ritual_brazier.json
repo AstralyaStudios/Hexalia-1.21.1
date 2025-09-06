@@ -2,7 +2,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "hexalia:celestial_crystal_block_from_brazier"
+        "recipe": "hexalia:celestial_crystal_block_from_ritual_brazier"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -14,7 +14,7 @@
   ],
   "rewards": {
     "recipes": [
-      "hexalia:celestial_crystal_block_from_brazier"
+      "hexalia:celestial_crystal_block_from_ritual_brazier"
     ]
   }
 }

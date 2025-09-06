@@ -134,6 +134,8 @@ public class ModItems {
             new WeatherIdol(new Item.Settings()));
     public static final Item STORM_IDOL = registerItem("storm_idol",
             new WeatherIdol(new Item.Settings()));
+    public static final Item VERDANT_GRIMOIRE = registerItem("verdant_grimoire",
+            new GrimoireItem(new Item.Settings()));
 
     // Entity
     public static final Item BOTTLED_MOTH = registerItem("bottled_moth",

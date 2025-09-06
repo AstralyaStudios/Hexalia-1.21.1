@@ -19,16 +19,16 @@
     },
     {
       "type": "hexalia:ritual_brazier",
-      "recipe": "hexalia:celestial_crystal_from_ritual"
+      "recipe": "hexalia:celestial_crystal_from_ritual_brazier"
     },
     {
       "type": "patchouli:spotlight",
       "item": "hexalia:celestial_crystal",
-      "text": "celestial Crystals can be used in several recipes, and will be very useful later on. For now, it can be used to craft Weather Idols and transmutation rituals."
+      "text": "Celestial Crystals can be used in several recipes, and will be very useful later on. For now, it can be used to craft Weather Idols and transmutation rituals."
     },
     {
       "type": "hexalia:ritual_brazier",
-      "recipe": "hexalia:galeberries_from_ritual"
+      "recipe": "hexalia:galeberries_from_ritual_brazier"
     },
     {
       "type": "patchouli:spotlight",
@@ -37,7 +37,7 @@
     },
     {
       "type": "hexalia:ritual_brazier",
-      "recipe": "hexalia:celestial_crystal_block_from_ritual"
+      "recipe": "hexalia:celestial_crystal_block_from_ritual_brazier"
     },
     {
       "type": "patchouli:spotlight",

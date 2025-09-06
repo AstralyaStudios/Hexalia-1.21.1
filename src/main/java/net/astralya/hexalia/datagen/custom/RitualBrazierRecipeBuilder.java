@@ -71,7 +71,7 @@ public class RitualBrazierRecipeBuilder implements CraftingRecipeJsonBuilder {
 
         Identifier saveId = Identifier.of(
                 HexaliaMod.MODID,
-                Registries.ITEM.getId(output.getItem()).getPath() + "_from_ritual"
+                Registries.ITEM.getId(output.getItem()).getPath() + "_from_ritual_brazier"
         );
 
         exporter.accept(saveId, recipe, advEntry);

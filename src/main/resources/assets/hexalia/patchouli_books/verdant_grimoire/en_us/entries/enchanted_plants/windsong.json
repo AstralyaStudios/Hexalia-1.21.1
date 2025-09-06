@@ -10,8 +10,8 @@
       "text": "The Windsong is a flower that creates a wind barrier in a 5×5 area, protecting the player from projectiles originating outside the barrier. Projectiles are nullified upon impact with the wind barrier. This flower requires activation by right-clicking it with a $(l:hexalia:items/hex_focus)Hex Focus$()."
     },
     {
-      "type": "hexalia:transmutation",
-      "recipe": "hexalia:windsong_transmutation"
+      "type": "hexalia:ritual_table",
+      "recipe": "hexalia:windsong_from_ritual_table"
     },
     {
       "type": "patchouli:spotlight",

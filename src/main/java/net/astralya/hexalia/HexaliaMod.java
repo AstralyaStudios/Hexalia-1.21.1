@@ -33,8 +33,8 @@ public class HexaliaMod implements ModInitializer, TerraBlenderApi {
 
 	@Override
 	public void onInitialize() {
-		ModComponents.registerComponents();
-		ModItems.registerModItems();
+        ModItems.registerModItems();
+        ModComponents.registerComponents();
 		ModItemGroups.registerItemGroups();
 		ModEffects.registerEffects();
 		ModBlocks.registerModBlocks();

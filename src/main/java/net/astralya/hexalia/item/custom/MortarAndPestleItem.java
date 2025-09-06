@@ -5,8 +5,6 @@ import net.minecraft.item.ItemStack;
 
 public class MortarAndPestleItem extends Item {
 
-    // TODO: IT IS NOT BEING DAMAGED
-
     public MortarAndPestleItem(Settings settings) {
         super(settings);
     }
@@ -19,7 +17,8 @@ public class MortarAndPestleItem extends Item {
     @Override
     public ItemStack getRecipeRemainder(ItemStack stack) {
         ItemStack result = stack.copy();
-        result.setDamage(result.getDamage() - 1);
+        result.setCount(1);
+        result.setDamage(stack.getDamage() + 1);
 
         if (result.getDamage() >= result.getMaxDamage()) {
             return ItemStack.EMPTY;

@@ -26,6 +26,9 @@
 		],
 		"terrablender": [
 			"net.astralya.hexalia.HexaliaMod"
+		],
+		"rei_client": [
+			"net.astralya.hexalia.compat.rei.HexaliaREIClientPlugin"
 		]
 	},
 	"mixins": [

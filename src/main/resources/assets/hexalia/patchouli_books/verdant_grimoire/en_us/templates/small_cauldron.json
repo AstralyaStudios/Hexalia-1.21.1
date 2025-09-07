@@ -1,5 +1,5 @@
 {
-  "processor": "net.grapes.hexalia.compat.patchouli.SmallCauldronProcessor",
+  "processor": "net.astralya.hexalia.compat.patchouli.SmallCauldronProcessor",
   "components": [
     {
       "type": "patchouli:image",

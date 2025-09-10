@@ -10,6 +10,7 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
@@ -79,7 +80,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ModTags.Items.CRUSHED_HERBS)
                 .add(ModItems.SPIRIT_POWDER.get().asItem())
-                .add(ModItems.SIREN_KELP.get())
+                .add(ModItems.SIREN_PASTE.get())
                 .add(ModItems.DREAM_PASTE.get())
                 .add(ModItems.GHOST_POWDER.get());
 
@@ -110,6 +111,13 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModTags.Items.OFFHAND_EQUIPMENT)
                 .add(ModItems.HEX_FOCUS.get())
                 .addTag(ModTags.Items.SALT);
+
+        // Tulips
+        tag(ModTags.Items.TULIPS)
+                .add(Blocks.ORANGE_TULIP.asItem())
+                .add(Blocks.PINK_TULIP.asItem())
+                .add(Blocks.RED_TULIP.asItem())
+                .add(Blocks.WHITE_TULIP.asItem());
     }
 
     private void addTreeRelatedTags() {
@@ -194,24 +202,18 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModTags.Items.CROPS)
                 .add(ModItems.SALTSPROUT.get());
 
-        tag(ModTags.Items.CROPS_TOMATO)
-                .add(ModItems.SUNFIRE_TOMATO.get());
-
         // Specific food types
-        tag(ModTags.Items.FOODS_BERRIES)
+        tag(ModTags.Items.FOODS_BERRY)
                 .add(ModItems.CHILLBERRIES.get())
                 .add(ModItems.GALEBERRIES.get());
 
-        tag(ModTags.Items.FOODS_VEGETABLES)
+        tag(ModTags.Items.FOODS_VEGETABLE)
                 .add(ModItems.SUNFIRE_TOMATO.get())
                 .add(Items.CARROT)
                 .add(Items.POTATO);
 
-        tag(ModTags.Items.FOODS_VEGETABLES_TOMATO)
-                .add(ModItems.SUNFIRE_TOMATO.get());
-
         // Standard food categories
-        tag(ModTags.Items.FOODS_COOKED_MEATS)
+        tag(ModTags.Items.FOODS_COOKED_MEAT)
                 .add(Items.COOKED_BEEF)
                 .add(Items.COOKED_CHICKEN)
                 .add(Items.COOKED_MUTTON)
@@ -220,12 +222,17 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(Items.COOKED_COD)
                 .add(Items.COOKED_SALMON);
 
-        tag(ModTags.Items.FOODS_BREADS)
+        tag(ModTags.Items.FOODS_BREAD)
                 .add(Items.BREAD);
 
-        tag(ModTags.Items.BERRIES)
-                .add(ModItems.CHILLBERRIES.get())
-                .add(ModItems.GALEBERRIES.get());
+        tag(ModTags.Items.FOODS_SOUP)
+                .add(ModItems.MANDRAKE_STEW.get());
+
+        tag(ModTags.Items.FOODS_PIE)
+                .add(ModItems.CHILLBERRY_PIE.get());
+
+        tag(ModTags.Items.FOODS_FOOD_POISONING)
+                .add(ModItems.SALTSPROUT.get());
 
         tag(ModTags.Items.SEEDS)
                 .add(ModItems.MANDRAKE_SEEDS.get())
@@ -235,7 +242,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
     private void addSignAndBoatTags() {
         // Boats
-        /*tag(ItemTags.BOATS)
+        tag(ItemTags.BOATS)
                 .add(ModItems.COTTONWOOD_BOAT.get())
                 .add(ModItems.WILLOW_BOAT.get());
 
@@ -250,7 +257,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.HANGING_SIGNS)
                 .add(ModItems.COTTONWOOD_HANGING_SIGN.get())
-                .add(ModItems.WILLOW_HANGING_SIGN.get());*/
+                .add(ModItems.WILLOW_HANGING_SIGN.get());
     }
 
     private void addSereneSeasonsTags() {

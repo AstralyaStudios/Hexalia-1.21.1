@@ -33,6 +33,8 @@ public class Configuration {
     public static ModConfigSpec.IntValue ASTRYLIS_DURATION;
     public static ModConfigSpec.IntValue ASTRYLIS_BONEMEAL_INTERVAL;
 
+    public static ModConfigSpec.IntValue MORPHORA_RADIUS;
+
     static {
         ModConfigSpec.Builder COMMON_BUILDER = new ModConfigSpec.Builder();
 
@@ -95,6 +97,9 @@ public class Configuration {
         ASTRYLIS_BONEMEAL_INTERVAL = COMMON_BUILDER
                 .comment("Interval in ticks between bonemeal pulses while Astrylis is active. Default: 240 ticks = 12 seconds")
                 .defineInRange("astrylisBonemealInterval", 240, 20, 1200);
+        MORPHORA_RADIUS = COMMON_BUILDER
+                .comment("Radius in blocks around the Morphora mutates blocks into others. Default: 6")
+                .defineInRange("morphoraEffectRadius", 6, 1, 32);
         COMMON_BUILDER.pop();
 
 

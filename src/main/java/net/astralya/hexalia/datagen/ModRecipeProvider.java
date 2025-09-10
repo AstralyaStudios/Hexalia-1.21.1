@@ -1,6 +1,7 @@
 package net.astralya.hexalia.datagen;
 
 import net.astralya.hexalia.block.ModBlocks;
+import net.astralya.hexalia.datagen.custom.MutationRecipeBuilder;
 import net.astralya.hexalia.datagen.custom.RitualBrazierRecipeBuilder;
 import net.astralya.hexalia.datagen.custom.RitualTableRecipeBuilder;
 import net.astralya.hexalia.datagen.custom.SmallCauldronRecipeBuilder;
@@ -277,8 +278,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.SPICY_SANDWICH.get())
                 .requires(ModItems.SUNFIRE_TOMATO.get())
-                .requires(ModTags.Items.FOODS_BREADS)
-                .requires(ModTags.Items.FOODS_COOKED_MEATS)
+                .requires(ModTags.Items.FOODS_BREAD)
+                .requires(ModTags.Items.FOODS_COOKED_MEAT)
                 .unlockedBy("has_sunfire_tomato",
                         inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.SUNFIRE_TOMATO.get()).build()))
                 .save(recipeOutput);
@@ -286,8 +287,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.MANDRAKE_STEW.get())
                 .requires(ModItems.MANDRAKE.get())
                 .requires(Items.BOWL)
-                .requires(ModTags.Items.FOODS_VEGETABLES)
-                .requires(ModTags.Items.FOODS_VEGETABLES)
+                .requires(ModTags.Items.FOODS_VEGETABLE)
+                .requires(ModTags.Items.FOODS_VEGETABLE)
                 .unlockedBy("has_mandrake",
                         inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.MANDRAKE.get()).build()))
                 .save(recipeOutput);
@@ -408,24 +409,148 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.MORTAR_AND_PESTLE.get()).build()))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "salt_from_mortar_and_pestle"));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.MUTAVIS.get())
+                .requires(Items.BONE_MEAL)
+                .requires(ModItems.TREE_RESIN)
+                .requires(ModTags.Items.CRUSHED_HERBS)
+                .requires(ModTags.Items.CRUSHED_HERBS)
+                .unlockedBy("has_bone_meal",
+                        inventoryTrigger(ItemPredicate.Builder.item().of(Items.BONE_MEAL).build()))
+                .save(recipeOutput);
+
+
+        // Mutation Recipes
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Blocks.BLUE_ORCHID),
+                        new ItemStack(ModBlocks.SPIRIT_BLOOM.get())
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModBlocks.SPIRIT_BLOOM.getId().getPath() + "_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Items.KELP),
+                        new ItemStack(ModItems.SIREN_KELP.get())
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.SIREN_KELP.getId().getPath() + "_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(ModTags.Items.TULIPS),
+                        new ItemStack(ModBlocks.CELESTIAL_BLOOM.get())
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModBlocks.CELESTIAL_BLOOM.getId().getPath() + "_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(ModTags.Items.MUSHROOMS),
+                        new ItemStack(ModBlocks.DREAMSHROOM.get())
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModBlocks.DREAMSHROOM.getId().getPath() + "_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Blocks.FERN),
+                        new ItemStack(ModBlocks.GHOST_FERN.get())
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModBlocks.GHOST_FERN.getId().getPath() + "_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Blocks.DIORITE),
+                        new ItemStack(Blocks.GRANITE)
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        "granite_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Blocks.GRANITE),
+                        new ItemStack(Blocks.ANDESITE)
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        "andesite_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Blocks.ANDESITE),
+                        new ItemStack(Blocks.DIORITE)
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        "diorite_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Blocks.DRIPSTONE_BLOCK),
+                        new ItemStack(Blocks.TUFF)
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        "tuff_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Blocks.ICE),
+                        new ItemStack(Blocks.BLUE_ICE)
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        "blue_ice_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Blocks.SAND),
+                        new ItemStack(Blocks.RED_SAND)
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        "red_sand_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Blocks.MUD),
+                        new ItemStack(Blocks.CLAY)
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        "clay_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Blocks.SNOW_BLOCK),
+                        new ItemStack(Blocks.PACKED_ICE)
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        "packed_ice_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Blocks.NETHERRACK),
+                        new ItemStack(Blocks.BLACKSTONE)
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        "blackstone_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Blocks.DIRT),
+                        new ItemStack(Blocks.ROOTED_DIRT)
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        "rooted_dirt_from_mutation"));
+
+        MutationRecipeBuilder.mutation(
+                        Ingredient.of(Blocks.ROOTED_DIRT),
+                        new ItemStack(Blocks.PODZOL)
+                ).unlockedByItem("has_mutavis", ModItems.MUTAVIS.get())
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        "podzol_from_mutation"));
+
         // Ritual Brazier Recipes
         RitualBrazierRecipeBuilder.ritualBrazierRecipe(
                         Ingredient.of(Items.AMETHYST_SHARD),
                         new ItemStack(ModItems.CELESTIAL_CRYSTAL.get())
                 ).unlockedByItem("has_amethyst_shard", Items.AMETHYST_SHARD)
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "celestial_crystal_from_brazier"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.CELESTIAL_CRYSTAL.getId().getPath() + "_from_brazier"));
         RitualBrazierRecipeBuilder.ritualBrazierRecipe(
                         Ingredient.of(Items.GLOW_BERRIES),
                         new ItemStack(ModItems.GALEBERRIES.get())
                 ).unlockedByItem("has_glow_berries", Items.GLOW_BERRIES)
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "galeberries_from_brazier"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.GALEBERRIES.getId().getPath() + "_from_brazier"));
         RitualBrazierRecipeBuilder.ritualBrazierRecipe(
                         Ingredient.of(Blocks.AMETHYST_BLOCK),
                         new ItemStack(ModBlocks.CELESTIAL_CRYSTAL_BLOCK.get())
                 ).unlockedByItem("has_amethyst_block", Blocks.AMETHYST_BLOCK.asItem())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "celestial_crystal_block_from_brazier"));
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModBlocks.CELESTIAL_CRYSTAL_BLOCK.getId().getPath() + "_from_brazier"));
 
         // Small Cauldron Recipes
         SmallCauldronRecipeBuilder.smallCauldronRecipe(new ItemStack(ModItems.BREW_OF_SPIKESKIN.get()))
@@ -436,8 +561,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .experience(5.0f)
                 .brewTime(175)
                 .unlockedByItem("has_rustic_bottle", ModItems.RUSTIC_BOTTLE.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "brew_of_spikeskin_from_small_cauldron"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.BREW_OF_SPIKESKIN.getId().getPath() + "_from_small_cauldron"));
         SmallCauldronRecipeBuilder.smallCauldronRecipe(new ItemStack(ModItems.BREW_OF_BLOODLUST.get()))
                 .addIngredient(Items.BEEF)
                 .addIngredient(ModItems.SIREN_PASTE.get())
@@ -446,8 +571,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .experience(5.0f)
                 .brewTime(175)
                 .unlockedByItem("has_rustic_bottle", ModItems.RUSTIC_BOTTLE.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "brew_of_bloodlust_from_small_cauldron"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.BREW_OF_BLOODLUST.getId().getPath() + "_from_small_cauldron"));
         SmallCauldronRecipeBuilder.smallCauldronRecipe(new ItemStack(ModItems.BREW_OF_SIPHON.get()))
                 .addIngredient(Items.FLINT)
                 .addIngredient(Items.GOLD_NUGGET)
@@ -456,8 +581,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .experience(5.0f)
                 .brewTime(175)
                 .unlockedByItem("has_rustic_bottle", ModItems.RUSTIC_BOTTLE.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "brew_of_siphon_from_small_cauldron"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.BREW_OF_SIPHON.getId().getPath() + "_from_small_cauldron"));
         SmallCauldronRecipeBuilder.smallCauldronRecipe(new ItemStack(ModItems.BREW_OF_SLIMEWALKER.get()))
                 .addIngredient(Items.SLIME_BALL)
                 .addIngredient(Items.SPIDER_EYE)
@@ -466,8 +591,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .experience(5.0f)
                 .brewTime(175)
                 .unlockedByItem("has_rustic_bottle", ModItems.RUSTIC_BOTTLE.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "brew_of_slimewalker_from_small_cauldron"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.BREW_OF_SLIMEWALKER.getId().getPath() + "_from_small_cauldron"));
         SmallCauldronRecipeBuilder.smallCauldronRecipe(new ItemStack(ModItems.BREW_OF_HOMESTEAD.get()))
                 .addIngredient(Items.ENDER_PEARL)
                 .addIngredient(ModItems.TREE_RESIN.get())
@@ -476,8 +601,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .experience(5.0f)
                 .brewTime(175)
                 .unlockedByItem("has_rustic_bottle", ModItems.RUSTIC_BOTTLE.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "brew_of_homestead_from_small_cauldron"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.BREW_OF_HOMESTEAD.getId().getPath() + "_from_small_cauldron"));
         SmallCauldronRecipeBuilder.smallCauldronRecipe(new ItemStack(ModItems.BREW_OF_DAYBLOOM.get()))
                 .addIngredient(ModItems.GALEBERRIES.get())
                 .addIngredient(ModItems.SUNFIRE_TOMATO.get())
@@ -486,8 +611,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .experience(5.0f)
                 .brewTime(175)
                 .unlockedByItem("has_rustic_bottle", ModItems.RUSTIC_BOTTLE.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "brew_of_daybloom_from_small_cauldron"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.BREW_OF_DAYBLOOM.getId().getPath() + "_from_small_cauldron"));
         SmallCauldronRecipeBuilder.smallCauldronRecipe(new ItemStack(ModItems.BREW_OF_ARACHNID_GRACE.get()))
                 .addIngredient(ModItems.DREAM_PASTE.get())
                 .addIngredient(Items.SPIDER_EYE)
@@ -496,10 +621,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .experience(5.0f)
                 .brewTime(175)
                 .unlockedByItem("has_rustic_bottle", ModItems.RUSTIC_BOTTLE.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "brew_of_arachnid_grace_from_small_cauldron"));
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.BREW_OF_ARACHNID_GRACE.getId().getPath() + "_from_small_cauldron"));
 
         // Ritual Table Recipes
-
         RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModBlocks.GRIMSHADE.get()))
                 .addIngredient(Items.AZURE_BLUET)
                 .addIngredient(ModItems.GHOST_POWDER.get())
@@ -507,8 +632,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addIngredient(Items.BONE)
                 .addIngredient(Items.BLACK_DYE)
                 .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "grimshade_from_ritual_table"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModBlocks.GRIMSHADE.getId().getPath() + "_from_ritual_table"));
         RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.RABBAGE_SEEDS.get()))
                 .addIngredient(Items.BEETROOT_SEEDS)
                 .addIngredient(ModItems.DREAM_PASTE.get())
@@ -516,8 +641,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addIngredient(Items.SWEET_BERRIES)
                 .addIngredient(Items.POPPY)
                 .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "rabbage_seeds_from_ritual_table"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.RABBAGE_SEEDS.getId().getPath() + "_from_ritual_table"));
         RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.SAGE_PENDANT.get()))
                 .addIngredient(ModItems.CELESTIAL_CRYSTAL.get())
                 .addIngredient(ModItems.SPIRIT_POWDER.get())
@@ -525,8 +650,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addIngredient(Items.BOOK)
                 .addIngredient(Items.EXPERIENCE_BOTTLE)
                 .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "sage_pendant_from_ritual_table"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.SAGE_PENDANT.getId().getPath() + "_from_ritual_table"));
         RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModBlocks.MORPHORA.get()))
                 .addIngredient(Items.POPPY)
                 .addIngredient(ModItems.DREAM_PASTE.get())
@@ -534,8 +659,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addIngredient(ModItems.EARTH_NODE.get())
                 .addIngredient(ModItems.TREE_RESIN.get())
                 .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "morphora_from_ritual_table"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModBlocks.MORPHORA.getId().getPath() + "_from_ritual_table"));
         RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.KELPWEAVE_BLADE.get()))
                 .addIngredient(ModItems.SIREN_PASTE.get())
                 .addIngredient(ModItems.WATER_NODE.get())
@@ -543,8 +668,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addIngredient(Items.KELP)
                 .addIngredient(ModItems.ANCIENT_SEED.get())
                 .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "kelpweave_blade_from_ritual_table"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.KELPWEAVE_BLADE.getId().getPath() + "_from_ritual_table"));
         RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModBlocks.NAUTILITE.get()))
                 .addIngredient(Items.KELP)
                 .addIngredient(ModItems.SIREN_PASTE.get())
@@ -552,8 +677,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addIngredient(Items.NAUTILUS_SHELL)
                 .addIngredient(Items.PRISMARINE_CRYSTALS)
                 .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "nautilite_from_ritual_table"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModBlocks.NAUTILITE.getId().getPath() + "_from_ritual_table"));
         RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModBlocks.WINDSONG.get()))
                 .addIngredient(Items.OXEYE_DAISY)
                 .addIngredient(ModItems.AIR_NODE.get())
@@ -561,8 +686,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addIngredient(Items.FEATHER)
                 .addIngredient(Items.PHANTOM_MEMBRANE)
                 .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "windsong_from_ritual_table"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModBlocks.WINDSONG.getId().getPath() + "_from_ritual_table"));
         RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModBlocks.ASTRYLIS.get()))
                 .addIngredient(Items.LILY_OF_THE_VALLEY)
                 .addIngredient(ModItems.CELESTIAL_CRYSTAL.get())
@@ -570,8 +695,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addIngredient(Items.BONE_MEAL)
                 .addIngredient(Items.GLOWSTONE_DUST)
                 .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "astrylis_from_ritual_table"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModBlocks.ASTRYLIS.getId().getPath() + "_from_ritual_table"));
         RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.FIRE_NODE.get()))
                 .addIngredient(Items.AMETHYST_SHARD)
                 .addIngredient(Items.COAL)
@@ -579,8 +704,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addIngredient(Items.GUNPOWDER)
                 .addIngredient(Items.SUNFLOWER)
                 .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "fire_node_from_ritual_table"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.FIRE_NODE.getId().getPath() + "_from_ritual_table"));
         RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.AIR_NODE.get()))
                 .addIngredient(Items.AMETHYST_SHARD)
                 .addIngredient(Items.FEATHER)
@@ -588,8 +713,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addIngredient(Items.STRING)
                 .addIngredient(Items.DANDELION)
                 .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "air_node_from_ritual_table"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.AIR_NODE.getId().getPath() + "_from_ritual_table"));
         RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.WATER_NODE.get()))
                 .addIngredient(Items.AMETHYST_SHARD)
                 .addIngredient(Items.LILY_PAD)
@@ -597,8 +722,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addIngredient(Items.PRISMARINE_SHARD)
                 .addIngredient(Items.INK_SAC)
                 .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "water_node_from_ritual_table"));
-
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.WATER_NODE.getId().getPath() + "_from_ritual_table"));
         RitualTableRecipeBuilder.ritualTableRecipe(new ItemStack(ModItems.EARTH_NODE.get()))
                 .addIngredient(Items.AMETHYST_SHARD)
                 .addIngredient(ModItems.TREE_RESIN.get())
@@ -606,8 +731,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addIngredient(Items.FLINT)
                 .addIngredient(ModItems.MANDRAKE.get())
                 .unlockedByItem("has_hex_focus", ModItems.HEX_FOCUS.get())
-                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia", "earth_node_from_ritual_table"));
-        
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("hexalia",
+                        ModItems.EARTH_NODE.getId().getPath() + "_from_ritual_table"));
+
         // Recipes for Wood-related Blocks
         planksFromLog(recipeOutput, ModBlocks.COTTONWOOD_PLANKS.get(), ModTags.Items.COTTONWOOD_LOGS, 4);
 

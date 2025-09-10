@@ -91,11 +91,13 @@ public class ModItems {
             Item::new, new Item.Properties().rarity(Rarity.UNCOMMON).durability(64));
     public static final DeferredItem<Item> SILK_IDOL = ITEMS.registerSimpleItem("silk_idol");
     public static final DeferredItem<Item> CLEAR_IDOL = ITEMS.registerItem("clear_idol",
-            WeatherIdol::new, new Item.Properties());
+            WeatherIdolItem::new, new Item.Properties());
     public static final DeferredItem<Item> RAIN_IDOL = ITEMS.registerItem("rain_idol",
-            WeatherIdol::new, new Item.Properties());
+            WeatherIdolItem::new, new Item.Properties());
     public static final DeferredItem<Item> STORM_IDOL = ITEMS.registerItem("storm_idol",
-            WeatherIdol::new, new Item.Properties());
+            WeatherIdolItem::new, new Item.Properties());
+    public static final DeferredItem<Item> MUTAVIS = ITEMS.registerItem("mutavis",
+            MutavisItem::new, new Item.Properties());
 
     // Block Items
     public static final DeferredItem<Item> CANDLE_SKULL = ITEMS.register("candle_skull",

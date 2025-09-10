@@ -15,8 +15,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 
-public class WeatherIdol extends Item {
-    public WeatherIdol(Properties properties) {
+public class WeatherIdolItem extends Item {
+    public WeatherIdolItem(Properties properties) {
         super(properties);
     }
 

@@ -1,0 +1,7 @@
+{
+  "type": "hexalia:mutation",
+  "input": {
+    "tag": "c:mushrooms"
+  },
+  "output": "hexalia:dreamshroom"
+}

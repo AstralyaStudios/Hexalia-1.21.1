@@ -72,6 +72,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.GHOSTVEIL.get());
         basicItem(ModItems.EARPLUGS.get());
         basicItem(ModItems.BOGGED_BOOTS.get());
+        basicItem(ModItems.MUTAVIS.get());
 
         basicItem(ModItems.RUSTIC_BOTTLE.get());
         basicItem(ModItems.BREW_OF_SPIKESKIN.get());

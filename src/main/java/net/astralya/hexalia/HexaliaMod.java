@@ -1,5 +1,6 @@
 package net.astralya.hexalia;
 
+import net.astralya.hexalia.block.ModFlammables;
 import net.astralya.hexalia.block.entity.ModBlockEntityTypes;
 import net.astralya.hexalia.block.ModBlocks;
 import net.astralya.hexalia.block.entity.renderer.CenserBlockEntityRenderer;
@@ -105,8 +106,9 @@ public class HexaliaMod {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.NIGHTSHADE_BUSH.getId(), ModBlocks.POTTED_NIGHTSHADE_BUSH);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.COTTONWOOD_SAPLING.getId(), ModBlocks.POTTED_COTTONWOOD_SAPLING);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.WILLOW_SAPLING.getId(), ModBlocks.POTTED_WILLOW_SAPLING);
-
+            event.enqueueWork(ModFlammables::register);
         });
+
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {

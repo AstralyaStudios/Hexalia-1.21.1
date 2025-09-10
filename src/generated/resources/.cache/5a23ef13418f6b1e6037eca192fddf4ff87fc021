@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-13T16:00:17.9287329	Item Models: hexalia
+// 1.21.1	2025-09-08T17:29:32.2938934	Item Models: hexalia
 e5a7da2fe51e60bdf425b0c5e11675c33540c1ee assets/hexalia/models/item/air_node.json
 15249bcc7b4d170a3f881d5072d7c1103423d8ed assets/hexalia/models/item/ancient_seed.json
 5de9112b974a79b8d4daac10d489cae64dc39ad2 assets/hexalia/models/item/bogged_boots.json
@@ -35,6 +35,7 @@ c2058b49f67c794d3a6c5774caa1db490c83ad94 assets/hexalia/models/item/lotus_flower
 8fc7a0aa405443f2456962cbb7753edf873e3e3c assets/hexalia/models/item/mandrake_seeds.json
 71f146c3cd8f89ff28b07811c12186ab801fb851 assets/hexalia/models/item/mandrake_stew.json
 d54ba53b7355bcdd462705ca1073aac7283ef186 assets/hexalia/models/item/mortar_and_pestle.json
+2ff112006fe742b17b6784628e4a78c6dacd21ed assets/hexalia/models/item/mutavis.json
 20feb6b02bae11b434ba251aafe3d84174ac18ab assets/hexalia/models/item/purifying_salts.json
 96ef70f23956b09813a98d0070bfcf41db4485d1 assets/hexalia/models/item/rabbage.json
 4cb16060803b93529e078e9dfb7ce6cbada292b2 assets/hexalia/models/item/rabbage_seeds.json
